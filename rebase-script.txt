@@ -5,24 +5,31 @@ pick 432674b remove comments on deleted config vars
 pick 0ef9161 RTPREFIX: clarify usage
 pick 6b25018 describe new set of defines/makefile/shell symbols
 pick bdcb5b3 replace BUILD_SYS 'sim' by 'user-dso'
-pick 46d54c0 work in progress
-# testing
+#############################
+# These abominations should never have seen the light of day.  Squash them.
+#
+reword 46d54c0 work in progress
 fixup 12750f7 wip
-pick 9aa17e7 wip
-pick ca431ab wip
-pick 00fd81b man..
-pick ab28d0a wip - starts working; runtests bad
-pick 85b28ef wip
-pick b62e6ee almost done - runtests ok on posix
-pick 00daa1c handle setuid case for rtapi_app
-pick d124eb7 wip
+fixup 9aa17e7 wip
+fixup ca431ab wip
+fixup 00fd81b man..
+fixup ab28d0a wip - starts working; runtests bad
+fixup 85b28ef wip
+fixup b62e6ee almost done - runtests ok on posix
+fixup 00daa1c handle setuid case for rtapi_app
+fixup d124eb7 wip
+#######
 pick f6cb181 cleanup configure.in
 pick 7fc3239 fix rtapi.conf modules
 pick 7453d5b scripts/realtime.in: fix leftover 'sim'
 pick 81fe2b0 tests: skip hm2-idrom for all userland builds (for now)
 pick 197e181 fix thread style guessing
-pick 8865166 touchup
-pick 85efe25 use rtapi_app always when BUILD_SYS_USER_DSO defined
+#############################
+# Squash more wip abominations & give them a meaningful log entry
+#
+reword 8865166 touchup
+fixup 85efe25 use rtapi_app always when BUILD_SYS_USER_DSO defined
+#######
 branch 9d7fbdd Merge branch 'v2.5_branch' of ssh://git.linuxcnc.org/git/emc2 into v2.5_branch
 pick c261a72 Added preempt-rt task to TODO file
 pick 9d1a46d Applied preempt-rt patch set
@@ -30,8 +37,12 @@ branch c261a72 Added preempt-rt task to TODO file
 pick 9e8b2c0 Applied preempt-rt patch set
 # pick e24f796 Merge branch 'rt-preempt-integration' of git.mah.priv.at:emc2-dev into rt-preempt-integration
 pick 6640ed5 Updated TODO file
+#############################
+# Agh, merge conflict markers!
+#
 pick ee3d4d4 Merge branch 'rt-preempt-integration' into integration-configuration-dev
-pick 11850fc fixup scripts
+fixup 11850fc fixup scripts
+#######
 pick 69c4dee fix typo in rtapi.conf.in
 pick 91f9578 portifications for rt-preempt-user
 pick c6b5a72 assure drivers are build
@@ -47,47 +58,51 @@ pick 8daf2e7 make RTAI compile again :-/
 pick 6f75f5b more of same
 pick 8917d10 make sure probe_parport is built
 pick dedf78e configure.in: fix xenomai-kernel thread style
-pick 84b1322 wip
-pick f8c5d4b wip
-pick 01ebd19 wip
-pick 7312322 starts twinkering
-pick bb1b573 snapshot - this starts working - save before I loose it in a crash..
-pick e3935c6 caveat: the xenomai user support package needs to be configured with --enable-dlopen-skins
-pick b8111e5 for the daring: sneak preview - LinuxCNC on Xenomai, kernel threads
-pick 244509c add missing makefile
-pick 27522a5 hal/Submakefile: honor stricter library ordering on precise
-pick afe8c52 hal_lib: fail early if RTAPI did not initialize
-pick 90d93a4 rtapi/xenomai: record overruns, show in /proc&rtapi/status
-pick e468f03 cleanup
-pick 243bf22 trace priority
-pick 1fae1f9 cleanups
-pick c7b43e3 add README about configure changes (a bit outdated)
-pick 4b49407 add Xenomai README
-pick ec327f1 make: carry over V=1 to sub-makes
-pick 0068cac xeno_math: kludge around missing pow() on precise (gcc-4.7?)
-pick c8e38b2 update README.xenomai - permission hints, precise workaround
-pick e2b559a README.xenomai: clarify grub needs
+#############################
+# squash this ugly mess with a meaningful log
+#
+reword 84b1322 wip
+fixup f8c5d4b wip
+fixup 01ebd19 wip
+fixup 7312322 starts twinkering
+fixup bb1b573 snapshot - this starts working - save before I loose it in a crash..
+fixup e3935c6 caveat: the xenomai user support package needs to be configured with --enable-dlopen-skins
+fixup b8111e5 for the daring: sneak preview - LinuxCNC on Xenomai, kernel threads
+fixup 244509c add missing makefile
+fixup 27522a5 hal/Submakefile: honor stricter library ordering on precise
+fixup afe8c52 hal_lib: fail early if RTAPI did not initialize
+fixup 90d93a4 rtapi/xenomai: record overruns, show in /proc&rtapi/status
+fixup e468f03 cleanup
+fixup 243bf22 trace priority
+fixup 1fae1f9 cleanups
+fixup c7b43e3 add README about configure changes (a bit outdated)
+fixup 4b49407 add Xenomai README
+fixup ec327f1 make: carry over V=1 to sub-makes
+fixup 0068cac xeno_math: kludge around missing pow() on precise (gcc-4.7?)
+fixup c8e38b2 update README.xenomai - permission hints, precise workaround
+fixup e2b559a README.xenomai: clarify grub needs
+########
 pick 27bbd08 rtapi: carry over xenomai userthread support from xenomai-integration-mah
 pick 324b66c silence hal_lib
 pick 4849545 works in sim mode
-pick 6b6dcdc touchup
+reword 6b6dcdc touchup
 pick 32efdcc fix rt-preempt-user build
 pick b69483d README.xenomai - clarify initramfs issue
 pick 90c3e3c RTAPI: unify data structures
 pick bd4e7be cleanups: dump SIM and SIMULATOR for good
 pick ffa49f7 note update-grub needed
-pick 268dbc7 stab in the dark
+reword 268dbc7 stab in the dark
 branch ffa49f7 note update-grub needed
 pick 4560ede fix README.xenomai
 pick b480b66 Merge branch 'rtos-integration-preview1' of git.mah.priv.at:emc2-dev into rtos-integration-preview1
 branch 4560ede fix README.xenomai
-pick 965c679 remove uglyness
+reword 965c679 remove uglyness
 pick 5979d84 realtime.in: fix for rt-preempt-user so runtests works properly
 pick 4d75fe8 rtapi_get_clocks(): make architecture-independent
 pick a24a5f3 rt-preempt: complain once only
 pick c9cfc62 thread cpu parameters: enable explicit assignment of a thread to a CPU.
 pick 6234bfe Merge branch 'rtos-integration-preview1' of git.mah.priv.at:emc2-dev into rtos-integration-preview1
-pick 30743c4 touchup
+reword 30743c4 touchup
 pick 4498029 RTAPI slimming: delete semaphore, fifo, irq code
 pick f61f72e RTAPI: cleanup for  xenomai-user build
 pick 58d9655 RTAPI: cleanup for  rtapi build
@@ -319,88 +334,7 @@ pick 254e011 hm2: dont build if not explicitly configured
 pick ac8cc51 config_module.h: use quoted filenames to prevent cpp expansion of 'linux'
 pick 03b491e hm2_pci.c: fix conditional include
 pick 8851ff9 add 5i25 config
-pick 4107432 arm335x: add PRU assembler
-pick c23d6eb arm335x: add PRU userspace application loader (pruss)
-pick 192f064 arm335x: build support for pasm, pruss driver
-pick 17e5085 arm335x/prussdrv: add method to execute compiled-in code
-pick f4dc913 hal_pru:  first cut of a HAL component with PRU code
-pick a5e93c1 arm335x: PRU code example
-pick 77a4c36 hal/am335x: make hal_pru do somthing on PRU
-pick 16c61a1 prussdrv.v:  RTAPIify error messages
-pick 744b27d hal_pru/build: remove assembling pasm code into .h files
-pick fec623a hal_pru:  always load from filename
-pick e10504a hal_pru: take PRU register dump when hal_pru.dump changes state
-pick b11e151 PRU debugging: decode pasm .dbg file format
-pick f9bca7f hal_pru: improve PRU introspection
-pick 7b55c0f hal_pru: evolve into a PRU debugger component
-pick ae03b5c pasm: remove original TI assembler
-pick 08e00ec pasm: add assembler from Bas: https://github.com/modmaker/am335x_pru_package
-pick 86bc52d blinkleds.p: LOOP is now a reserved word
-pick 87971d7 prussdrv: cleanup
-pick 69647e4 hal_pru, hal_prudebug: split into simple loader and separate debugger
-pick 3457093 examples: add directory with PRU debugger usage example
-pick 0f8005a hal/PRU debug: complete debugger example with GladeVCP user interface
-pick 23e81d6 prudebug: use gtksourceview instead of gtktextview
-pick d192cab prudebug: use gtksourceview instead of gtktextview
-pick 72eab61 prudebug: add pygtk plumbing for set/remove breakpoint
-pick 229b675 pru_support: reorganize everything PRU-related into pru_support
-pick dbf2dba pruaccess.py: start work on direct Python access to PRU
-pick f665739 src/Makefile: undo build hack
-pick f676b2d pru/pruaccess.py: IEP register defines
-pick 469946c pru/timer: using the IEP COUNT and CMP0 registers for precise timing
-pick bae0abe pruaccess: add eCAP defines
-pick 6c67b41 pru timing: explore eCAP timer
-pick 7d370a9 xenomai:  improve detection and execution of xeno-config
-pick 7b8241f pasm: fix invocation
-pick e3ad0ea fix
-pick 727ef2f pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
-pick 5a9d228 pru: IEP timer example
-pick f5c50c4 pru: eCAP0 timer working example
-pick 55d827d fixup
-pick d47fa63 add in original hal_pru.c / hal_prudebug.c
-branch 8851ff9 add 5i25 config
 pick 69175f0 configure: enable USERMODE_PCI by default if platform PC and userland threads
-pick 12ee2e6 arm335x: add PRU assembler
-pick dffb240 arm335x: add PRU userspace application loader (pruss)
-pick a07cbc6 arm335x: build support for pasm, pruss driver
-pick eebee0e arm335x/prussdrv: add method to execute compiled-in code
-pick c44f134 hal_pru:  first cut of a HAL component with PRU code
-pick e6d3b27 arm335x: PRU code example
-pick 93e9fcc hal/am335x: make hal_pru do somthing on PRU
-pick 124b86d prussdrv.v:  RTAPIify error messages
-pick b28d6d2 hal_pru/build: remove assembling pasm code into .h files
-pick a1ba714 hal_pru:  always load from filename
-pick c0992f9 hal_pru: take PRU register dump when hal_pru.dump changes state
-pick 940f33d PRU debugging: decode pasm .dbg file format
-pick 496f252 hal_pru: improve PRU introspection
-pick f020d6b hal_pru: evolve into a PRU debugger component
-pick 6748893 pasm: remove original TI assembler
-pick 27cf522 pasm: add assembler from Bas: https://github.com/modmaker/am335x_pru_package
-pick 90707d1 blinkleds.p: LOOP is now a reserved word
-pick ab961ef prussdrv: cleanup
-pick 88de640 hal_pru, hal_prudebug: split into simple loader and separate debugger
-pick d7665c8 examples: add directory with PRU debugger usage example
-pick 13425cb hal/PRU debug: complete debugger example with GladeVCP user interface
-pick 9901164 prudebug: use gtksourceview instead of gtktextview
-pick 0249159 prudebug: use gtksourceview instead of gtktextview
-pick f92d8c4 prudebug: add pygtk plumbing for set/remove breakpoint
-pick ab7ed22 pru_support: reorganize everything PRU-related into pru_support
-pick 8323feb pruaccess.py: start work on direct Python access to PRU
-pick 46e037d src/Makefile: undo build hack
-pick 95a4ddd pru/pruaccess.py: IEP register defines
-pick 6783832 pru/timer: using the IEP COUNT and CMP0 registers for precise timing
-pick 5c5fbfd pruaccess: add eCAP defines
-pick ce95062 pru timing: explore eCAP timer
-pick 7084063 xenomai:  improve detection and execution of xeno-config
-pick 408eb2f pasm: fix invocation
-pick c34e546 fix
-pick bcbc2da pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
-pick 64c4ea7 pru: IEP timer example
-pick 8da61ff pru: eCAP0 timer working example
-pick b3e1a07 fixup
-pick 294795c add in original hal_pru.c / hal_prudebug.c
-pick 3f858d1 Merge branch 'arm335x-hal-pru-module' of git+ssh://git.mah.priv.at/emc2-dev into arm335x-hal-pru-module
-branch 69175f0 configure: enable USERMODE_PCI by default if platform PC and userland threads
 pick 8f40ab1 configure: test for group xenomai, and warn if user not in group xenomai
 pick a98f481 rtapi_app: test if user is member of group xenomai
 pick 1277f66 Merge remote-tracking branch 'mah/v2.5_branch' into rtos-integration-preview3
@@ -408,36 +342,16 @@ pick e7a2da9 debian: add libudev-dev build dependency
 pick d1e65d2 rtapi.h: tentative fix by John for x86_64 compilation problmes
 pick 4c9dbc9 build: assure all includes installed
 pick fd43606 configure: if RT kernel type cannot be determined, build simulator
-pick b491c96 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick 6f67247 fix merge leftover
-branch fd43606 configure: if RT kernel type cannot be determined, build simulator
 pick b556ea6 rtapi_delay: provide hooks for rt-preempt-user, xenomai user/kernel,rtai
 pick b5df838 rtapi_delay():  move to RTAPI only; rtapi_delay_hook() mandatory
 pick 319d2ba fix typo
-pick 63a36dc Merge remote-tracking branch 'mah/rtos-integration-preview3' into arm335x-hal-pru-module
-pick 4348012 Initial version of potentially useful PRU code
-pick 786c790 Use IEP timer to provide consistent loop timing...there is still room for improvement by routing an event to the PRU and polling r31 instead of reading the IEP status register.
-branch 319d2ba fix typo
 pick 7eed104 hm2_7i43: make it work for userland thread builds
-pick df1261d Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick 9c72b5f New HAL component hal_pru_generic to talk to the stepgen.p PRU code
-pick 78e86d0 Added position mode stepgen control logic (from hostmot2 driver)
-pick c60b942 Fixed logic creating 16.16 accumulator value from PRU accumulator and position values
-pick e7739ad Fixed bug in PRU position accumulator logic Default to PRU 1, issue warning if loading to PRU 0 Add pru-stepper configuration, based on hm2-stepper with some renaming and larger allowed following error
-branch 7eed104 hm2_7i43: make it work for userland thread builds
 pick 49ff034 rtapi_app: ignore SIGTSTP and detach from parent session
-pick 1cba2f9 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick 45f96fe Merge remote-tracking branch 'origin/v2.5_branch' into arm335x-hal-pru-module
-branch 49ff034 rtapi_app: ignore SIGTSTP and detach from parent session
 pick e3b858f configure: relax requirement for userland thread styles
 pick 3c0e9a7 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick 812f4dd Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick cecaaaf configure: generate linuxcncconfig.py
-pick f8bbf5e Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch cecaaaf configure: generate linuxcncconfig.py
 pick a50fdcd Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick c5cf57a Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch a50fdcd Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick 7dd0899 debian/configure: add 3.5.7-xenomai-2.6.2.1 autodetection and deps
 pick c48bb57 rtapi/rtai: include linux/delay.h
 pick 4507d9d debian: make libudev-dev a prerequisite
@@ -480,1300 +394,938 @@ pick ef706b1 deb configure: most settings are per kernel-type, not per kernel
 pick 05b2b5d deb configure: better success report from configure
 pick 0e6f0d3 src/configure.in: set MODULE_DIR correctly on --enable-simulator
 pick aae2024 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 436e204 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch aae2024 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick 7e2e2d5 rtapi_time.c: remove spurious warning
-pick 782a618 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch 7e2e2d5 rtapi_time.c: remove spurious warning
 pick ff6f04b Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick a1159fd Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch 9d1a46d Applied preempt-rt patch set
-pick 76e8e3a Updated TODO file
-branch bdcb5b3 replace BUILD_SYS 'sim' by 'user-dso'
-pick 0bf9303 work in progress
-pick 0e56a48 wip
-pick be5b575 wip
-pick 3d1753c man..
-pick 396efe5 wip - starts working; runtests bad
-pick fb516b3 wip
-pick 78019f0 almost done - runtests ok on posix
-pick 102858c handle setuid case for rtapi_app
-pick e304208 wip
-pick ad71f2d cleanup configure.in
-pick d8dff1d fix rtapi.conf modules
-pick 9feb5fa scripts/realtime.in: fix leftover 'sim'
-pick 1ccb0fb tests: skip hm2-idrom for all userland builds (for now)
-pick 3d4fff4 fix thread style guessing
-pick 9aed007 touchup
-pick ab95f2f use rtapi_app always when BUILD_SYS_USER_DSO defined
-pick 1c7eb74 Merge branch 'rt-preempt-integration' into integration-configuration-dev
-pick 942072b fixup scripts
-pick 5a39602 fix typo in rtapi.conf.in
-pick e702d17 portifications for rt-preempt-user
-pick aa72d4a assure drivers are build
-pick 89a2c42 drop TOOBJSDEPS with unused -DLINUX_REALTIME
-pick bb6d0f7 linux_rtapi_app: switch to real user id during shm creation
-pick 39b9810 linux_rtapi_app.c: backport tests found in master
-pick 126b8d6 docs: add some notes on new configuration options
-pick 0f294b3 linux_rtapi.c: remove printfs
-pick d55abd4 linux_rtapi.c: make less verbose - runtests is picky
-pick b42199b one more
-pick d0caf29 note on cpuset mount
-pick 1840abb make RTAI compile again :-/
-pick 254394a more of same
-pick 261ea0f make sure probe_parport is built
-pick d3deb4e configure.in: fix xenomai-kernel thread style
-pick 0aa79c2 wip
-pick 918c125 wip
-pick 76506d7 wip
-pick 86886f9 starts twinkering
-pick 8dc0607 snapshot - this starts working - save before I loose it in a crash..
-pick 2fcfa18 caveat: the xenomai user support package needs to be configured with --enable-dlopen-skins
-pick 25b63f2 for the daring: sneak preview - LinuxCNC on Xenomai, kernel threads
-pick c6fac85 add missing makefile
-pick 96e8c6b hal/Submakefile: honor stricter library ordering on precise
-pick be06f41 hal_lib: fail early if RTAPI did not initialize
-pick 091789e rtapi/xenomai: record overruns, show in /proc&rtapi/status
-pick 657f4e9 cleanup
-pick 26f881e trace priority
-pick d6272b3 cleanups
-pick b167e4b add README about configure changes (a bit outdated)
-pick ce345ff add Xenomai README
-pick dade2c0 make: carry over V=1 to sub-makes
-pick d31133a xeno_math: kludge around missing pow() on precise (gcc-4.7?)
-pick d0207e6 update README.xenomai - permission hints, precise workaround
-pick afcbb71 README.xenomai: clarify grub needs
-pick a6e2806 rtapi: carry over xenomai userthread support from xenomai-integration-mah
-pick 742b92b silence hal_lib
-pick 608065b works in sim mode
-pick acc2cb8 touchup
-pick 8aafd44 fix rt-preempt-user build
-pick 780a6c3 README.xenomai - clarify initramfs issue
-pick a5e2985 RTAPI: unify data structures
-pick d81e55d cleanups: dump SIM and SIMULATOR for good
-pick e0485a3 note update-grub needed
-pick e8e397b fix README.xenomai
-pick c6cdb3b remove uglyness
-pick 6f32976 realtime.in: fix for rt-preempt-user so runtests works properly
-pick 79629c1 rtapi_get_clocks(): make architecture-independent
-pick 790b0c6 rt-preempt: complain once only
-pick ca068cb thread cpu parameters: enable explicit assignment of a thread to a CPU.
-branch e0485a3 note update-grub needed
-pick 3bb011b stab in the dark
-pick 43cc102 Merge branch 'rtos-integration-preview1' of git.mah.priv.at:emc2-dev into rtos-integration-preview1
-pick ad9c4c8 Merge branch 'rtos-integration-preview1' of git.mah.priv.at:emc2-dev into rtos-integration-preview1
-pick 1f11cc8 touchup
-pick c3db204 RTAPI slimming: delete semaphore, fifo, irq code
-pick 0549be7 RTAPI: cleanup for  xenomai-user build
-pick 9e6f6d9 RTAPI: cleanup for  rtapi build
-pick 03dc6ef xenomai-kernel RTAPI: give up on common code with RTAI
-pick bc63388 xenomai ulapi: more slimming
-pick 646bc35 RTAPI slimming: delete more unneeded structs
-pick 8916400 rtapi_bitops: reuse bitmap macros from linux/bitops.h and linux/types.h
-pick 01fe1b2 rtapi_common.h: fix bitmap definition to use new macro
-pick 08ed408 RTAPI slimming: delete unused parameters
-branch 03dc6ef xenomai-kernel RTAPI: give up on common code with RTAI
-pick 686c6b5 RTAPI/explicit CPU assignment: fix /proc/rtapi/tasks output
-pick 9315abf xeno_math 	build: patch from John Morris
-pick 89f5d79 Merge branch 'rtos-fixes' into rtos-integration-preview1
-pick 9b3493b RTAPI slimming: more of same
-branch 9315abf xeno_math 	build: patch from John Morris
-pick 6e4b7b8 configure/Makefiles:  xenomai compiler math options, minor cleanups
-pick c076c56 Merge branch 'rtos-integration-preview1' of git://git.mah.priv.at/emc2-dev into rtos-integration-preview1
-pick 2274939 rtapi/procfs/tasks: fix reordered columns cpu, owner
-pick 844d02c Makefile:  allow modules access to xeno_math symbols
-pick 34841b5 rtapi/xenomai: define rtapi_get_time() and rtapi_get_clocks() once only
-pick 3ffe1d1 rtapi/xenomai-user: mlockall() of rtapi_app
-pick e691e0d rtapi/xenomai-user: fix startup problems
-pick 807f97f rtapi/xenomai-user: fix task2 period handling
-pick cfcaea3 rtapi/userthreads: drop shm permissions to ruid/rgid
-pick ebe6780 rtapi/xenomai-user: fix rtapi_task_self
-pick 0ddb8c5 rtapi/xenomai-user: fix priority calculation
-pick 6ac903f latency-test-atom: try with separate cpu assignment
-pick 894a1eb rtapi/userthreads: carry over some ideas from rpi_cnc
-pick 850f761 configs/stepper: Xenomai userthreads config
-pick 3ac7c9e configure/hal_parport: add --enable-portable-parport
-pick 1dcc197 sim_rtapi_app: fortify signal handling
-pick 1c7532d rtapi/userthreads: rtapi_app gains iopl privileges
-pick e140602 rtapi/posix: fix task argument
-pick 186341f halcmd:  provide hints about child abnormal death
-pick 5b65818 rtapi_app: fortify signal handling some more; enable core dumps even when setuid root
-pick afe684d rtapi/rt-preempt-user: limit error message output
-pick 290409b rtapi/rt-preempt-user: remove cpusets code, enable manual assignment
-pick f0dbcbd rtapi/usermode PCI:  factor out into rtapi_pci.c
-pick c718978 rtapi/pci: fix warnings on xenomai-usr build
-pick 05821fa configure: support --with-kernel=/proc/config.gz
-pick 7f08e9b configure: add  --enable-gcc-atomic-ops (default no)
-pick 67ba478 rtapi/bitops: use GCC builtin atomic operations if USE_GCC_ATOMIC_OPS defined
-pick 89624f7 configure: add --enable-platform=<platform~ (currently PC or raspberry)
-pick c06a1c6 configure: add ARCH shell variable from configure
-pick 6358a72 sim_rtapi: remove dead code
-pick fc38aa9 rtapi.conf: fix whitespace error
-pick 70d0cff configure: force --enable-gcc-atomic-ops for raspberry
-pick 758df24 hal/drivers:  add hal_gpio driver for Raspberry pi
-pick d1fb530 hal/drivers: wip on hal_gpio
-pick 85538cd hal_gpio: it helps to access the right registers
-pick c27eac8 rtapi_app: merge linux_rtapi_app.cc into sim_rtapi_app.cc
-pick 6394278 halcmd: pass RTAPI message level to rtapi_app
-pick 58f1510 rtapi/pci: factor out rtapi_pci.h
-pick 9ba8e0e rtapi/pci: factor out rtapi_pci.h
-pick 2f35ba2 hal_gpio.c: add bissing bcm2835.h
-pick c7a0090 fix to writefile() to open file in write only mode
-pick afddbbb pci_read, pci_write: build and install when BUILD_DRIVERS == yes
-pick 9ece62c add CFLAG for unset CONFIG_CC_STACKPROTECTOR in Xenomai
-pick ad8847a configure: rename ARCH to ARCHITECTURE
-pick 7f288bf Begin modifying rtapi_pci to use sysfs-pci style mmap of resources
-pick 970618b RTAPI cleanup: no more include files with executable code
-pick 48626ed RTAPI: do the same to the rt-preempt code
-pick e64d029 rtapi: factor out msg code into a single copy for userthreads styles
-pick 8f172f9 rtapi: delete fluff which misleads 'make depend'
-pick e5a8d5f precise: put libraries after objects
-pick 43f46c7 configure: add Beaglebone: --with-platform=beaglebone
-pick f243cce configure: fix missing 'test', improve messages
-pick 7b7fd09 beaglebone: start work on gpio/pwm/adc/led module
-pick 849473a src/hal/config_module.h One file at a time staging commits for integrating usermode-pci branch
-pick fd92719 src/rtapi/userpci/device.h ne file at a time staging commits for integrating usermode-pci branch
-pick c9a974f src/rtapi/userpci/device.c One file at a time staging commits for integrating usermode-pci branch
-pick 5edfa23 src/rtapi/userpci/firmware.h One file at a time staging commits for integrating usermode-pci branch
-pick 9a43821 src/rtapi/userpci/firmware.c One file at a time staging commits for integrating usermode-pci branch
-pick c1d4590 src/rtapi/userpci/gfp.h One file at a time staging commits for integrating usermode-pci branch
-pick 1a6f651 src/rtapi/userpci/list.h One file at a time staging commits for integrating usermode-pci branch
-pick 7f8fa94 src/rtapi/userpci/module.h One file at a time staging commits for integrating usermode-pci branch
-pick 617a94c src/rtapi/userpci/slab.h One file at a time staging commits for integrating usermode-pci branch
-pick 3a23a74 src/rtapi/userpci/string.h One file at a time staging commits for integrating usermode-pci branch
-pick 495bbe0 src/rtapi/userpci/string.c One file at a time staging commits for integrating usermode-pci branch
-pick 9b0f3df src/rtapi/rtapi_pci.h One file at a time staging commits for integrating usermode-pci branch
-pick c99bcd2 src/configure.in One file at a time staging commits for integrating usermode-pci branch
-pick 0a4bcf8 src/rtapi/sim_rtapi_app.cc One file at a time staging commits for integrating usermode-pci branch
-pick cf91a77 src/rtapi/rtapi_app.h One file at a time staging commits for integrating usermode-pci branch
-pick 5c366fe src/rtapi/rtapi.h One file at a time staging commits for integrating usermode-pci branch
-pick 8ddbf30 src/rtapi/Submakefile One file at a time staging commits for integrating usermode-pci branch
-pick 56ad96c src/rtapi/rtapi_pci.c One file at a time staging commits for integrating usermode-pci branch
-pick adbae87 src/Makefile.modinc.in One file at a time staging commits for integrating usermode-pci branch
-pick c82c66b src/Makefile.inc.in One file at a time staging commits for integrating usermode-pci branch
-pick 89486f5 src/hal/drivers/mesa-hostmot2/backported-strings.c One file at a time staging commits for integrating usermode-pci branch
-pick 1b51cf3 src/hal/drivers/mesa-hostmot2/bitfile.c One file at a time staging commits for integrating usermode-pci branch
-pick c0224ce src/hal/drivers/mesa-hostmot2/bitfile.h One file at a time staging commits for integrating usermode-pci branch
-pick ab1216c src/hal/drivers/mesa-hostmot2/encoder.c One file at a time staging commits for integrating usermode-pci branch
-pick dab882a src/hal/drivers/mesa-hostmot2/hm2_pci.c One file at a time staging commits for integrating usermode-pci branch
-pick 48e85f2 src/hal/drivers/mesa-hostmot2/hostmot2-lowlevel.h One file at a time staging commits for integrating usermode-pci branch
-pick f7f87b0 src/hal/drivers/mesa-hostmot2/hostmot2.c One file at a time staging commits for integrating usermode-pci branch
-pick e8be54b src/hal/drivers/mesa-hostmot2/hostmot2.h One file at a time staging commits for integrating usermode-pci branch
-pick f65889e src/hal/drivers/mesa-hostmot2/ioport.c One file at a time staging commits for integrating usermode-pci branch
-pick 1aea63a src/hal/drivers/mesa-hostmot2/led.c One file at a time staging commits for integrating usermode-pci branch
-pick 0a09ee0 src/hal/drivers/mesa-hostmot2/mesa_7i64.c One file at a time staging commits for integrating usermode-pci branch
-pick eee3949 src/hal/drivers/mesa-hostmot2/mesa_8i20.c One file at a time staging commits for integrating usermode-pci branch
-pick b165407 src/hal/drivers/mesa-hostmot2/mesa_autoconf.c One file at a time staging commits for integrating usermode-pci branch
-pick d096fc0 src/hal/drivers/mesa-hostmot2/pins.c One file at a time staging commits for integrating usermode-pci branch
-pick 2e9686a src/hal/drivers/mesa-hostmot2/pwmgen.c One file at a time staging commits for integrating usermode-pci branch
-pick 6fbc85f src/hal/drivers/mesa-hostmot2/raw.c One file at a time staging commits for integrating usermode-pci branch
-pick f1b0761 src/hal/drivers/mesa-hostmot2/resolver.c One file at a time staging commits for integrating usermode-pci branch
-pick fc7c2e0 src/hal/drivers/mesa-hostmot2/sserial.c One file at a time staging commits for integrating usermode-pci branch
-pick e2d3687 src/hal/drivers/mesa-hostmot2/stepgen.c One file at a time staging commits for integrating usermode-pci branch
-pick 5f91e5c src/hal/drivers/mesa-hostmot2/tp_pwmgen.c One file at a time staging commits for integrating usermode-pci branch
-pick cb4f7f4 src/hal/drivers/mesa-hostmot2/tram.c One file at a time staging commits for integrating usermode-pci branch
-pick 6b412d8 src/hal/drivers/mesa-hostmot2/watchdog.c One file at a time staging commits for integrating usermode-pci branch
-pick 2facab4 src/Makefile One file at a time staging commits for integrating usermode-pci branch
-branch 9ece62c add CFLAG for unset CONFIG_CC_STACKPROTECTOR in Xenomai
-pick 31b170f Makefile.inc.in:  emacs mode setting
-pick b0266b0 .gitignore:  modules.order; additional emacs droppings
-pick bed44cb scripts/linuxcnc.in:  add a -V option to add -V to halcmd
-pick 6dbb293 Cleanups stage 1:  linux_* gone; new rt-preempt-user.*, generic rtapi-* files
-pick 12f16cb rt-preempt-user.c:  drop unneeded functions
-pick d2d8c13 Makefile:  remove 'print_copy_configs' target
-pick e3c52f2 rtapi/rtapi.h:  clarify some macro conditionals
-pick b371ef1 Makefile:  add rtapi/$(THREADS).h to header install
-pick 6266c90 fold ULAPI in (currently broken); more shuffling
-pick 8d48c8b rtapi_time.c:  fix mismatch btw. function definition and prototype
-pick 2c30607 rtapi_task.c:  fix mismatch between function definition and prototype
-pick 0e7d921 rt-preempt-user.c:  fix warning from disabled pthread mutexes
-pick 58feea2 Makefile muddling; still broken
-pick 5e8441e rtapi/Submakefile:  revert broken changes; these may work, but still probs
-pick 177d652 rtapi/Submakefile:  fix generation of rtapi-objs
-pick e5d290f rt-preempt-user.c:  Remove empty rtapi_init/exit
-pick 76166e0 hal/hal_priv.h:  set stacksize to 32768 for all thread systems
-pick a036507 Fix rtapi Submakefile for rtapi_app; change XENO_LINK to ULAPI_LINK
-pick 0940ece Fix hal_init duplicate component problem; remove pthread mutexes
-pick 64cd788 Fix rtapi_init hack in HAL from previous commit
-pick a282712 rtapi/README:  update file descriptions
-pick 4c24a46 Remove accidentally-re-committed linux_common.h and linux_ulapi.c
-pick 650721d Merge xenomai-user thread system
-pick 425940b xenomai-user and rtapi_time:  fix clocks
-pick 7af7fee rtapi_io.c:  change default {in,out}[bw]() funcs; hook funcs inlined
-pick 945b77f Replace MAX_MODULES macro with RTAPI_MAX_MODULES
-pick 3db2680 rt-preempt-user.c:  move variable init to top of function block
-pick 6becd35 Fix THREAD_TASK_DATA macro semicolons
-pick 64e2041 rtapi_app.h:  don't include linux/module.h
-pick e1237ce rtapi_bitops.h:  clarify #ifdef condition
-pick 0a8cfc1 rtapi_task_wrapper:  silence gcc pointer cast warnings on 64 bit
-pick f2ada1e rtai.h:  remove unneeded #ifdef blocks (and formatting)
-pick beff0da MIN_STACKSIZE macro added, and raised to 32k
-pick 04571fe rtapi_shmem.c:  replace MAX_SHM with RTAPI_MAX_SHMEMS
-pick 5d397c7 rtapi_shmem.c:  revert to mutex locking from rtapi.h
-pick ecd5826 rtapi_task.c:  merge MAX_TASKS into RTAPI_MAX_TASKS
-pick bd6b3d1 rtapi_shmem.c:  fix bungled patch application
-pick 1587536 rtapi_task.c:  finish merging MAX_TASKS into RTAPI_MAX_TASKS
-pick 9ee8314 rt-preempt-user.c:  revert mistaken change to msg_level type
-pick 7480956 Refactor rtapi/Submakefile.  Again.
-pick 8d08c32 rtapi/Submakefile:  fix RT_LDFLAGS for xenomai-kernel
-pick 07e02cc hack xenomai-kernel support back in for working baseline
-pick b6c656a xenomai-kernel.h:  updated for cleanups
-pick 84dc4da rtapi_io.c:  merged xenomai-kernel
-pick 736b709 rtapi_msg.c:  merged xenomai-kernel; other minor changes
-pick 613ff6c rtapi_time.c:  merged xenomai-kernel
-pick 36d509f rtapi_task.c:  merge xenomai-kernel
-pick 9f61167 rtapi_module.c:  new file; merge xenomai-kernel
-pick 06fde1d rtapi_shmem.c:  merge xenomai-kernel; main cleanups done
-pick 478dad4 Fix build problems for userspace kernel systems
-pick 5be03c8 rtapi/Submakefile:  get rid of testing mess and final uglies
-pick 33c1713 Makefile:  cleanups
-pick 761b0eb rtapi/Submakefile:  add -lrt to posix LDFLAGS
-pick a93bc62 Makefile, rtapi/Submakefile:  merge rt-preempt and posix builds
-pick 621ae40 rt-preepmpt-user.c, rtapi_module.c:  formatting changes
-pick 9ef0c6a rt-preempt-user.h, rtapi_common.h:  Remove semicolon from THREAD_MODULE_DATA
-pick b7b8e70 rt-preempt-user.[ch]:  merge tdata struct fields into task_data
-pick 2700311 rt-preempt-user.c:  get rtapi_{init,exit} closer to merge
-pick 73a8585 Merge posix threads with RT_PREEMPT threads
-pick 63801e0 rt-preempt-user.c,sim_rtapi_app.cc:  ignore errs in simulator mode
-pick 55295c0 posix threads:  remove merged sim{rt,ul}api.c source files
-pick c92a116 rtapi_shmem.c:  add shmem create msg in ULAPI
-pick b8d5598 xenomai-kernel.c:  formatting changes
-pick e632672 configure.in: fix bug in d5835c78
-pick c6b3af6 rtai.c:  add module master shared memory init function
-pick edec385 xenomai-kernel.h:  add HAVE_RTAPI_MODULE_TIMER_STOP macro
-pick 5ff865d rtapi_shmem.c:  rename SHMEM_MAGIC_DEL_LOCKED macro
-pick 366a724 rtapi_module.c:  fix an SHMEM_MAGIC_DEL_LOCKED macro
-pick 34394ce Fix two lines with no semicolons.  WOW!!!
-pick 7dab2bd rtapi_common.[ch]:  mv NULL macro to header file from source file
-pick 5963dd0 rtapi_common.c:  fix compiler warnings from rtapi_printall()
-pick f2c3da7 sim_common.h:  remove unneeded file
-pick 4caafc6 posix.[ch]:  remove unneeded files; rt-preempt code obsoletes these
-pick e63c15e rename rtai.[ch] to rtai-kernel.[ch] to avoid filename clash
-pick 2f9cd16 rtapi_common.h:  add rtapi_module_timer_stop prototype; fix extern decl
-pick 0a5463b rtapi_msg.c/rtai-kernel.h:  fix PRINTK macro naming conflict
-pick f41902f rtapi_module.c:  replace {sn,f}printf with rtapi equivalents
-pick 2fc4389 rtapi_shmem.c/xenomai-kernel.c:  change shmem_new_realloc_hook prototype
-pick fdb4308 rtapi_time.c/xenomai-kernel.c:  more messing with timer_counts
-pick 36c129c rtapi_task.c/rtapi_time.c:  make some hooks conditional on HAVE_HOOK macros
-pick 9f81418 rtapi_shmem.c:  reorder and merge pieces
-pick 9945307 rtapi_task.c:  include linux/slab.h for kmalloc()
-pick 0ec7196 rtapi_task.c:  mark tasks ENDED if they return
-pick d898dc4 rtapi_task.c:  reorder and combine kbuild and user-dso parts
-pick c296378 rtapi_task.c:  fix hook prototype
-pick 2729f5d rtapi_{time,task,msg,module}.c:  formatting changes
-pick b6f7777 Merge rtai threads
-pick c9bc1c0 rtapi_time.c:  silence warning rdtscll redefined
-pick 083d5ae Remove original rtai and rtl sources
-pick 669bb37 configure: rename ARCH to ARCHITECTURE
-pick 7cfec5e .gitignore tests/*/skip files
-pick 985b517 rtapi_common.h:  fix improper extern array declaration
-pick 8288be3 xenomai-kernel.c:  merge useful debugging message
-pick a2e76e0 rtapi_task.c:  fix typo preventing new task hook from running
-pick c418c9f xenomai-kernel.c:  silence a compiler warning about rtapi_trap_handler
-pick dbbb209 rtapi_common.h:  #include <asm/uaccess.h> to fix MAH's compiler borkage
-pick 720ea68 Last commit:  move #include to rtapi_proc.h, a more appropriate place
-pick 358235b rtai-kernel.h:  add HAVE_RTAPI_TASK_START_HOOK, because we have it....
-pick 0696de5 precise: put libraries after objects
-pick 61766a2 configure: add Beaglebone: --with-platform=beaglebone
-pick fee77c6 configure: fix missing 'test', improve messages
-pick 0fb7f66 xenomai:  improve detection and execution of xeno-config
-pick 0449538 realtime: make removing of shm segments more robust
-pick 1b39528 tests/threads.0: fix line number counting
-pick b6cbf6d Get rid of unneeded task_wrapper_hook business
-pick c2b9ad5 period division bug:  improve fix:  no period symbol in BUILD_SYS_KBUILD
-pick a99c45d xenomai-user.c:  Fix task_wrapper prototype
-pick 77837ae rtapi/README:  add description of hooks system
-pick 0730886 rt-preempt-user.c:  remove compiler warnings for posix threads
-pick bb45f98 tests/abs.0: increase thread period to avoid failure on slow systems
-pick aa2e289 tests/abs.0: tentative real fix for race condition
-pick def739c Merge branch 'userpci-staging' into usermode-pci-staging-rebase
-pick e4741ee rtapi/Submakefile: cleanup udev linking
-pick 60de07b Revert "tests/abs.0: tentative real fix for race condition"
-pick 8704ce1 rtapi_pci.c: dont compile code if USERMODE_PCI not defined
-pick 7f424b8 rtapi/Submakefile: link rtapi_pci.o only if USERMODE_PCI defined
-pick d0ae332 hm2: dont build if not explicitly configured
-pick 89b1d8b config_module.h: use quoted filenames to prevent cpp expansion of 'linux'
-pick f356f27 hm2_pci.c: fix conditional include
-pick acacda5 add 5i25 config
-pick 4e5f262 configure: enable USERMODE_PCI by default if platform PC and userland threads
-pick 17dde27 configure: test for group xenomai, and warn if user not in group xenomai
-pick 20c88a7 rtapi_app: test if user is member of group xenomai
-pick a03dc69 Merge remote-tracking branch 'mah/v2.5_branch' into rtos-integration-preview3
-pick 3e3e046 debian: add libudev-dev build dependency
-pick 83cf61b rtapi.h: tentative fix by John for x86_64 compilation problmes
-pick 057fb4e build: assure all includes installed
-pick b48647f configure: if RT kernel type cannot be determined, build simulator
-pick 8a700ac rtapi_delay: provide hooks for rt-preempt-user, xenomai user/kernel,rtai
-pick c67ee52 rtapi_delay():  move to RTAPI only; rtapi_delay_hook() mandatory
-pick 3cf0732 fix typo
-pick 48a78be hm2_7i43: make it work for userland thread builds
-pick 40a66ab rtapi_app: ignore SIGTSTP and detach from parent session
-pick b7fa4b8 configure: relax requirement for userland thread styles
-pick f39fb06 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick bf71245 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 6258df8 configure: generate linuxcncconfig.py
-pick 0a337b0 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick f61e387 debian/configure: add 3.5.7-xenomai-2.6.2.1 autodetection and deps
-pick 776e53b rtapi/rtai: include linux/delay.h
-pick 7d868f3 debian: make libudev-dev a prerequisite
-pick 6613e8f hm2_pci.c: include rtapi_pci.h if USERMODE_PCI
-pick 1df4498 hm2_pci.c: include rtapi.h for int types
-pick 4ba55ac hm2_test: reenable & portify to usermode PCI
-pick bcdef4c src/configure: dont require libudev if not building drivers and posix
-pick 88491df debian: carry over kernel autodetection from src/configure, remove libudev-dev dep
-pick 8ae9a5d fix sim build
-pick 624ca32 one more try
-pick ee24e6a debian: switch to lists for conflicting packages
-pick f076a9b Add pci_ioremap_bar replacement for really old kernels Fix goof with #ifdef placement while I'm here
-pick d1c164f rtapi_pci.h: fix dev to pdev
-pick 1962384 rtapi.h:  include stdint.h conditionally
-pick 5d30fe7 rtapi.h: make inclusion condition catch hardy linux/types.h
-pick 1eb39f6 rtapi: use __u<size> instead of uint<size>_t
-pick 21a94f4 build: dont build xeno_math.ko unless threadstyle is xenomai-kernel
-pick 07578d9 rtapi:  silence compiler warnings about rtapi_delay_hook
-pick c0e17ec .gitignore build artifacts in rtapi/xeno_math
-pick e4e49bf .gitignore linuxcncconfig.py droppings
-pick b3e6265 configure: add GIT_VERSION tag in config.h, Makefine.*inc, rtapi.conf
-pick 829d36f configure.in:  detect kernel headers in standard RedHat distro location
-pick 4585d03 xenomai-kernel: fix rtapi_clock_set_period()
-pick 60e2610 halcmd_commands.c:  silence warning about printf format type mismatch
-pick 22b177e xenomai: remove reference to Xenomai-specific define from rtapi_common.h
-pick 119aa5c rtapi:  Move flavor-specific fields out of rtapi_common.h structs
-pick 0ddcf49 src/configure.in: fix usage of scripts/get-version-from-git
-pick 2e3a7f6 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 4170bc4 hardy/amd64: workaround for broken hardy/amd64 RTAI include file
-pick 6acd8fd fix build on hardy/amd64
-pick 7e8075a hardy/amd64: work around missing clock_getres
-pick fd67305 tests/halui-joggin: hardy doesnt understand python2
-pick 2699876 xenomai-kernel: make rtapi_proc_read_status_hook() compile
-pick f50a5e8 hardy: clock_getres is found in -lrt
-pick 982d136 deb configure: cleanup merge of master
-pick 6ffc431 deb configure: flatten a nested if for legibility
-pick e148f65 deb configure: comment the inspect_kernel function
-pick 4475752 deb configure: re-enable "-a"
-pick a5dbb67 deb configure: most settings are per kernel-type, not per kernel
-pick a68323c deb configure: better success report from configure
-pick 00a0bc1 src/configure.in: set MODULE_DIR correctly on --enable-simulator
-pick 95ea663 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick cc8232a rtapi_time.c: remove spurious warning
-pick fb2696d Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 6796ec0 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 3966f4c Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick a24764e Fix goof in mount command syntax
-pick 92617d1 Add I/O pinout details for BeBoPr and Replicape (in progress)
-pick c8090d2 added hal_bb_gpio driver, and tweaked Makefile to include it for platform beagleboard
-pick 0c3ef11 starting to set up shared memory structures; not currently working
-pick 5e09e72 fixed shared mem issue.
-pick 1b4bba5 config string parsing, gpio/control register mmaps in place
-pick 4d744b7 userled write function working
-pick e36f7e1 created pin tables, input and output pin initialization.  Not quite working yet, but close
-pick 1f4fbae input/output code essentially done, but as yet untested
-pick ce91284 outputs are working... inputs should be close behind
-pick 61a086d input section works.  Driver is essentially functionally complete.  Needs more work for pin conflict handling
-pick 4763b6a drivers/gpiomap: GPIO pin access coordination helper
-pick 6864670 rtapi_bitops.h: add _BIT_SET(), _BIT_TEST(), _BIT_CLEAR()
-pick 001cd6f gpiobitmap: helper module for GPIO pin coordinated access by HAL drivers
-pick 6bc560b Fix goof with PRU update frequency causing stepgen to hunt
-pick b84ca72 device tree: blob to enable PRU on 3.8 kernels
-pick 8a54dc6 devicetree: dtc excerpted from 3.8 kernel source
-pick 2b448b6 Fix for compiler warning
-pick 059081b Create new branch to work on task-based PRU code Begin refactoring and moving around existing files
-pick 37070c9 Migrated growing collection of support tools to hal/support
-pick 96201e2 Fix build for new support directory location
-pick e0bfe3f PRU/pasm: makefile dependency generator for .p -> .bin files
-pick bf568e5 Initial version of task-based PRU code Only for the very brave or the very foolish, lots of work remaining
-pick 7ce4b42 hal pru: Submakefile touchups
-pick 0097800 Beginning signs of life, pwmgen is alive and connected to HAL
-pick 4e49a4b Added ability to drive GPIO pins and not just direct PRU outputs
-pick 9b2bafd step/dir generation showing signs of life Fixed file header comments/changelog
-pick 4a60095 pru-stepper LinuxCNC config working with PRU still rough around the edges, but beginning to be usable
-pick d6cf606 Revert unintended change to devmem2.c
-pick 5a6cc19 PRU assembly: depend on pasm
-pick 791c17f hal/drivers/hal_pru_generic: indent cosmetics
-pick c4e9bbd General code cleanup and reformatting
-pick 92a269e Initial configuration files for BeBoPr cape
-pick ba9c218 Update BeBoPr configuration to metric Use speed/acceleration values more appropriate for a 3D printer
-pick 1e9c010 Add delta-sigma generation code back to PRU Add prefix to PRU labels since they are not unique to a variable scope Minor cleanup to BeBoPr setup script
-pick cf721f1 Working configuration to control my MendelMax 3D printer Added a python HAL module to read extruder temperature from the ADC
-pick 879a062 Fix prussdrv to work with 3.8 kernel
-pick 32124ed Craft rudamentary device tree overlay to get PRU working with 3.8 kernel
-pick 64487c1 Added new devcie tree files missed in last commit
-pick ff3f0c4 Updated dts file, adding all BeBoPr pins from 3.2 example BeagleBone Black eMMC pins are currently commented out
-pick 17566d1 Update setup script for 3.8 kernel Pins must be exported to activate GPIO module before hal_bb_gpio can mmap the control registers to configure and talk to them
-branch 782a618 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick cac5939 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch 436e204 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick 212fb2b Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch 4e5f262 configure: enable USERMODE_PCI by default if platform PC and userland threads
-pick cc2d5ba arm335x: add PRU assembler
-pick 3b241ff arm335x: add PRU userspace application loader (pruss)
-pick 116770b arm335x: build support for pasm, pruss driver
-pick 7af5d49 arm335x/prussdrv: add method to execute compiled-in code
-pick 95aafb1 hal_pru:  first cut of a HAL component with PRU code
-pick 250a127 arm335x: PRU code example
-pick ebc427b hal/am335x: make hal_pru do somthing on PRU
-pick 3d5b7fc prussdrv.v:  RTAPIify error messages
-pick 1eec0c1 hal_pru/build: remove assembling pasm code into .h files
-pick f0ac186 hal_pru:  always load from filename
-pick f4ef60e hal_pru: take PRU register dump when hal_pru.dump changes state
-pick 95866b6 PRU debugging: decode pasm .dbg file format
-pick 241d247 hal_pru: improve PRU introspection
-pick 8f2e11f hal_pru: evolve into a PRU debugger component
-pick aca407d pasm: remove original TI assembler
-pick 2da331e pasm: add assembler from Bas: https://github.com/modmaker/am335x_pru_package
-pick 1e1e3fd blinkleds.p: LOOP is now a reserved word
-pick 9d1599e prussdrv: cleanup
-pick f52b540 hal_pru, hal_prudebug: split into simple loader and separate debugger
-pick b6f60f4 examples: add directory with PRU debugger usage example
-pick 95146ab hal/PRU debug: complete debugger example with GladeVCP user interface
-pick 46b5346 prudebug: use gtksourceview instead of gtktextview
-pick ee26b28 prudebug: use gtksourceview instead of gtktextview
-pick 6e43985 prudebug: add pygtk plumbing for set/remove breakpoint
-pick 8075bd3 pru_support: reorganize everything PRU-related into pru_support
-pick d739491 pruaccess.py: start work on direct Python access to PRU
-pick 1da5786 src/Makefile: undo build hack
-pick 99f8923 pru/pruaccess.py: IEP register defines
-pick 0f7e64e pru/timer: using the IEP COUNT and CMP0 registers for precise timing
-pick 2dad2f9 pruaccess: add eCAP defines
-pick 034967f pru timing: explore eCAP timer
-pick 7bb5738 xenomai:  improve detection and execution of xeno-config
-pick d527921 pasm: fix invocation
-pick b63ae4a fix
-pick 3063d78 pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
-pick afc4a41 pru: IEP timer example
-pick 062c83c pru: eCAP0 timer working example
-pick 1677cc2 fixup
-pick 82801ed add in original hal_pru.c / hal_prudebug.c
-branch acacda5 add 5i25 config
-pick 6b35381 arm335x: add PRU assembler
-pick ec3639a arm335x: add PRU userspace application loader (pruss)
-pick 8b21002 arm335x: build support for pasm, pruss driver
-pick b5ec527 arm335x/prussdrv: add method to execute compiled-in code
-pick fb93c2e hal_pru:  first cut of a HAL component with PRU code
-pick 0b68c18 arm335x: PRU code example
-pick 045915b hal/am335x: make hal_pru do somthing on PRU
-pick 9d96870 prussdrv.v:  RTAPIify error messages
-pick ba78479 hal_pru/build: remove assembling pasm code into .h files
-pick 1021892 hal_pru:  always load from filename
-pick 80954a1 hal_pru: take PRU register dump when hal_pru.dump changes state
-pick df1711c PRU debugging: decode pasm .dbg file format
-pick e3ed55c hal_pru: improve PRU introspection
-pick 5849f0d hal_pru: evolve into a PRU debugger component
-pick fc74bd6 pasm: remove original TI assembler
-pick 2b167fb pasm: add assembler from Bas: https://github.com/modmaker/am335x_pru_package
-pick f4726a2 blinkleds.p: LOOP is now a reserved word
-pick 695824b prussdrv: cleanup
-pick d4aa5be hal_pru, hal_prudebug: split into simple loader and separate debugger
-pick 8b4a7e7 examples: add directory with PRU debugger usage example
-pick b5b83b4 hal/PRU debug: complete debugger example with GladeVCP user interface
-pick bd6f205 prudebug: use gtksourceview instead of gtktextview
-pick fe7f784 prudebug: use gtksourceview instead of gtktextview
-pick 842410d prudebug: add pygtk plumbing for set/remove breakpoint
-pick 0c7482f pru_support: reorganize everything PRU-related into pru_support
-pick 74584f8 pruaccess.py: start work on direct Python access to PRU
-pick f9d7641 src/Makefile: undo build hack
-pick 1873e1e pru/pruaccess.py: IEP register defines
-pick 7981fb3 pru/timer: using the IEP COUNT and CMP0 registers for precise timing
-pick 744dfa2 pruaccess: add eCAP defines
-pick 5bb3c15 pru timing: explore eCAP timer
-pick 7ec9ceb xenomai:  improve detection and execution of xeno-config
-pick 675dce7 pasm: fix invocation
-pick e069915 fix
-pick 7d592bf pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
-pick 78a70e9 pru: IEP timer example
-pick d3eb6f4 pru: eCAP0 timer working example
-pick 4940698 fixup
-pick 66ab6b4 add in original hal_pru.c / hal_prudebug.c
-# pick ff29b1d Merge branch 'arm335x-hal-pru-module' of git+ssh://git.mah.priv.at/emc2-dev into arm335x-hal-pru-module
-pick 84ff7e9 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick 8b7aa9a fix merge leftover
-pick cdeade7 Merge remote-tracking branch 'mah/rtos-integration-preview3' into arm335x-hal-pru-module
-pick d26ea52 Initial version of potentially useful PRU code
-pick 93e54d0 Use IEP timer to provide consistent loop timing...there is still room for improvement by routing an event to the PRU and polling r31 instead of reading the IEP status register.
-pick 13e6f22 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick b941df5 New HAL component hal_pru_generic to talk to the stepgen.p PRU code
-pick 51c7bdf Added position mode stepgen control logic (from hostmot2 driver)
-pick e553684 Fixed logic creating 16.16 accumulator value from PRU accumulator and position values
-pick f847922 Fixed bug in PRU position accumulator logic Default to PRU 1, issue warning if loading to PRU 0 Add pru-stepper configuration, based on hm2-stepper with some renaming and larger allowed following error
-pick df3752e Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick 1fe2d79 Merge remote-tracking branch 'origin/v2.5_branch' into arm335x-hal-pru-module
-pick 0b15bbf Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick d54f5b1 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick b456a82 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-branch 3cf0732 fix typo
-pick ca6f838 build system: re-enable hm2_test
-pick 25345b2 switch hm2_test module params from linux to RTAPI
-pick 452fe68 initial commit
-pick 3647eb9 cleanup
-pick 889ac50 cleaned up and added to main makefile
-pick a26f0bf added missing files
-pick 3abd84d missing files
-pick e2b3c7e cleanup
-pick 116f719 missing directory
-pick 7d75646 minor ini update
-pick 90d283c touchup: make it compile on lucid/boost 1.40.0
-pick 3edbc7c Merge branch 'arm335x-hal-pru-module' into emcweb
-pick 3dc1583 Merge branch 'arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
-pick 8f04dca Merge branch 'arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
-pick 9e74bd0 Merge branch 'arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
-pick bfc3383 Merge remote-tracking branch 'mah/arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
-branch ff6f04b Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick 8b9ff03 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick bb71cbd Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick a703e3e Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick 5d56ba4 rtapi/userpci: add missing kzalloc() emulation
-pick c425407 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview4
-pick 58630b2 Merge remote-tracking branch 'mah/arm335x-hal-pru-module-emcweb' into rtos-integration-preview4
-pick aace1bf Merge remote-tracking branch 'mah/arm335x-hal-pru-tasks' into rtos-integration-preview4
+branch aae2024 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
+pick 2c3de67 rtapi flavor loading example
+pick 4256a26 import kdetect
+pick e11b399 hal_lib: introduce constructors, hal_rtapi_attach()/hal_rtapi_detach()
+pick 30db60f hal_lib: remove refcounting scheme
+pick 8ee0f1d rtapi_app: carry over from rtapi-startup-sequencing
+pick 64f4724 rtapi.so: add rtapi_app_main/rtapi_app_exit stubs
+pick e7193ff catch up commit before me crashing
+pick b5ed0ba rtapi:  herd all rtapi_*() calls through rtapi_switch for universal binary
+pick cf32b92 rtapi: dont EXPORT_SYMBOL anything except rtapi_switch
+pick 73e398a rtapi_shmem: fix typo
+pick 205e84b rtapi: remove all exported symbols except rtapi_switch
+pick d2a61eb stashf.c: include rtapi.h to get proper symbol visibility
+pick 9bc7673 rtapi: build ulapi.so
+pick c42bcef hal: remove ULAPI objects from hal_lib link
+pick bf45984 rtapi: make rtapi functions go through a pointer, not a struct ref
+pick 778c621 hal_lib/ULAPI: dynload ulapi.os - first round
+pick 06650d7 rtapi: export rtapi_dir
+pick 7e609c6 hal_lib.c: touchups
+pick 7c3a3f9 hal_lib.c: TODO note
+pick 29848ce docs/man/man3/rtapi_init.3rtapi: back out API change
+pick 90006f5 scripts/linuxcnc.in: function LinuxcncRunning FIXTHIS - shm keys have changed
+pick 70ad62b scripts/realtime.in changes
+pick 16ff6b4 scripts/rtapi.conf.in changes - FIXME make HAL_SIZE a configure param
+pick c34b7de src/Makefile changes
+pick ad8ee9b src/Makefile.inc.in changes
+pick 0e1090e src/Makefile.modinc.in changes
+pick ba4b301 src/configure.in changes
+pick fc3b099 src/emc/motion/emcmotcfg.h changes
+pick ce9ddb6 src/emc/motion/emcmotglb.c changes
+pick 0e17a8e src/emc/motion/motion.c changes
+pick 63f7a7f src/hal/Submakefile changes
+pick 0efba7a src/hal/classicladder/arrays.c changes
+pick a10074e src/hal/components/streamer.h changes
+pick 76f351e src/hal/hal_lib.c: changes
+pick c457968 src/hal/hal_priv.h changes
+pick 9decd8a src/hal/utils/halcmd.c changes
+pick 2f4e821 src/hal/utils/halcmd_commands.c changes
+pick e897de0 src/utils/halcmd_main.c changes
+pick 0ad89aa src/hal/utils/halrmt.c changes
+pick 5aff5a8 src/hal/utils/scope_shm.h changes
+pick fc3d102 src/libnml/cms/cms.cc  port offsets - FIXME this needs to be done properly
+pick 188c0a1 src/libnml/os_intf/* changes - FIXME these need review
+pick 833d0f1 src/libnmll/inifile.* changes
+pick 90cd533 src/rtapi/README
+pick 6b19a75 src/rtapi/Submakefile
+pick e4c3edf src/rtapi/instance.c new
+pick e4c36c9 src/rtapi/rt-preempt-user.c changes
+pick f8a0182 src/rtapi/rt-preempt-user.h changes
+pick 0a45a0d src/rtapi/rtai-kernel.c,.h changes
+pick 18b5657 src/rtapi/rtapi.h changes
+pick 5d46230 src/rtapi/rtapi_bitops.h changes
+pick 3a68feb src/rtapi/rtapi_common.c changes
+pick 52893fe src/rtapi/rtapi_common.h changes
+pick 1e4019f src/rtapi/rtapi_compat.c new file
+pick 3559d54 src/rtapi/rtapi_export.h factored out
+pick 3cc221e src/rtapi/rtapi_global.h new file
+pick 9be182e src/rtapi/rtapi_main.c changes
+pick 70d0a03 src/rtapi/rtapi_module.c changes
+pick 57f9a80 src/rtapi/rtapi_proc.h changes
+pick aa77685 src/rtapi/rtapi_shmem.c changes
+pick 9d9619b src/rtapi/rtapi_shmkeys.h new file
+pick b686455 src/rtapi/rtapi_support.c/.h factored out from _msg.c/h and extended
+pick 750dc70 src/rtapi/rtapi_task.c changes
+pick 65ad963 src7rtapi/rtapi_time.c changes
+pick f7f50f7 src/rtapi/sim_rtapi_app.cc changes
+pick 7038b51 src/rtapi/xeno_math/libm.c  touchups
+pick 0104ff7 src/rtapi/xenomai-usr.c/.h changes
+pick 12ff89a src/rtapi/xenomai-kernel.c/.h changes
+pick e6239ba cleanup: remove accidentially committed hunk in hal_lib.c
+pick 1974454 src/hal/utils/halcmd_commands.c: cleanup accident
+pick 8d5f6ef src/hal/hal_lib.c: remove accidentially exported symbols
+pick 78a71eb pick rtapi/rtapi_mbarrier.h
+pick b7220d6 halcmd: add 'log' command
+pick 7a93492 rtapi: properly initialize shmem use bitmap
+pick 137e1b6 rt-preempt-user: fix merge error
+pick c2f50ae rtapi_io: replace by static inlines
+pick c0ccea7 rtapi_io, hal drivers: remove FASTIO
+pick dacf76e nits
+pick 1dac287 rtapi_io.h: install in include
+pick 9a4426e ulapi.so: link with -lpthread
+pick 322e69a rtapi/rt-preempt-user.c: fix rebase damage
+pick 9bb9349 rt-preempt: link rtapi.so with -lrt for clock_gettime
+branch 4a32386 xenomai: remove reference to Xenomai-specific define from rtapi_common.h
+pick b4b4632 rtapi flavor loading example
+pick cc12073 import kdetect
+pick eb62a4a hal_lib: introduce constructors, hal_rtapi_attach()/hal_rtapi_detach()
+pick c28e1c1 hal_lib: remove refcounting scheme
+pick 5d835ed rtapi_app: carry over from rtapi-startup-sequencing
+pick 5a230c0 rtapi.so: add rtapi_app_main/rtapi_app_exit stubs
+pick be0dc00 catch up commit before me crashing
+pick 185469c rtapi:  herd all rtapi_*() calls through rtapi_switch for universal binary
+pick 47e9a50 rtapi: dont EXPORT_SYMBOL anything except rtapi_switch
+pick ada3753 rtapi_shmem: fix typo
+pick 467de7c rtapi: remove all exported symbols except rtapi_switch
+pick 5cc6a2b stashf.c: include rtapi.h to get proper symbol visibility
+pick 96b5b60 rtapi: build ulapi.so
+pick 8b637a7 hal: remove ULAPI objects from hal_lib link
+pick d37409a rtapi: make rtapi functions go through a pointer, not a struct ref
+pick 61b9974 hal_lib/ULAPI: dynload ulapi.os - first round
+pick c8b47ee rtapi: export rtapi_dir
+pick 07c4b37 hal_lib.c: touchups
+pick bb31fb9 hal_lib.c: TODO note
+pick 4b943e0 docs/man/man3/rtapi_init.3rtapi: back out API change
+pick 3f91173 scripts/linuxcnc.in: function LinuxcncRunning FIXTHIS - shm keys have changed
+pick 42a119c scripts/realtime.in changes
+pick a500c33 scripts/rtapi.conf.in changes - FIXME make HAL_SIZE a configure param
+pick 2482b5d src/Makefile changes
+pick 3a47668 src/Makefile.inc.in changes
+pick 69b3027 src/Makefile.modinc.in changes
+pick 92aaec7 src/configure.in changes
+pick f6feb5b src/emc/motion/emcmotcfg.h changes
+pick a1574c2 src/emc/motion/emcmotglb.c changes
+pick 0bdc91b src/emc/motion/motion.c changes
+pick 6287ca9 src/hal/Submakefile changes
+pick ba16e8f src/hal/classicladder/arrays.c changes
+pick b11988f src/hal/components/streamer.h changes
+pick dfd1e37 src/hal/hal_lib.c: changes
+pick adbc7bb src/hal/hal_priv.h changes
+pick 39fccc9 src/hal/utils/halcmd.c changes
+pick 82c7dd5 src/hal/utils/halcmd_commands.c changes
+pick a655048 src/utils/halcmd_main.c changes
+pick f0cbd0e src/hal/utils/halrmt.c changes
+pick 7cc0d5c src/hal/utils/scope_shm.h changes
+pick 4405b69 src/libnml/cms/cms.cc  port offsets - FIXME this needs to be done properly
+pick 7d2f19f src/libnml/os_intf/* changes - FIXME these need review
+pick 0bbbaf6 src/libnmll/inifile.* changes
+pick c4e7177 src/rtapi/README
+pick 156d82c src/rtapi/Submakefile
+pick 0e96219 src/rtapi/instance.c new
+pick 3bbbeee src/rtapi/rt-preempt-user.c changes
+pick c7983d6 src/rtapi/rt-preempt-user.h changes
+pick 5ddbbbe src/rtapi/rtai-kernel.c,.h changes
+pick 76b992b src/rtapi/rtapi.h changes
+pick 911f18b src/rtapi/rtapi_bitops.h changes
+pick fcd4050 src/rtapi/rtapi_common.c changes
+pick c0e7a4b src/rtapi/rtapi_common.h changes
+pick 495e88f src/rtapi/rtapi_compat.c new file
+pick eabe578 src/rtapi/rtapi_export.h factored out
+pick 8f75867 src/rtapi/rtapi_global.h new file
+pick 81505e4 src/rtapi/rtapi_main.c changes
+pick c8c5b9d src/rtapi/rtapi_module.c changes
+pick 7544c8d src/rtapi/rtapi_proc.h changes
+pick 74c3612 src/rtapi/rtapi_shmem.c changes
+pick a19b6ba src/rtapi/rtapi_shmkeys.h new file
+pick 13963e4 src/rtapi/rtapi_support.c/.h factored out from _msg.c/h and extended
+pick 12fd093 src/rtapi/rtapi_task.c changes
+pick 2954e7f src7rtapi/rtapi_time.c changes
+pick 7e28b22 src/rtapi/sim_rtapi_app.cc changes
+pick 3ce6f61 src/rtapi/xeno_math/libm.c  touchups
+pick 2017039 src/rtapi/xenomai-usr.c/.h changes
+pick c273a6b src/rtapi/xenomai-kernel.c/.h changes
+pick 6269d89 cleanup: remove accidentially committed hunk in hal_lib.c
+pick b889eff src/hal/utils/halcmd_commands.c: cleanup accident
+pick 62f4145 src/hal/hal_lib.c: remove accidentially exported symbols
+pick acc9e98 pick rtapi/rtapi_mbarrier.h
+pick a259af0 halcmd: add 'log' command
+pick f638678 src/Makefile changes
+pick 53b0b50 src/configure.in changes
+pick e26d81f src/hal/Submakefile changes
+pick c1aadd5 src/hal/groupmodule.cc FIXME likely broken
+pick d5b844b src/hal/hal.h changes
+pick 5210aa8 src/hal/hal_lib.c changes
+pick 8bf90fa src/hal/hal_priv.h changes FIXME disentangle group and ring code
+pick c840409 src/hal/halmodule.cc changes
+pick 4ba72f1 src/util/halcmd changes
+pick 4508d7b src/hal/utils/halrmt.c changes
+pick 9320be7 src/hal/hal-ring/*
+pick 7c3c36b src/hal/halreport/*
+pick 47f965f src/hal/msgcomponents
+pick 5739ab8 src/hal/remote WIP
+pick 27d5508 src/hal/ringmodule.cc WIP
+pick 21f0463 src/protobuf new
+pick b0c9683 src/mkprotodep src/mkpbmessage FIXME check if needed
+pick 0470c14 tests/halgroups FIXME unfinished
+pick e048cb2 tests/module-loading: strange PIN_NAME_REGEX commit, FIXME
+pick d728b90 tests/module-loading/encoder/PIN_NAME_REGEX unclear FIXME
+pick 6c5f3e0 protobuf/generated: include generated files
+pick 7f1bfce what's a trivial build?
+pick 0b6f64f hal/hal_ring.h: farm out from hal_priv.h
+pick 93afcc4 hal: make using code include hal_ring.h
+pick ee4d3df hal/hal_group.h: farm out API from hal_priv.h
+pick 2ac316a hal_group.h: adapt using code
+pick 9b40b34 hal_priv.h: rename hal_autorelease_mutex -> halpr_autorelease_mutex
+pick bc8963b ring: import Pavel's reworked ring code
+pick d753041 define ringiter_t, extend ringheader_t
+pick d285bb5 Pavel: please review - generation init missing?
+pick 95ff78e Pavel - pls review - correct?
+pick 7f19d11 hal_ring.h: carry over Pavel's new zero-copy operations, iterator support
+pick df45c5e rtapi_ring: move hal_rings to RTAPI
+pick 5b9de44 rtapi_ring/move from HAL: adapt using code
+pick 0c0977e hal_record_write_begin: remove warning
+pick e1e362be complete round#1 of HAL API change
+pick 6a288b3 kernel modes: use proper int types
+pick c53d56c protobuf/examples/Submakefile: fix configure dependency
+branch e1e362be complete round#1 of HAL API change
+pick 99ef209 kernel modes: use proper int types
+pick 65b6620 protobuf/examples/Submakefile: fix configure dependency
+pick e197bc8 rtapi_bitops: include the right file
+pick 0db6562 rtapi.h: use size_t
+pick 2092bdf rtapi: rework ring code
+pick 50af3e0 hal_lib: move most of ring API to RTAPI
+pick b8f7c44 rtapi_ring: fix visibility of ring_addr_array
+pick e857e3d rtapi_ring: fix kbuild attach
+pick 619937e hal_ring_detach: fix API
+pick 7ffd110 Merge branch 'move-ring-to-rtapi' of git.mah.priv.at:emc2-dev into move-ring-to-rtapi
+pick 33225a9 rtapi: move sizing constants to config.h
+pick 2fe6341 assorted fixes
+pick 18896c1 ring/halcmd ok now, kernel + userland threads.
+branch 2fe6341 assorted fixes
+pick 6da89fb fixes. ring/halcmd ok now.
+# pick 10c4aee Merge remote-tracking branch 'unify-xk/move-ring-to-rtapi' into move-ring-to-rtapi
+branch 6da89fb fixes. ring/halcmd ok now.
+pick 6d020ff make dep/proto: halfway there
+pick 3e5a426 Revert "protobuf/generated: include generated files"
+pick 1ea35c0 remove unused proto files
+pick dbe840f build: untrusted changes
+pick 44b76dc Merge remote-tracking branch 'unify-xk/move-ring-to-rtapi' into move-ring-to-rtapi
+pick ae4cd3f start on unified rtapi messaging
+pick 1c59dc9 rtapi_msgd: first cut
+pick 3bb2fb2 kernel portifications
+pick cddd809 rtapi_msgd: pull together all logging through a ringbuffer in global_data shm
+pick 10ed097 runtests ok on xeno-user
+pick f0fb4f9 logging: switch to ringbuffer-onyl, drop syslog in rt
+pick 185e62f fix pbring.comp build conditions
+pick 83b2413 rtapi_ring: separate head and trail pointers by buf
+pick 7cada04 rtapi_ring: clean up naming
+pick 16b096b nits
+pick 9acbc87 HAL instances: basic data structure support
+pick 08c516a rtapi_shmem: multiple instance support
+pick 79f914a rtapi_ring.h: fix missing inline to avoid expansion
+pick 111998f hal namespaces: basic datastructure support in HAL
+pick d451af0 rtapi_shmem, instance: whitespace fixes
+pick d84cea3 attach.c: multiple domain shm access test - started
+pick 6175ea1 rtapi_shmdrv: bring in http://www.embrisk.com/notes/shmem.html and build as is
+pick 3bc60c5 rtapi_shmdrv: rtapify the naming
+pick 3bc9a58 rtapi_shm: make multi-instance
+pick d6c5e20 vma callbacks
+pick 7eb0aaa exercise the ioctl path
+pick c988851 rtapi_shm: add _inst variants to rtapi_shm* methods
+pick 7712ee2 catch-up before reverting to single-instance key-based allocator
+pick 0edae1d revert to miscdevice singleton
+pick 742624f round #1 complete
+pick d2727ed add sysfs status
+pick c2278e0 userland api works; kernel api missing
+pick bb1f055 shmdrv: polish, add stats
+pick e2d111c kernel API
+pick ae60345 shmdrv: configure support
+pick 4c96440 shmdrv: start rtapi integration
+pick 60e34d6 pass 1
+pick 139b9d9 try to make gdb work with mmap
+pick 74c229b fixes
+pick 0bafdfc shmdrv: handle gc on munmap()
+pick bc231cd shmdrv: kernel hooks
+pick c1a732e switch to vmalloc_user/remap_vmalloc_range
+pick 214f897 fixes
+pick 2f8c31e xeno-k working
+pick 62b8c5e rtapi/Submakefile: move kbuild information from src/Makefile
+pick adbf32c configure.in: make HAL_SIZE a global definition
+pick bb10bd7 cleanups on rtapi_module.c
+pick 623a200 cleanup
+pick 6643e7c cleanup ulapi
+pick 9e030fc fix startup/shutdown
+branch 6643e7c cleanup ulapi
+pick 8a55c8e fix startup/shutdown
+pick cab86cf shmdrv: add some stats
+pick d7899da shmdrv: make .access vm operation optional
+pick 6a099cd Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
+branch d7899da shmdrv: make .access vm operation optional
+pick 729e146 note to self
+pick 80c1afa userland flavor cleanups
+pick 7361e48 touchups
+pick 82b5d08 rtapi_msgd: make it global_data access-only
+pick 656db07 rtapi: make page_size and shmdrv_loaded globals
+pick cb22c74 convert remaining code to new shm API
+pick 8977563 nits
+pick 4cb87ac kmode fixes
+pick 6f6713f posix shm: use linuxcnc specific shm_open format
+pick 8e5e0d2 shmdrv: fix freed counter
+pick 43f773f mopup
+pick b7e06b0 rtapi/instance.c: is history
+pick b2dffcf rtapi/xeno-kernel: remove xenomai-specific shm hooks
+pick d13ac22 Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
+branch b2dffcf rtapi/xeno-kernel: remove xenomai-specific shm hooks
+pick 72bceb7 fixes
+pick 2eb27b3 log pid in shmdrv
+pick 951ab83 typo
+pick 9ef23e6 shmdrv: improve logging
+pick 549dd78 scripts/realtime: close race condition during startup
+pick d619f80 Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
+branch 549dd78 scripts/realtime: close race condition during startup
+pick e93449a link uplapi.so with -lrt
+pick 94ddfde rtapi_print: use stderr until fully initialized
+pick e585858 shmdrv_api: correct attach shm_open() flags
+pick 4f19a49 shmdrv: MMAP_OK macro
+pick d3be8d1 ulapi_main: finish migration, improve error messages
+pick d8c4f75 use MMAP_OK
+pick 1c4cb1c Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
+branch d8c4f75 use MMAP_OK
+pick da18748 mopup
+pick 7746996 shmdrv: fix newline usage
+pick 746e042 Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
+pick 03e3472 start diag
+pick 316f40b shmdrv fix
+pick 592edb8 shmdrvapi.c: improve diagnostics
+pick ccd2424 shmdrvapi: make it a shared library
+pick 5717636 shmdrv: handle permissions correctly when rtapi_app is setuid root
+pick c53759f fixups
+pick eddd20c shmapi: add shm_common_exists() test
+pick cb96194 shmdrv: build for userland threads too
+pick d5cb64b such that it works
+pick a786264 amd64 nits
+pick e0f38de arm: link posix rtapi.so with -lrt
+pick 68c9694 ulimit -l too low: some kernels set that at _64k_
+pick 2fad108 Merge branch 'shmdrv-userland' into dynload-rtapi-common-shm
+pick 93f4aec startup/shutdown: assure sequencing of shm segments creation and deletion before use
+pick a24bba6 cleanup unused variables
+pick 4802763 xenomai-kernel: cleanup merge droppings
+pick 936d0f5 shmdrvapi: perror on mmap fail
+pick 4abffea rtapi_module.c: one more merge dropping
+pick 0f34879 shmdrv: change from spinlock to mutex, clean up API
+pick 53877a1 Revert "what's a trivial build?"
+pick bd297d8 common shm: carry over API changes from development branch
+pick d2631bb shmdriv: reduce verbosity
+pick adb35d0 rtapi/flavor: detect and print flavor
+pick 49c62ed srcipts/realtime.in: use flavor instead of RTPREFIX
+pick b339c8b shmdrv.c: fix installation issues
+pick c63463d Merge remote-tracking branch 'mah/v2.5_branch' into dynload-rtapi-common-shm
+pick b99a1e5 scripts/realtime.in: carry over from development branch
+pick 911bde8 module_helper: build always so shmdrv can be loaded (optional)
+pick 46713f2 rtapi_msgd: correct wait-for-rtapi stack function
+pick 7eb337a rtapi/rt-preempt-user: undo merge damage
+pick 8a8fb35 Merge remote-tracking branch 'mah/rtos-integration-preview3' into dynload-rtapi-common-shm
+pick 7f75574 cleanup: remove stuff from development branch
+pick 6f812a6 .gitignore core files
+pick bc78109 sanify shmdrv build
+pick a63c877 Makefile:  remove gratuitous ifeq BUILD_SYS,user-dso conditional
+pick 8167a11 ub build:  remove kernel compat checks from configure.in
+pick eb2fd76 liblinuxcncshm.so: build unconditionally
+pick d59f70a Remove SIMULATOR for once and for all
+pick 9013846 configure.in:  add RT thread detection code; currently does nothing
+pick c91dc43 configure.in:  remove test for user in xenomai group
+pick 29bc6d4 rtapi/rtapi_common.h:  remove xenomai-specific code
+pick d92c356 rename rt-preempt-user to rt-preempt and xenomai-user to xenomai
+pick 4cd85d1 configure.in:  set $THREADS, checking against new thread system detection
+pick c6ad8b1 configure.in:  set THREADS and KERNELDIR from new thread detection code
+pick fabb428 configure.in:  remove outdated comments
+pick b9c0d3b Build system hall of shame:  clean up CFLAGS & some LDFLAGS
+pick f999627 universal build:  mass flavor variable restructuring
+pick 8560f67 WIP:  fixing scripts
+pick 02b7a45 hal_lib: export flavor
+pick e5467d6 ulapp/hal: adapt using code to inspect flavor
+pick 4791246 Makefile.inc.in:  fix -I/include (a second time)
+pick 61aa3c9 flavor detection:  add '-b' argument for build_sys
+pick 12e0932 Build system:  remove more variable cruft:  LYX and RTARCH
+pick 3730984 Include Makefile.inc in Makefile.modinc
+pick 320fd48 configure.in:  check for -lrt & add to LDFLAGS for both posix and rt-preempt
+pick 3ea6281 rtapi/Submakefile:  fix brain-dead linker args to ulapi.so
+pick 14687c9 hal/hal_lib.c:  remove flavor-specific #ifdef
+pick 3725045 module_helper/Submakefile:  cleanup
+pick b014ebb rtapi backend cleanups:  move #includes from .h to .c; other noops
+pick 0d33ea6 rtapi/Submakefile:  HACK  build rtapi/sim_rtapi_app.cc with -DRTAPI
+pick 9a8ceec Merge rtapi/rtapi_support.h back into rtapi.h
+pick 83f0cf2 Move kernel compat logic from hal_lib.c to rtapi_compat.c
+pick 151dd7a sim_rtapi_app.cc:  silence a compiler warning
+pick 2bc800f Makefile.inc.in:  Compute MODULE_EXT dynamically
+pick 10daf94 rtapi/exception: define exception causes, handler, setting method
+pick c68e374 rtapi_main: add optional module init hook
+pick 00a82df xenomai: adapt reporting to new exception handler scheme
+pick c2d335f xenomai-kernel: adapt reporting to new exception handler scheme
+pick dfafd05 rtai-kernel: adapt reporting to new exception handler scheme
+pick e68700c rtpreempt: adapt reporting to new exception handler scheme
+pick 7ba610f rtapi_app: check xenomai group id via sysfs
+pick ac08ef6 rtmon.comp: start on HAL estop support through RT exceptions
+pick 9d0e9c9 classicladder/vars_access.c:  remove RTAI- and Xenomai-specific macros
+pick 3128b72 rtapi/exceptions: apply output policy once and for all
+pick 7f362ea Makefile:  add rtapi/rtapi_exception.h to HEADERS
+pick 5e94ace universal build:  driver build
+pick 018b858 scripts/realtime.in:  hack:  skip kernel detection for userland threads
+pick c2913a4 rt-preempt.h:  remove non-existent hook that crept in
+pick 580c2d8 Remove flavor-specific code from universal binaries
+pick 5a80db4 .gitignore docs/man/man9/rtmon.9
+pick 29f6e15 rtapi/shmdrv/Submakefile:  fix EXTRAFLAGS for mutexwatch example
+pick 925cad4 scripts/rip-environment:  Output error messages to stderr
+pick 003c19c mammoth patch:  update build system, scripts and code for universal build
+pick 41ce08d Makefile:  remove left over RTDIR_INC reference
+pick 3cc479b remove obsolete PTH_CONFIG variable
+pick b58a2a0 Remove last reference to RTNAME
+pick 3e31e26 configure.in:  always build drivers, even for posix
+pick ebd0975 WIP:  separate rtlib for universal build
+pick bb5a348 hal_lib.c:  silence 'implicit declaration' compiler warning
+pick 5669a4e WIP:  Get this thing running
+pick 8e14cdf hal_lib.c:  flavor detect from env moved to rtapi_compat
+pick 0423c34 rtapi/Submakefile:  build ulapi.so into flavor-dependent subdir of ../lib
+pick 1e17f56 FIXME:  debug msg about where ulapi.so was dlopen()ed from; broken?
+pick b23fd90 configure.in:  replace a mistakenly removed rtflag to posix+rt-preempt
+pick efd487f Remove /rtlib directory from git, since it's really just a build artifact
+pick 98f1d92 universal build:  enable a single kthreads universal build
+pick 137836d universal build:  build kthreads modules in a separate tree
+pick b47981f universal build:  fix make setuid for all flavors
+pick 568913f Makefile:  replace objdir path names with $(OBJDIR)
+pick c13c37b Add BUILD_THREAD_FLAVORS list of all configured RTOS systems
+pick c168968 Pull KBUILD_EXTRA_SYMBOLS into configure.in; fix RTAI build
+pick d3a6b83 Compile ulapi.so sources separately for each flavor
+pick 59bc27a enable shmdrv by default
+pick 36913fe Move #includes out of rtai-kernel.h into rtai-kernel.c
+pick e688623 rtapi/.gitignore:  ignore kthreads flavors too
+pick a0f6a98 Fix broken LDFLAGS for userland rtapi.so modules
+pick ccbfe4e Makefile:  build all configure flavors if none specified
+pick 18b0439 Plumb the RTAI modules directory into rtai.conf and realtime scripts
+pick 540efeb Fix logic for -fno-stack-protector arg in xenomai
+pick 829fdd2 CFLAG fixes:  match pre-universal build and more cleanups
+pick f99d7c3 rtapi/Submakefile:  rm THREADS_RTFLAGS frm universal source sim_rtapi_app.cc
+pick f80dfaa kdetect universal binary doesn't need RT_LDFLAGS
+pick 3f4d62a rtapi_kdetect.c:  detect flavors from RH-style kernel release strings
+pick 749fda9 configure.in:  RTAI 'fast-math' related CFLAGS should be set from rtai-config
+pick 434aa4d Makefile:  clean up case when autogen needs running
+pick 9b2e817 Get rid of RTSCC for once and for all
+pick 24d5874 Plumb flavor RTS scripts for consistency
+pick 06d8efd scripts/realtime.in:  fix broken kthreads module loading
+pick 40550da configure.in:  fix documentation at beginning of file
+pick 9af135d configure.in:  fix broken arch test
+pick 8ecbc69 realtime.in:  fix module unloading
+pick 114f9f5 Makefile:  UB: cp -l kbuild breaks if the files already exist; add -f
+pick 869fc76 configure.in:  add THREAD_FLAVOR_NAME macro; unify RTAPI_COMMON.c
+pick 211dc58 Remove last reference (in a comment) to FLAVOR_FLAGS
+pick e3a434b rtapi/Submakefile: force link if file exists
+pick dbcdc0e configure.in:  fix up detection of rtai-config and kbuild kernel dirs
+pick efafb8b configure.in:  give xenomai{,-kernel} detection the same treatment as rtai
+pick 2191daf Fix detection of Xinerama.h etc. when no kbuild styles configured
+pick 0d9b4d8 configure.in:  add functions to test all kernels on system
+pick 069bd1b configure.in:  rework section 2 subsections & documentation
+pick 06062ec Pull flavor-specific #ifdef out of emc/motion/control.c
+pick 05496c3 super-ub-kernel-scan-wip:  find all kernels on system & detect type
+pick 6ad1495 add support for AC_CANONICAL_HOST in configure.in
+pick 41bca27 universal build:  infra for multiple kernel builds per kthread build
+pick ea75457 FIXME:  fixes commit 06062ec189e215c3c69676563d69390b87145a34
+pick f5eed2e Add ../lib/liblinuxcncshm.so to TARGETS so it gets cleaned
+pick b4be495 configure.in:  replace a few defaults that got lost
+pick 61a7032 Universal build:  build for multiple kernels/flavor in one run
+pick 13335d8 Univ build:  realtime.in, rtapi.conf handle multiple kernel versions
+pick fcba0de configure.in:  fix BUILD_THREAD_FLAVORS list
+pick ee822fa rtai-kernel.c:  fix compile problem on 32-bit x86
+pick 8abddb3 Remove unused EMC2_CONFIG_DIR make variable and cpp #define
+pick 8e37ff0 Update realtime and rtapi.conf scripts to handle shmdrv
+pick c1f2879 configure.in:  disable USE_SHMDRV by default
+pick 0d9fd34 xeno_math/libm.c:  remove #include config.h and macros from that source
+pick efd4262 rtapi/Submakefile:  remove fixed FIXME re: RTAI -llxrt in LDFLAGS
+pick e472177 Makefile:  Remove unneeded addition to KBUILD_EXTRA_SYMBOLS
+pick 8f3e743 Makefile no-op:  clarify comments re. KERNELRELEASE
+pick 024d2d7 Build shmdrv.ko for all detected kernels if USE_SHMDRV=yes
+pick 9fcd111 Update 'make install' for UB
+pick b58b738 realtime.in:  sleep after loading shmdrv to allow it to initialize
+pick 0f8821a Makefile:  move directory creation into install-dirs target
+pick 55ee750 realtime and rtapi.conf scripts:  fix non-RIP paths
+pick e88e21e rtapi.conf:  set kernel module path for non-RIP installs
+pick 3c789cb rtapi: clean up compile time warnings
+pick 61550b2 shmdrv:  actually *build* shmdrv when USE_SHMDRV=yes
+pick d7a545c rtapi.conf:  add forgotten ${prefix} substitution
+pick 6d235c8 shmdrv/Submakefile:  shouldn't need to link with RT_LDFLAGS
+pick d1c567c Move RTAI LDFLAGS back into configure.in
+pick 4a6045b rtapi/Submakefile:  In rtapi build hack, simply symlink the directory
+pick b3c933a WIP:  per-flavor rtapi_app_<flavor> executables:  separate building
+pick b335aad Makefile:  fix setuid target for multiple rtapi_apps
+pick f95bcfb configure.in:  no-op:  Fix description of EMC2_DEFAULT_TOOLTABLE
+pick d45428a hal/classicladder/Submakefile:  remove 'suspicious line' (\t\n)
+pick f27b9d40 Fixes for non-RIP installs; replace rtapi.conf with rtapi.ini
+pick 13b6a65 configure.in: assume xeno-config might be found in /usr/xenomai/bin
+pick 487b7e1 rtapi/rt-preempt: implement rtapi_task_self()
+pick f75822c rtapi/rt-preempt: remove deadline scheduler code
+pick 85bf4e3 rtapi_main: correct error messages
+pick 2c28b97 rtapi:  introduce rtapi_backtrace()
+pick 74a8828 rtapi_app: clarify error message
+pick 8b09e63 comps/rtmon: implement Andy's error limit scheme
+pick d3002fa rtapi/backtrace: provide thread-specific hook
+pick 5b25491 rtapi/msgd: improve startup log message
+pick a53895a comps/rtfault: generate realtime faults on purpose for testing
+pick ff5aca1 RT fault handling: test program to exercise rtmon.comp
+pick 13f1321 xenomai.c fixes
+pick 99d8a94 xenomai-kernel: add missing HAVE_RTAPI_TASK_SELF_HOOK
+pick 37f3c50 xenomai-kernel: add rtapi_backtrace_hook()
+pick e9cc195 rtapi_task.c: remove deprecated comment
+pick a892867 rtapi_msg.c: remove unused file
+pick b89187f rtapi_support.c: switch to message ringbuffer, deprecate RTAPI_PRINTK
+pick a5a965a rtai-kernel.h: remove deprecated RTAPI_PRINTK
+pick 70e7aea rt-preempt.c: correct printf warnings
+pick bf14204 rtapi_msgd: comment, add poll timer decay scheme
+pick cf774e9 rt-preempt.c: add thread name to RT fault message
+pick b848f4d rtapi: delete unused files
+pick 3c14886 rtapi/flavor: remove deprecated #include
+pick b087e09 rtapi/shmdrv: tone down logging
+pick 926abf5 rtapi/shmdrv API: add shm_common_init() and shm_common_unlink()
+pick 59fd270 rtapi/modules: move % split rtapi_assure_module_loaded()
+pick 46f9a17 rtapi.h: add comments
+pick 928952c rtapi:  switch to unified startup sequence
+pick 9901871 rtapi: remove unused get_global_handle() method
+pick 21afbd3 rtapi/shmem: fix shm segments not beeing deallocated in kthreads
+pick e693e2e rtap/rt-preempt.c: fix rtapi_backtrace_hook() visibility
+pick 6e5f1ed rtapi: remove misc unused include files
+pick 800ab99 rtapi/rtapi_app: resolve all symbols at dlopen() time (RTLD_NOW)
+pick 06db2f8 rtapi/rt faults: limit number of messages printed in default handler
+pick 7d8d33d rtapi/Submakefile: reflect changes in shm usage
+pick 7b5bf03 rtapi: misc touchups (editorial)
+pick 143c435 scripts/realtime, rtapi.conf: reflect new startup sequencing
+pick d75867f rtapi/shmdrv.h: fix CR in line endings
+pick f4802cd rtapi_msgd, rtapi_app: add gcc version, git version to startup log message
+pick 6b96ace Merge branch 'ub-reorder-startup-rebase' into tmp
 branch c5fdc8c gscreen -add metric select button and launch keyboard button
-pick 478ab8f Merge branch 'rtos-integration-preview3-merged-into-master'
-pick 0e9e722 Merge branch 'master' of git://git.linuxcnc.org/git/emc2
+pick d6e701e Merge branch 'rtos-integration-preview3'
+pick 066c4d5 Fixed up new hostmot2 files and added some missing type support to module.h
+pick 7c9f186 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 990606e rtapi: add back in vsnprintf.h and test
+pick eaa7faf rtapi_limits.h:  adapt to new configure symbols
+pick 785e3ac Merge remote-tracking branch 'mah/v2.5_branch' into rtos-integration-preview3-merged-into-master
+pick 5b24ce7 rtapi_common.h:  no need to define NULL; this is taken care of in rtapi.h
+pick 884a28a Silence compiler warnings, mostly from printing size_t on 64-bit arch
+pick 298f1a4 Merge branch 'rtos-integration-preview3-merged-into-master' of git.mah.priv.at:emc2-dev into rtos-integration-preview3-merged-into-master
+pick 1ca371d redis: fix mutual dependency
+pick 1b79469 rtapi_delay: provide hooks for rt-preempt-user, xenomai user/kernel,rtai
+pick ae42808 rtapi_delay():  move to RTAPI only; rtapi_delay_hook() mandatory
+pick bbe07a5 fix typo
 branch c5fdc8c gscreen -add metric select button and launch keyboard button
-pick 8e650f4 Merge branch 'rtos-integration-preview3'
-pick 039f990 Fixed up new hostmot2 files and added some missing type support to module.h
-pick 42f7bf1 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick 6d9858d rtapi: add back in vsnprintf.h and test
-pick 5d855ab rtapi_limits.h:  adapt to new configure symbols
-pick 200300d Merge remote-tracking branch 'mah/v2.5_branch' into rtos-integration-preview3-merged-into-master
-pick adb08e2 rtapi_common.h:  no need to define NULL; this is taken care of in rtapi.h
-pick b565fa6 Silence compiler warnings, mostly from printing size_t on 64-bit arch
-pick f913463 Merge branch 'rtos-integration-preview3-merged-into-master' of git.mah.priv.at:emc2-dev into rtos-integration-preview3-merged-into-master
-pick 642c48c redis: fix mutual dependency
-pick 0446587 rtapi_delay: provide hooks for rt-preempt-user, xenomai user/kernel,rtai
-pick 81c31cf rtapi_delay():  move to RTAPI only; rtapi_delay_hook() mandatory
-pick 1121b57 fix typo
-pick d9d3be8 Merge branch 'master' into rtos-integration-preview3-merged-into-master
-pick 6c429b1 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick 87ecf9c Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick 3c59a7d Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick de13a14 Merge branch 'master' into rtos-integration-preview3-merged-into-master
-pick 69f14cb fix src/po/fr.po by resetting to master
-pick c62c31f Merge branch 'master' into rtos-integration-preview3-merged-into-master
-pick 897c67b Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
-pick 4ad398c src/Makefile: remove hiredis.h target
-pick 9589b4c Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick f8938cb Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
-pick 9eaca63 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick 27b8ec1 task: remove accidentially commited case
-pick f28dfb1 configure.in: add substituion lost in merge
-pick 6b54a4c task/emctaskmain.cc: correct merge accident
-pick ecc2045 tests: build test_rtapi_vsnprintf again
-pick 9e4ebbe rtapi/Submakefile: add trailing newline
-pick b225953 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick f6aa6ee docs: remove merge leftover
-pick 14f8970 deb configure: cleanup merge of master
-pick 3506f73 deb configure: flatten a nested if for legibility
-pick 05ca532 deb configure: comment the inspect_kernel function
-pick c5a0615 deb configure: re-enable "-a"
-pick d658910 deb configure: most settings are per kernel-type, not per kernel
-pick 4df7efb deb configure: better success report from configure
-pick 6e44bdb Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick 9283df4 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick f94b913 Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
-pick b0aa5a0 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick aa84da5 Merge remote-tracking branch 'mah/master' into rtos-integration-preview3-merged-into-master
-pick c3dcf2b Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick 5f94850 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-branch 6796ec0 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 8896d34 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 78c80d5 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 98b19c2 rtapi/userpci: add missing kzalloc() emulation
-pick d95bda8 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick 9291299 Merge branch 'rtos-integration-preview4' into rtos-integration-preview3-merged-into-master
-pick f676cf5 Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
-pick ca23fd5 halrmt: adapt conditionals
-pick 02700bc halcomp/mux_generic:  adapt SIM to BUILD_SYS_USER_DSO
-pick c315796 scripts/realtime.in: mop up all likely shm segment keys
-pick 91f7297 debian/control.in: add prerequisites for emcweb
-pick d68a46f emcweb: build objects with -fPIC to keep amd64 builds happy
-pick e3f012b runtests/bitops.0: test case for rtapi_bitops.h
-pick 7552b3b rtapi_bitops.h: use gcc/llvm intrinsics instead of assembly
-pick e03698d rtapi_bitops: change using code to new API
-pick 2a87521 hal/gpiomap: adapt to new rtapi_bitops.h API
-pick 28698e8 hal/gpiouse: adapt to new rtapi_bitops.h API
-pick 3e7904e tests/rtapi_printf.0: enable for kbuilds only
-pick b74aafa src/Makefile: reorganize subdir list
-pick 2526855 rtapi/examples: remove extint, fifo, semaphore examples
-pick 3aa1c9e hal/support: remove dtc for Beaglebone
-pick b14dee0 Minor cleanup of pru-examples directory
-pick 28a11ee config/pru-examples : Begin refactoring of pru-examples directory config/BeagleBone : Add BeagleBone configuration directory and begin migration of existing configs
-pick 63f1384 scripts/pru_debug : Initial version of pru_debug script
-pick c8736fc configs/pru_debug : Tweak pru_debug script and re-arrange config directories
-pick a7d8e92 configs/BeBoPr : Tweaked configuration and added launch script Device tree overlay(s) are now checked for and loaded automatically if needed, making launching LinuxCNC much safer and more likely to succeed
-pick e6bf4b9 configs/BeBoPr : Added README file for BeBoPr configuration
-pick 2ac1df5 configs/K9.3D : Migrated setup script to K9.3D config and updated README
-pick 3a11199 configs/BeBoPr : Updated BeBoPr configs to actually print Added kefob ngc file Added stub M1xx codes for temperature control
-pick 70ba2f9 configs/BeagleBone : Update jog increments & add askpass switch to sudo
-pick 8ce0d99 Merge remote-tracking branch 'origin/master' into rtos-master-v0
-pick 09f102a configs/BeBoPr : Add ADC to temperature conversion Add custom pyvcp panel to display set and measured temperatures.
-pick d57fe56 PRU debugger example: enable loading a file at startup
-branch 09f102a configs/BeBoPr : Add ADC to temperature conversion Add custom pyvcp panel to display set and measured temperatures.
-pick dac71e9 hal/hal_bb_gpio : Add invert parameter to I/O pins
-pick af297ee configs/BeBoPr : Modify configuration to use new gpio invert parameter
-pick 547dfaf Merge remote-tracking branch 'origin/pru-debugger-load-file-on-startup' into rtos-master-v0
-pick 9d5b3ee scripts/pru_debug : Support new automatic file loading flag for PRU debugger
-pick 3e8ed8e scripts/pru_debug : Updated PRU debugger script and example PRU project
-pick ccd2a86 configs/K9 : Update K9 configuration to get inputs working
-pick 4ff7beb configs/BeagleBone : Fix K9 configuration
-pick d254dd7 config: BeagleBone Update BeBoPr configuration files Add K9 configuration that runs with HDMI enabled
-pick de19ac1 configs: BeagleBone Update K9.wHDMI config
-pick 2fa49cb nc_files : M106 M107 Added missing user M1xx code files, currently just stubs
-pick a57b325 configs/BeBoPr : Fully comment bed heater code so HAL loads properly
-pick 49dcdb1 configs/BeagleBone ; UNTESTED - Add configuration for BeBoPr + Bridge Board
-pick c42b4ca configs/BeBoPr : Fix configuration for BeBoPr + Bridge
-pick cfc3aa1 configs/BeagleBone : Updated BeBoPr configurations to support input pins Minor tweaks to README files for BeBoPr and K9 configurations
-pick be4bf83 configs/BeagleBone : Add input_pins section to hal_bb_gpio in BeBoPr.hal
-pick 789a7c1 configs/BeBoPr : Fix configurations so inputs work properly gpio bank 0 must have at least one pin exported in order to work properly
-pick 2a0a533 M104: provide example
-branch 789a7c1 configs/BeBoPr : Fix configurations so inputs work properly gpio bank 0 must have at least one pin exported in order to work properly
-pick 65471b5 configs/BeBoPr : Modify ReadTemp.py to support multiple ADC channels Trying to read multiple values at the same time (which could happen when running multiple instances of the previous ReadTemp.py) causes the kernel adc reader to return invalid values.  This update modifies ReadTemp.py so it reads multiple values in sequence, with a 1 mS delay between each read. Hopefully, this will work around the issue with the BeagleBone ADC driver.
-pick 98b2507 configs/BeagleBone : Fix BeBoPr-Bridge configuration
-pick 3a3e3ad Merge pull request #5 from brandonheller/MachineKit
-branch 9d5b3ee scripts/pru_debug : Support new automatic file loading flag for PRU debugger
-pick e8efd4d configure: test for boost serialization and thread
-pick 4cfd951 rtapi_app: make dlopen do all work up front
-pick be5d105 build: fix dependency information for realtime files
-pick 9edb247 include needed header <map> for std::map
-branch 22b177e xenomai: remove reference to Xenomai-specific define from rtapi_common.h
-pick 64d5354 rtapi flavor loading example
-pick 86f1ded import kdetect
-pick cac6dec hal_lib: introduce constructors, hal_rtapi_attach()/hal_rtapi_detach()
-pick 8b066bf hal_lib: remove refcounting scheme
-pick a6e137a rtapi_app: carry over from rtapi-startup-sequencing
-pick b659398 rtapi.so: add rtapi_app_main/rtapi_app_exit stubs
-pick c3bbe47 catch up commit before me crashing
-pick 657d2d0 rtapi:  herd all rtapi_*() calls through rtapi_switch for universal binary
-pick 95cdcf6 rtapi: dont EXPORT_SYMBOL anything except rtapi_switch
-pick a6ecd58 rtapi_shmem: fix typo
-pick 72a9252 rtapi: remove all exported symbols except rtapi_switch
-pick cc8f8ab stashf.c: include rtapi.h to get proper symbol visibility
-pick 1f0f30e rtapi: build ulapi.so
-pick bb0b413 hal: remove ULAPI objects from hal_lib link
-pick e251547 rtapi: make rtapi functions go through a pointer, not a struct ref
-pick 026bec3 hal_lib/ULAPI: dynload ulapi.os - first round
-pick 71d976d rtapi: export rtapi_dir
-pick 92ca156 hal_lib.c: touchups
-pick 584155e hal_lib.c: TODO note
-pick 702f564 docs/man/man3/rtapi_init.3rtapi: back out API change
-pick 950a155 scripts/linuxcnc.in: function LinuxcncRunning FIXTHIS - shm keys have changed
-pick 02513df scripts/realtime.in changes
-pick b85fdef scripts/rtapi.conf.in changes - FIXME make HAL_SIZE a configure param
-pick f4cd2e5 src/Makefile changes
-pick 1daba15 src/Makefile.inc.in changes
-pick aff3120 src/Makefile.modinc.in changes
-pick 7d60340 src/configure.in changes
-pick cac7074 src/emc/motion/emcmotcfg.h changes
-pick 02374845 src/emc/motion/emcmotglb.c changes
-pick 53478b1 src/emc/motion/motion.c changes
-pick 6fd460b src/hal/Submakefile changes
-pick 638c8a3 src/hal/classicladder/arrays.c changes
-pick a023d71 src/hal/components/streamer.h changes
-pick a07c540 src/hal/hal_lib.c: changes
-pick b0b080c src/hal/hal_priv.h changes
-pick 8a0e0ad src/hal/utils/halcmd.c changes
-pick e261f4c src/hal/utils/halcmd_commands.c changes
-pick e72c406 src/utils/halcmd_main.c changes
-pick b53dad6 src/hal/utils/halrmt.c changes
-pick bdf03f9 src/hal/utils/scope_shm.h changes
-pick 1ee229b src/libnml/cms/cms.cc  port offsets - FIXME this needs to be done properly
-pick 71b928c src/libnml/os_intf/* changes - FIXME these need review
-pick 6312c01 src/libnmll/inifile.* changes
-pick 9fdc2c1 src/rtapi/README
-pick b0167e6 src/rtapi/Submakefile
-pick aa29172 src/rtapi/instance.c new
-pick 8e3ac3d src/rtapi/rt-preempt-user.c changes
-pick 8d58530 src/rtapi/rt-preempt-user.h changes
-pick 08ce0d3 src/rtapi/rtai-kernel.c,.h changes
-pick aa47be7 src/rtapi/rtapi.h changes
-pick 276fd3e src/rtapi/rtapi_bitops.h changes
-pick 7c9fd06 src/rtapi/rtapi_common.c changes
-pick 8c14ebf src/rtapi/rtapi_common.h changes
-pick a3fb983 src/rtapi/rtapi_compat.c new file
-pick 9cf644f src/rtapi/rtapi_export.h factored out
-pick 67ad884 src/rtapi/rtapi_global.h new file
-pick a53dd94 src/rtapi/rtapi_main.c changes
-pick 7bd14b7 src/rtapi/rtapi_module.c changes
-pick 8e3e2e0 src/rtapi/rtapi_proc.h changes
-pick 14c44da src/rtapi/rtapi_shmem.c changes
-pick 8f1d264 src/rtapi/rtapi_shmkeys.h new file
-pick d6d7b10 src/rtapi/rtapi_support.c/.h factored out from _msg.c/h and extended
-pick d3a34af src/rtapi/rtapi_task.c changes
-pick ccbeb28 src7rtapi/rtapi_time.c changes
-pick 3a73084 src/rtapi/sim_rtapi_app.cc changes
-pick b7fd89b src/rtapi/xeno_math/libm.c  touchups
-pick 0e4c67f src/rtapi/xenomai-usr.c/.h changes
-pick abd3efb src/rtapi/xenomai-kernel.c/.h changes
-pick e892690 cleanup: remove accidentially committed hunk in hal_lib.c
-pick ed9c8ca src/hal/utils/halcmd_commands.c: cleanup accident
-pick 7ec1db1 src/hal/hal_lib.c: remove accidentially exported symbols
-pick d1b054b pick rtapi/rtapi_mbarrier.h
-pick bb3094a halcmd: add 'log' command
-pick 68491b5 src/Makefile changes
-pick ae4f959 src/configure.in changes
-pick 03d25ca src/hal/Submakefile changes
-pick 1eb0334 src/hal/groupmodule.cc FIXME likely broken
-pick 27871d1 src/hal/hal.h changes
-pick 3e570c0 src/hal/hal_lib.c changes
-pick dcc7e80 src/hal/hal_priv.h changes FIXME disentangle group and ring code
-pick a755c6e src/hal/halmodule.cc changes
-pick fccb738 src/util/halcmd changes
-pick 73d6dcf src/hal/utils/halrmt.c changes
-pick 80f0d0a src/hal/hal-ring/*
-pick dca36af src/hal/halreport/*
-pick 8f1aacc src/hal/msgcomponents
-pick c7a06cd src/hal/remote WIP
-pick 40fda39 src/hal/ringmodule.cc WIP
-pick 3d3d371 src/protobuf new
-pick 8779743 src/mkprotodep src/mkpbmessage FIXME check if needed
-pick d23ea36 tests/halgroups FIXME unfinished
-pick 2a62757 tests/module-loading: strange PIN_NAME_REGEX commit, FIXME
-pick 7f1e64d tests/module-loading/encoder/PIN_NAME_REGEX unclear FIXME
-pick ea1ea48 protobuf/generated: include generated files
-pick 1800a8c what's a trivial build?
-pick ccd43b8 hal/hal_ring.h: farm out from hal_priv.h
-pick 6b5955d hal: make using code include hal_ring.h
-pick 44c3e19 hal/hal_group.h: farm out API from hal_priv.h
-pick e863325 hal_group.h: adapt using code
-pick b377b63 hal_priv.h: rename hal_autorelease_mutex -> halpr_autorelease_mutex
-pick be4ac95 ring: import Pavel's reworked ring code
-pick bfc2319 define ringiter_t, extend ringheader_t
-pick 3f6df9b Pavel: please review - generation init missing?
-pick 03822f6 Pavel - pls review - correct?
-pick f91f621 hal_ring.h: carry over Pavel's new zero-copy operations, iterator support
-pick 2d5f790 rtapi_ring: move hal_rings to RTAPI
-pick 4944039 rtapi_ring/move from HAL: adapt using code
-pick 3f459c2 hal_record_write_begin: remove warning
-pick 6ef5ae4 complete round#1 of HAL API change
-pick f3e7c5c kernel modes: use proper int types
-pick 65e38d7 protobuf/examples/Submakefile: fix configure dependency
-pick 00dd918 rtapi_bitops: include the right file
-pick 0adfb81 rtapi.h: use size_t
-pick c488b4a rtapi: rework ring code
-pick f8ab336 hal_lib: move most of ring API to RTAPI
-pick dd14692 rtapi_ring: fix visibility of ring_addr_array
-pick 663e1b4 rtapi_ring: fix kbuild attach
-pick a2cc1ed hal_ring_detach: fix API
-branch 6ef5ae4 complete round#1 of HAL API change
-pick e0a1feb kernel modes: use proper int types
-pick 9de2868 protobuf/examples/Submakefile: fix configure dependency
-# pick d6893d5 Merge branch 'move-ring-to-rtapi' of git.mah.priv.at:emc2-dev into move-ring-to-rtapi
-pick 3b751f9 rtapi: move sizing constants to config.h
-pick 4361cba assorted fixes
-pick 6667b1c fixes. ring/halcmd ok now.
-pick 5e768df make dep/proto: halfway there
-pick 9dec1b1 Revert "protobuf/generated: include generated files"
-pick a7c4395 remove unused proto files
-pick e988cda build: untrusted changes
-branch 4361cba assorted fixes
-pick 73ee488 ring/halcmd ok now, kernel + userland threads.
-# pick bc174d6 Merge remote-tracking branch 'unify-xk/move-ring-to-rtapi' into move-ring-to-rtapi
-pick 3abfc22 start on unified rtapi messaging
-pick be29c6f rtapi_msgd: first cut
-pick 8fb89df kernel portifications
-pick 3510c57 rtapi_msgd: pull together all logging through a ringbuffer in global_data shm
-pick 62497b1 runtests ok on xeno-user
-pick 91c8c55 logging: switch to ringbuffer-onyl, drop syslog in rt
-pick 5968536 fix pbring.comp build conditions
-pick 345714b rtapi_ring: separate head and trail pointers by buf
-pick e6709d8 rtapi_ring: clean up naming
-pick 7edea59 nits
-pick f41743c HAL instances: basic data structure support
-pick e67fc48 rtapi_shmem: multiple instance support
-pick 3ac365f rtapi_ring.h: fix missing inline to avoid expansion
-pick 346ff01 hal namespaces: basic datastructure support in HAL
-pick 7b22d67 rtapi_shmem, instance: whitespace fixes
-pick 5120436 attach.c: multiple domain shm access test - started
-pick 63777ff rtapi_shmdrv: bring in http://www.embrisk.com/notes/shmem.html and build as is
-pick 6beb887 rtapi_shmdrv: rtapify the naming
-pick 62ada2b rtapi_shm: make multi-instance
-pick 0f236a3 vma callbacks
-pick a7431e3 exercise the ioctl path
-pick 3dbd052 rtapi_shm: add _inst variants to rtapi_shm* methods
-pick 3a56892 catch-up before reverting to single-instance key-based allocator
-pick 362385a revert to miscdevice singleton
-pick bc4ec42 round #1 complete
-pick a505446 add sysfs status
-pick 8c13fa7 userland api works; kernel api missing
-pick 05c9e1d shmdrv: polish, add stats
-pick 7ae9443 kernel API
-pick ca27828 shmdrv: configure support
-pick 88549be shmdrv: start rtapi integration
-pick f80be52 pass 1
-pick f38e281 try to make gdb work with mmap
-pick c9730a9 fixes
-pick e3f2b12 shmdrv: handle gc on munmap()
-pick b7ddb7f shmdrv: kernel hooks
-pick f3f4f35 switch to vmalloc_user/remap_vmalloc_range
-pick 8bfbb5c fixes
-pick c79c505 xeno-k working
-pick 5b2c3f2 rtapi/Submakefile: move kbuild information from src/Makefile
-pick 7ab9254 configure.in: make HAL_SIZE a global definition
-pick 73732fe cleanups on rtapi_module.c
-pick 3aada48 cleanup
-pick b9546c0 cleanup ulapi
-pick 5264729 fix startup/shutdown
-pick 7eb113d shmdrv: add some stats
-pick 6b80ad2 shmdrv: make .access vm operation optional
-pick 5874428 note to self
-pick d91cabe userland flavor cleanups
-pick 4067328 touchups
-pick e6e6f99 rtapi_msgd: make it global_data access-only
-pick c6e756c rtapi: make page_size and shmdrv_loaded globals
-pick 7ab5847 convert remaining code to new shm API
-pick 4d177e7 nits
-pick 9068e42 kmode fixes
-pick 6679434 posix shm: use linuxcnc specific shm_open format
-pick e24b367 shmdrv: fix freed counter
-pick ca634df mopup
-pick 01f0302 rtapi/instance.c: is history
-pick 989fae4 rtapi/xeno-kernel: remove xenomai-specific shm hooks
-pick d5cbc54 fixes
-pick aae965e log pid in shmdrv
-pick 6ba7d9b typo
-pick b295859 shmdrv: improve logging
-pick caa28ec scripts/realtime: close race condition during startup
-pick 20d25b6 link uplapi.so with -lrt
-pick 7b80798 rtapi_print: use stderr until fully initialized
-pick 4acdb29 shmdrv_api: correct attach shm_open() flags
-pick ef4f2d4 shmdrv: MMAP_OK macro
-pick d76433a ulapi_main: finish migration, improve error messages
-pick 0911dff use MMAP_OK
-pick cd6de1e mopup
-pick 48d2570 shmdrv: fix newline usage
-branch b9546c0 cleanup ulapi
-pick 52e002a fix startup/shutdown
-# pick 6f8c482 Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
-# pick 9ca5082 Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
-# pick 12a8d8d Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
-# pick eb7ee80 Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
-# pick 0ca419b Merge branch 'shmdrv-userland' of git.mah.priv.at:emc2-dev into shmdrv-userland
-pick 05bd2d1 start diag
-pick 3c4ca5c shmdrv fix
-pick 5f1042e shmdrvapi.c: improve diagnostics
-pick ab3cc78 shmdrvapi: make it a shared library
-pick 9b2df6e shmdrv: handle permissions correctly when rtapi_app is setuid root
-pick b6909d3 fixups
-pick dd18082 shmapi: add shm_common_exists() test
-pick f60f0b4 shmdrv: build for userland threads too
-pick 7946269 such that it works
-pick 3ee8f23 amd64 nits
-pick da35e37 arm: link posix rtapi.so with -lrt
-pick f9ac188 ulimit -l too low: some kernels set that at _64k_
-branch 95ea663 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
-pick 1b8886e rtapi flavor loading example
-pick 116e3f4 import kdetect
-pick 74c3ba7 hal_lib: introduce constructors, hal_rtapi_attach()/hal_rtapi_detach()
-pick 6aba84d hal_lib: remove refcounting scheme
-pick 9fd5b5b rtapi_app: carry over from rtapi-startup-sequencing
-pick ab9e8f7 rtapi.so: add rtapi_app_main/rtapi_app_exit stubs
-pick 6a8523d catch up commit before me crashing
-pick 39a0b90 rtapi:  herd all rtapi_*() calls through rtapi_switch for universal binary
-pick 5b65130 rtapi: dont EXPORT_SYMBOL anything except rtapi_switch
-pick bc6d31e rtapi_shmem: fix typo
-pick ff30032 rtapi: remove all exported symbols except rtapi_switch
-pick 97c3489 stashf.c: include rtapi.h to get proper symbol visibility
-pick 1e8e4e7 rtapi: build ulapi.so
-pick 95c4d16 hal: remove ULAPI objects from hal_lib link
-pick 8a9cdb6 rtapi: make rtapi functions go through a pointer, not a struct ref
-pick 4841798 hal_lib/ULAPI: dynload ulapi.os - first round
-pick 85f4dd4 rtapi: export rtapi_dir
-pick d76b982 hal_lib.c: touchups
-pick 00caf5b hal_lib.c: TODO note
-pick 4e72c8b docs/man/man3/rtapi_init.3rtapi: back out API change
-pick 4673b3f scripts/linuxcnc.in: function LinuxcncRunning FIXTHIS - shm keys have changed
-pick cb16390 scripts/realtime.in changes
-pick e06a34d scripts/rtapi.conf.in changes - FIXME make HAL_SIZE a configure param
-pick 1931284 src/Makefile changes
-pick 294246f src/Makefile.inc.in changes
-pick 55819ae src/Makefile.modinc.in changes
-pick 229b575 src/configure.in changes
-pick 5715821 src/emc/motion/emcmotcfg.h changes
-pick dbde130 src/emc/motion/emcmotglb.c changes
-pick a655dba src/emc/motion/motion.c changes
-pick f25ead5 src/hal/Submakefile changes
-pick 274c755 src/hal/classicladder/arrays.c changes
-pick 50ed993 src/hal/components/streamer.h changes
-pick 74ae3ac src/hal/hal_lib.c: changes
-pick a6a9346 src/hal/hal_priv.h changes
-pick 5152745 src/hal/utils/halcmd.c changes
-pick 7f3eb04 src/hal/utils/halcmd_commands.c changes
-pick 8719406 src/utils/halcmd_main.c changes
-pick 2b6c97b src/hal/utils/halrmt.c changes
-pick 9249e82 src/hal/utils/scope_shm.h changes
-pick 3d552af src/libnml/cms/cms.cc  port offsets - FIXME this needs to be done properly
-pick 39e0144 src/libnml/os_intf/* changes - FIXME these need review
-pick 9bbbf44 src/libnmll/inifile.* changes
-pick d3e2bbe src/rtapi/README
-pick cdd8ea2 src/rtapi/Submakefile
-pick 17143ab src/rtapi/instance.c new
-pick 5e58d62 src/rtapi/rt-preempt-user.c changes
-pick 659724d src/rtapi/rt-preempt-user.h changes
-pick fc76f73 src/rtapi/rtai-kernel.c,.h changes
-pick 533397e src/rtapi/rtapi.h changes
-pick d2dc5c0 src/rtapi/rtapi_bitops.h changes
-pick 78d3ed8 src/rtapi/rtapi_common.c changes
-pick 8eed3ff src/rtapi/rtapi_common.h changes
-pick 75f01f0 src/rtapi/rtapi_compat.c new file
-pick 221dfb9 src/rtapi/rtapi_export.h factored out
-pick 6d66a7c src/rtapi/rtapi_global.h new file
-pick d10675e src/rtapi/rtapi_main.c changes
-pick 1cb8b3f src/rtapi/rtapi_module.c changes
-pick d71362b src/rtapi/rtapi_proc.h changes
-pick 621a372 src/rtapi/rtapi_shmem.c changes
-pick f05297a src/rtapi/rtapi_shmkeys.h new file
-pick 50b7701 src/rtapi/rtapi_support.c/.h factored out from _msg.c/h and extended
-pick 23cc856 src/rtapi/rtapi_task.c changes
-pick 518e162 src7rtapi/rtapi_time.c changes
-pick 694d26b src/rtapi/sim_rtapi_app.cc changes
-pick 2447194 src/rtapi/xeno_math/libm.c  touchups
-pick ba35d25 src/rtapi/xenomai-usr.c/.h changes
-pick 28eacfe src/rtapi/xenomai-kernel.c/.h changes
-pick 9ab6823 cleanup: remove accidentially committed hunk in hal_lib.c
-pick 077f8df src/hal/utils/halcmd_commands.c: cleanup accident
-pick 6e88dbd src/hal/hal_lib.c: remove accidentially exported symbols
-pick 57db855 pick rtapi/rtapi_mbarrier.h
-pick cb77711 halcmd: add 'log' command
-pick 711bf69 rtapi: properly initialize shmem use bitmap
-pick b0c2614 rt-preempt-user: fix merge error
-pick b1be0fc rtapi_io: replace by static inlines
-pick 77db94d rtapi_io, hal drivers: remove FASTIO
-pick 405294b nits
-pick b286743 rtapi_io.h: install in include
-pick 39c7014 ulapi.so: link with -lpthread
-pick 52853b2 rtapi/rt-preempt-user.c: fix rebase damage
-pick be2482e rt-preempt: link rtapi.so with -lrt for clock_gettime
-pick c33f1e4 Merge branch 'shmdrv-userland' into dynload-rtapi-common-shm
-pick 528be87 startup/shutdown: assure sequencing of shm segments creation and deletion before use
-pick 8297d07 cleanup unused variables
-pick c8edff7 xenomai-kernel: cleanup merge droppings
-pick 1988319 shmdrvapi: perror on mmap fail
-pick 10371dd rtapi_module.c: one more merge dropping
-pick 0e02fd3 shmdrv: change from spinlock to mutex, clean up API
-pick 549e7e9 Revert "what's a trivial build?"
-pick 325ea05 common shm: carry over API changes from development branch
-pick 16c3f73 shmdriv: reduce verbosity
-pick e990904 rtapi/flavor: detect and print flavor
-pick eb1683e srcipts/realtime.in: use flavor instead of RTPREFIX
-pick 02faeae shmdrv.c: fix installation issues
-pick 9c2182e Merge remote-tracking branch 'mah/v2.5_branch' into dynload-rtapi-common-shm
-pick 88abf44 scripts/realtime.in: carry over from development branch
-pick eb0c227 module_helper: build always so shmdrv can be loaded (optional)
-pick 415daab rtapi_msgd: correct wait-for-rtapi stack function
-pick 8e7ee7a rtapi/rt-preempt-user: undo merge damage
-pick bdd8086 Merge remote-tracking branch 'mah/rtos-integration-preview3' into dynload-rtapi-common-shm
-pick cbdc0c2 cleanup: remove stuff from development branch
-pick 898a800 .gitignore core files
-pick 138edee sanify shmdrv build
-pick 29133f1 Makefile:  remove gratuitous ifeq BUILD_SYS,user-dso conditional
-pick 662d8ee ub build:  remove kernel compat checks from configure.in
-pick 236ee71 liblinuxcncshm.so: build unconditionally
-pick ec0b8cc Remove SIMULATOR for once and for all
-pick d0b8488 configure.in:  add RT thread detection code; currently does nothing
-pick 01a9078 configure.in:  remove test for user in xenomai group
-pick db6d9a2 rtapi/rtapi_common.h:  remove xenomai-specific code
-pick 3dd6310 rename rt-preempt-user to rt-preempt and xenomai-user to xenomai
-pick 6811e3b configure.in:  set $THREADS, checking against new thread system detection
-pick 45b9f98 configure.in:  set THREADS and KERNELDIR from new thread detection code
-pick 98245d1 configure.in:  remove outdated comments
-pick 705ee7c Build system hall of shame:  clean up CFLAGS & some LDFLAGS
-pick a461ce1 universal build:  mass flavor variable restructuring
-pick 9627831 WIP:  fixing scripts
-pick 79348d5 hal_lib: export flavor
-pick de1dc21 ulapp/hal: adapt using code to inspect flavor
-pick 8461fa8 Makefile.inc.in:  fix -I/include (a second time)
-pick 02690fd flavor detection:  add '-b' argument for build_sys
-pick 1e8dbcc Build system:  remove more variable cruft:  LYX and RTARCH
-pick 64c7837 Include Makefile.inc in Makefile.modinc
-pick 35b2464 configure.in:  check for -lrt & add to LDFLAGS for both posix and rt-preempt
-pick 7f40e23 rtapi/Submakefile:  fix brain-dead linker args to ulapi.so
-pick a99c8a7 hal/hal_lib.c:  remove flavor-specific #ifdef
-pick 7485dbd module_helper/Submakefile:  cleanup
-pick 0b4c5e2 rtapi backend cleanups:  move #includes from .h to .c; other noops
-pick b3efe6d rtapi/Submakefile:  HACK  build rtapi/sim_rtapi_app.cc with -DRTAPI
-pick 56430c6 Merge rtapi/rtapi_support.h back into rtapi.h
-pick 2ec591a Move kernel compat logic from hal_lib.c to rtapi_compat.c
-pick eff85c4 sim_rtapi_app.cc:  silence a compiler warning
-pick 65c2388 Makefile.inc.in:  Compute MODULE_EXT dynamically
-pick 9b46be0 rtapi/exception: define exception causes, handler, setting method
-pick 379eaef rtapi_main: add optional module init hook
-pick 7e30644 xenomai: adapt reporting to new exception handler scheme
-pick 3dca5b5 xenomai-kernel: adapt reporting to new exception handler scheme
-pick b91f72e rtai-kernel: adapt reporting to new exception handler scheme
-pick d10e5f7 rtpreempt: adapt reporting to new exception handler scheme
-pick d6075c0 rtapi_app: check xenomai group id via sysfs
-pick d84b53e rtmon.comp: start on HAL estop support through RT exceptions
-pick b69d4cf classicladder/vars_access.c:  remove RTAI- and Xenomai-specific macros
-pick 53af9a7 rtapi/exceptions: apply output policy once and for all
-pick fef9258 Makefile:  add rtapi/rtapi_exception.h to HEADERS
-pick 67942f8 universal build:  driver build
-pick 11fc229 scripts/realtime.in:  hack:  skip kernel detection for userland threads
-pick 3e8cbb0 rt-preempt.h:  remove non-existent hook that crept in
-pick aea359a Remove flavor-specific code from universal binaries
-pick abb305b .gitignore docs/man/man9/rtmon.9
-pick 79a055b rtapi/shmdrv/Submakefile:  fix EXTRAFLAGS for mutexwatch example
-pick f5b073e scripts/rip-environment:  Output error messages to stderr
-pick 71a0281 mammoth patch:  update build system, scripts and code for universal build
-pick d4fc985 Makefile:  remove left over RTDIR_INC reference
-pick 44b0d72 remove obsolete PTH_CONFIG variable
-pick 56e9739 Remove last reference to RTNAME
-pick ba4d759 configure.in:  always build drivers, even for posix
-pick 29a016b WIP:  separate rtlib for universal build
-pick bfc875e hal_lib.c:  silence 'implicit declaration' compiler warning
-pick 59850fb WIP:  Get this thing running
-pick c8f8451 hal_lib.c:  flavor detect from env moved to rtapi_compat
-pick 9a349e3 rtapi/Submakefile:  build ulapi.so into flavor-dependent subdir of ../lib
-pick 768360d FIXME:  debug msg about where ulapi.so was dlopen()ed from; broken?
-pick 408fcd5 configure.in:  replace a mistakenly removed rtflag to posix+rt-preempt
-pick 740cf71 Remove /rtlib directory from git, since it's really just a build artifact
-pick 5c74f33 universal build:  enable a single kthreads universal build
-pick ef691ba universal build:  build kthreads modules in a separate tree
-pick e5aade9 universal build:  fix make setuid for all flavors
-pick 6192c97 Makefile:  replace objdir path names with $(OBJDIR)
-pick bbb2e36 Add BUILD_THREAD_FLAVORS list of all configured RTOS systems
-pick e1186b7 Pull KBUILD_EXTRA_SYMBOLS into configure.in; fix RTAI build
-pick f85e6a1 Compile ulapi.so sources separately for each flavor
-pick 786b2f1 enable shmdrv by default
-pick 7c2b6db Move #includes out of rtai-kernel.h into rtai-kernel.c
-pick f670092 rtapi/.gitignore:  ignore kthreads flavors too
-pick f589048 Fix broken LDFLAGS for userland rtapi.so modules
-pick dee5f34 Makefile:  build all configure flavors if none specified
-pick 289b4e6 Plumb the RTAI modules directory into rtai.conf and realtime scripts
-pick 6539254 Fix logic for -fno-stack-protector arg in xenomai
-pick c64b91f CFLAG fixes:  match pre-universal build and more cleanups
-pick 5faf0e3 rtapi/Submakefile:  rm THREADS_RTFLAGS frm universal source sim_rtapi_app.cc
-pick 8389f64 kdetect universal binary doesn't need RT_LDFLAGS
-pick 12dcc89 rtapi_kdetect.c:  detect flavors from RH-style kernel release strings
-pick 6cadfad configure.in:  RTAI 'fast-math' related CFLAGS should be set from rtai-config
-pick e894861 Makefile:  clean up case when autogen needs running
-pick 137c531 Get rid of RTSCC for once and for all
-pick 7c0b2a3 Plumb flavor RTS scripts for consistency
-pick 2b40605 scripts/realtime.in:  fix broken kthreads module loading
-pick c2a7035 configure.in:  fix documentation at beginning of file
-pick 0e03232 configure.in:  fix broken arch test
-pick a8ec8ac realtime.in:  fix module unloading
-pick 61bc412 Makefile:  UB: cp -l kbuild breaks if the files already exist; add -f
-pick b8d42f4 configure.in:  add THREAD_FLAVOR_NAME macro; unify RTAPI_COMMON.c
-pick e3cbd9a Remove last reference (in a comment) to FLAVOR_FLAGS
-pick 17fb5a9 rtapi/Submakefile: force link if file exists
-pick 8b7fa1c configure.in:  fix up detection of rtai-config and kbuild kernel dirs
-pick e5c218b configure.in:  give xenomai{,-kernel} detection the same treatment as rtai
-pick 33b9bf5 Fix detection of Xinerama.h etc. when no kbuild styles configured
-pick 37e313e configure.in:  add functions to test all kernels on system
-pick 2d7c046 configure.in:  rework section 2 subsections & documentation
-pick 843543a Pull flavor-specific #ifdef out of emc/motion/control.c
-pick 65e7762 super-ub-kernel-scan-wip:  find all kernels on system & detect type
-pick bf6a838 add support for AC_CANONICAL_HOST in configure.in
-pick 0ab026f universal build:  infra for multiple kernel builds per kthread build
-pick 3768b0b FIXME:  fixes commit 06062ec189e215c3c69676563d69390b87145a34
-pick e184fb7 Add ../lib/liblinuxcncshm.so to TARGETS so it gets cleaned
-pick 3747aef configure.in:  replace a few defaults that got lost
-pick d53a0e9 Universal build:  build for multiple kernels/flavor in one run
-pick c2a4af9 Univ build:  realtime.in, rtapi.conf handle multiple kernel versions
-pick 1a15727 configure.in:  fix BUILD_THREAD_FLAVORS list
-pick afc0c50 rtai-kernel.c:  fix compile problem on 32-bit x86
-pick 3ce2e65 Remove unused EMC2_CONFIG_DIR make variable and cpp #define
-pick dffcc91 Update realtime and rtapi.conf scripts to handle shmdrv
-pick 663018a configure.in:  disable USE_SHMDRV by default
-pick 26f397c xeno_math/libm.c:  remove #include config.h and macros from that source
-pick 9679ec0 rtapi/Submakefile:  remove fixed FIXME re: RTAI -llxrt in LDFLAGS
-pick 8908cea Makefile:  Remove unneeded addition to KBUILD_EXTRA_SYMBOLS
-pick 4ffa883 Makefile no-op:  clarify comments re. KERNELRELEASE
-pick 5cdceb9 Build shmdrv.ko for all detected kernels if USE_SHMDRV=yes
-pick 31a8bd2 Update 'make install' for UB
-pick 96decbb realtime.in:  sleep after loading shmdrv to allow it to initialize
-pick b0e1aac Makefile:  move directory creation into install-dirs target
-pick 1ceeeb0 realtime and rtapi.conf scripts:  fix non-RIP paths
-pick e6cf19c rtapi.conf:  set kernel module path for non-RIP installs
-pick 072d062 rtapi: clean up compile time warnings
-pick 3eb748c shmdrv:  actually *build* shmdrv when USE_SHMDRV=yes
-pick 54ef425 rtapi.conf:  add forgotten ${prefix} substitution
-pick 95b843f shmdrv/Submakefile:  shouldn't need to link with RT_LDFLAGS
-pick 5e15755 Move RTAI LDFLAGS back into configure.in
-pick 7ccd6ce rtapi/Submakefile:  In rtapi build hack, simply symlink the directory
-pick 869c651 WIP:  per-flavor rtapi_app_<flavor> executables:  separate building
-pick 7e2608b Makefile:  fix setuid target for multiple rtapi_apps
-pick 19c14b2 configure.in:  no-op:  Fix description of EMC2_DEFAULT_TOOLTABLE
-pick b9efc1c hal/classicladder/Submakefile:  remove 'suspicious line' (\t\n)
-pick 5328437 Fixes for non-RIP installs; replace rtapi.conf with rtapi.ini
-pick 7c62415 configure.in: assume xeno-config might be found in /usr/xenomai/bin
-pick 8112561f rtapi/rt-preempt: implement rtapi_task_self()
-pick 4a92c42 rtapi/rt-preempt: remove deadline scheduler code
-pick 05e125c rtapi_main: correct error messages
-pick 8b534d2 rtapi:  introduce rtapi_backtrace()
-pick a4f23c2 rtapi_app: clarify error message
-pick 3675659 comps/rtmon: implement Andy's error limit scheme
-pick b94e768 rtapi/backtrace: provide thread-specific hook
-pick ff0bede rtapi/msgd: improve startup log message
-pick b7e9716 comps/rtfault: generate realtime faults on purpose for testing
-pick 0488b66 RT fault handling: test program to exercise rtmon.comp
-pick b7ad8d2 xenomai.c fixes
-pick 2ba5ab9 xenomai-kernel: add missing HAVE_RTAPI_TASK_SELF_HOOK
-pick 6c9e060 xenomai-kernel: add rtapi_backtrace_hook()
-pick f74cc60 rtapi_task.c: remove deprecated comment
-pick 572ec87 rtapi_msg.c: remove unused file
-pick 8058827 rtapi_support.c: switch to message ringbuffer, deprecate RTAPI_PRINTK
-pick b55db86 rtai-kernel.h: remove deprecated RTAPI_PRINTK
-pick 567222e rt-preempt.c: correct printf warnings
-pick 2d3c9a2 rtapi_msgd: comment, add poll timer decay scheme
-pick a20bfe2 rt-preempt.c: add thread name to RT fault message
-pick c300a12 rtapi: delete unused files
-pick 02d653d rtapi/flavor: remove deprecated #include
-pick 05ed747 rtapi/shmdrv: tone down logging
-pick 58d5ff3 rtapi/shmdrv API: add shm_common_init() and shm_common_unlink()
-pick 7df6eb7 rtapi/modules: move % split rtapi_assure_module_loaded()
-pick 8bd68d2 rtapi.h: add comments
-pick 103d479 rtapi:  switch to unified startup sequence
-pick a724898 rtapi: remove unused get_global_handle() method
-pick 12302a5 rtapi/shmem: fix shm segments not beeing deallocated in kthreads
-pick 05af75c rtap/rt-preempt.c: fix rtapi_backtrace_hook() visibility
-pick 46fa447 rtapi: remove misc unused include files
-pick 98592e9 rtapi/rtapi_app: resolve all symbols at dlopen() time (RTLD_NOW)
-pick aa87bec rtapi/rt faults: limit number of messages printed in default handler
-pick b6c204c rtapi/Submakefile: reflect changes in shm usage
-pick b1e9b59 rtapi: misc touchups (editorial)
-pick 47e7221 scripts/realtime, rtapi.conf: reflect new startup sequencing
-pick 72eb09e rtapi/shmdrv.h: fix CR in line endings
-pick 92ba7fa rtapi_msgd, rtapi_app: add gcc version, git version to startup log message
-pick bffcab6 Merge branch 'ub-reorder-startup-rebase' into tmp
-pick feb2cd6 Merge branch 'rtos-master-v0' into tmp
-pick f1c1656 emc/usrmot: remove accidential inclusion in merge
-pick e8dcb21 rtapi_bitops: complete transition to new naming scheme
-pick 1473473 src/configure.in: reflect path name change for linuxcnc.1.in
-pick b50d553 hal/components/Submakefile: undo merge error
-pick d9b7ed8 emc/motion/control.c: fix RT delay test
-pick 91cd9cc src/Makefile: remove dead block
-pick de297d9 src/Makefile: fix merge leftovers
-pick 8e3d805 src/Makefile: dubious fix #1 - please review and correct as needed
-pick dc6786f src/Makefile: dubious fix #2 - please review and correct as needed
-pick 59f953e src/Makefile: dubious fix #3 - please review and correct as needed
-pick c31287c scripts/realtime.in: robustify shutdown checks
-pick 2c1c50a rtapi_msgd: enable rt-preempt flavor on Xenomai kernel
-pick b77106f rtapi_msgd: sanitize log messages
-pick a977024 rtapi/rt-preempt: log thread id on startup so ps/top makes sense
-pick ce0f0cb Revert "src/Makefile: dubious fix #3 - please review and correct as needed"
-pick c2ac6b3 scripts/runtests: start/stop realtime around shell scripts
-pick a36eb49 tests/interp/bad: start as shell script
-pick 49db229 tests/halmodule.0: remove realtime start/stop around test
-pick 96ed3f1 rtapi/rt-preempt: name the threads so HAL names show up in ps/top
-pick 54c3e65 rtapi_app: name the main thread properly in ps/top
-pick bd45f10 rtapi/rt-preempt: log HAL name at thread startup too
-pick da9c33a rtapi/rtapi_app: break long lines
-pick 1a1f9dd Fix tests/overrun
-pick 1731da3 halcmd: fix RT component path completion
-pick 15e5cec halcmd/thread info: display rtapi flavor
-pick 315ae8e beaglebone/pru: adapt .bin loading to new pathname scheme
-pick ee7eadf rtapi_app: rename sim_rtapi_app.cc to rtapi_app.cc
-pick 295cd30 rtapi_app: fix printf typing
-pick 74fb2d2 scripts/realtime: let DEBUG environment variable override rtapi.ini
-pick 5c04b8d scripts/realtime: enable environment options to rtapi_msgd and rtapi_app
-pick 903bf53 rtapi: export simple_strtol for RTAPI/userland too
-pick 1f3b337 tests/hm2_idrom: make it work with uthreads and new logging
-pick e811298 rtapi_common: fix export - RTAPI only
-pick 1e9180e kernel autodetect: rework RTAI detection
-pick b0899f3 common shm library: link with -lrt for shm_open(), shm_unlink()
-pick a0d625b hal_lib: link with common shm API library too
-pick 8e4d8f2 configure.in: rtai_shm.ko doesnt exist (at least in 2.6.32-122-rtai)
-pick 587d90e rtapi/rtai: delete RTAI-specific shm code
-pick 04a0790 rtapi_msgd: mlock() the global segment
-pick 709e3c3 linuxcnc.in:  remove obsolete test for KERNEL_VERS
-pick 58024e2 Makefile:  don't warn about frame sizes for user threads
-pick 4a49a23 rtapi_compat.c:  hardcode kmodule extension and print diagnostics on failure
-pick 3b4606c realtime.in:  fix shmdrv unloading behavior
-pick c68419e .gitignore several bits of build cruft
-pick 38af9ca Makefile.inc.in:  set default thread style to first in detected list
-pick 7874aab Replace 'make setuid' message at end of make run
-pick 9a7fea7 Fix rules for --with-<flavor> in configure.in
-pick 0774c8e rtapi_msgd: mlock() the global segment
-pick 5484a29 rtapi_msgd: print error ring statistics counters on exit
-pick abe17b6 rtapi_msgd: accept --halstacksize=<value> parameter
-pick 088a362b halrmt.c: remove warning
-pick 843601d rtapi: add module exit hook for RTAPI
-pick b4d768b RT thread exceptions & global thread status: data structures
-pick 7402534 global_data: add thread statistics structs
-pick 7c3afaf rtapi: add rtapi_task_update_stats() method
-pick f04f9fb rtapi/Submakefile: add rtapi_exception.o into rtapi.so/ko
-pick cf7c8cf halcmd: add RT thread status reporting
-pick 2adfa62 components/rtmon: switch to new exception handler signature
-pick 190d617 rtapi/xenomai: adapt for new status and exception handling
-pick 80aa697 rtapi/xenomai-kernel: adapt for new status and exception handling
-pick 7cf5f4a rtapi/rt-preempt: adapt for new status and exception handling
-pick 135b597 rtapi_msgd: drop core on segfault
-pick 6c782fb rtapi_print_msg: fix message level logic for userland RTAPI
-pick a974f86 rtapi/rtai: adapt for new status and exception handling
-pick 4a648df runtests: tag syslog with test directory path
-pick 7235cab rtapi_msgd: report state in global segment, make rtapi_app inspect it
-pick 45a90cd global_data: use unsigned for magic values
-pick 3fca647 rtapi_app:  be more persistent while attaching the global segment
-pick 1f999aa rtapi_app: simplify shutdown
-pick 71541f1 rtapi_msgd: simplify shutdown
-pick 74cd058 scripts/realtime: send TERM signal to msgd if it didnt exit yet
-pick f01b54a rtapi/xenomai: fix race condition on RT thread deletion
-pick fa3715c ulapi UB hack:  fix make -j and creating rtapi/$(threads) link
-pick 525c588 Makefile:  Simplify & prettify kbuild invocation (should be no-op)
-pick feb5162 Makefile:  fix logic problem in 'sudo make setuid' message
-pick 8312dc5 configure.in:  silence 'Permission denied' warnings from 'find'
-pick c7d8a98 .gitignore tests/bitops.0/bitops
-pick e14f676 Fix universal build:  no remaking up-to-date modules; shmdrv fixes
-pick 6331839 .gitignore hm2-idrom/realtime.log.* output
-pick 0012455 Updates to docs/AUTHORS and docs/INSTALL
-pick d03e66c realtime.in:  sometimes shmdrv isn't loaded when it should be in Unload()
-pick 7d1605a rtapi: remove unused rtapi ring ops, rtapi_backtrace
-pick 969212b rtapi/flavors: add flavor flags in rtapi_switch struct
-pick 03a7442 ulapi_autoload: delay loading of ulapi support until first rtapi_init()
-pick ae1e252 hal_lib: use ulapi autoload function
-pick 933530a rtapi_common: delete unused code
-pick 3d6b35c rtapi/ulapi init & exit: common variable visibility
-pick b17f5f3 rtapi_module: disable dubious init_rtapi_data() from ULAPI
-pick f1e34c5 hal, rtapi: minor edits, mostly comments/ dead code removal
-pick c734d06 runtests: back out "scripts/runtests: start/stop realtime around shell scripts"
-pick 5513ff3 license: carry over copyright statements on some headers
-pick cab09c9 halcmd: remove leftovers from development branch
-pick fd02160 name spelling bees: it is Haberler. Not Harberler, not Halberler or any other variant thereof.
-pick fa830ae hal_pru: dont refer to get_rtapi_config()
-pick ec4dd90 logging: rsyslogd config fragment + instructions
-pick cd2eb0c scripts/realtime: let environment vars override USE_SHMDRV and HAL_SIZE
-pick effef7b docs: delete John's docs/INSTALL - folded into docs/src/common/UnifiedBuild.txt
-pick 345da24 docs: start unified build overview, installation and usage section
-branch cab09c9 halcmd: remove leftovers from development branch
-pick 622707a Merge remote-tracking branch 'origin/master' into ub-v0-merge-stab4-master-merge
-pick b25e0d7 Merge branch 'ub-v0-merge-stab4' into ub-v0-merge-stab4-master-merge
-pick c05a0da Merge branch 'ub-v0-merge-stab4' into ub-v0-merge-stab4-master-merge
-pick 38a3f2f docs: notes on runtests, issue tracker, ps display on rt-preempt
-pick a9d671b src/configure.in: delete --enable-gcc-atomic-ops
-pick 19b97dd emcweb: make optional - requires --enable-emcweb configure option now
-pick a599b19 debian/control.in: minmize package prerequisites
-pick 95fe0a5 docs/build note: note on package dependencies
-pick da4e70a docs: note on parallel make
-pick 2f73433 Remove KMODDIR Make variable
-pick 286c440 Makefile.modinc:  frame size checks only needed for kbuild
-pick 864d58b Makefile.modinc:  update kbuild 'modules' recipe to match UB
-pick 372c36b rtapi/rtapi_export.h needs to be installed
-pick 1a4fd11 Makefile.modinc.in:  Remove RTFLAGS, defined in Makefile.inc
-pick 3e00aad Makefile.modinc:  Update BUILD_SYS variable name
-pick 2c9923b Fix out-of-tree comps building, part 1 (still broken)
-pick 85c0630 Fix out-of-tree comps building, part 2 (still broken): kthreads
-pick a7cf6f8 Fix symbols.0 test for userland
-pick 1ea5e64 Add rtapi_export.h to HEADERS
-pick 1dd760f .gitignore lib/python build artifacts
-pick f6a279b Makefile.modinc: add KERNEL_MATH_CFLAGS back to EXTRA_CFLAGS
-pick a4a8c38 rtapi/Submakefile:  add correct -rpath after $(EMC2_RTLIB_DIR) change
-pick bde19dd Makefile.inc:  Fix KBUILD_EXTRA_SYMBOLS for out-of-tree module builds
-pick 8e08d8b docs: start POOPS section
-pick 9b91813 Merge remote-tracking branch 'mah/MachineKit' into ub-v0-merge-stab4-master-merge
-pick 39f79e3 docs: UnifiedBuild.txt updates
-pick 10ad50e docs/ub info: add 'Reporting an error'
-pick 6f3c853 man/hal_create_thread, rtapi_task_new: doucment new parameters
-pick 087bdbd deb: fix a syntax error in control.in
-pick 94f312e realtime.in:  fix shm checking
-pick 9bf9a28 realtime:  thorough shmdrv checks; DEBUG value always decimal
-pick 48a1321 realtime.in:  more thorough CheckStatus() checks
-pick 0c141a3 realtime:  revert extended shmdrv tests
-pick 5224f13 Fix gcc multilib bug in precise
-pick 0f3f159 Undo hack to overrun test
-pick 3605ae7 docs: shmdrv notes in UnifiedBuild.txt
-pick 019bc92 rtapi_shm/kthreads: make shm key honor instance id
+pick 22d52a0 Merge branch 'rtos-integration-preview3-merged-into-master'
+pick 3897ca5 Merge branch 'master' of git://git.linuxcnc.org/git/emc2
+pick 89c9ef9 Merge branch 'master' into rtos-integration-preview3-merged-into-master
+pick 5140aa2 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 4b8dcbc Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 87351a6 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 44364b3 Merge branch 'master' into rtos-integration-preview3-merged-into-master
+pick 023e584 fix src/po/fr.po by resetting to master
+pick 04b18ca Merge branch 'master' into rtos-integration-preview3-merged-into-master
+pick c9903f2 Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
+pick 1834164 src/Makefile: remove hiredis.h target
+pick eff1b11 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 20a124c Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
+pick b419ce3 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick e7674db task: remove accidentially commited case
+pick 31cfe5d configure.in: add substituion lost in merge
+pick f8faf08 task/emctaskmain.cc: correct merge accident
+pick 52066f3 tests: build test_rtapi_vsnprintf again
+pick 8a3671f rtapi/Submakefile: add trailing newline
+pick 0325486 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick fe3a31c docs: remove merge leftover
+pick 9af4540 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+branch fe3a31c docs: remove merge leftover
+pick 6b04f1f deb configure: cleanup merge of master
+pick b5d70aa deb configure: flatten a nested if for legibility
+pick d9742c8 deb configure: comment the inspect_kernel function
+pick 45e4cab deb configure: re-enable "-a"
+pick d0f8df3 deb configure: most settings are per kernel-type, not per kernel
+pick 6c52475 deb configure: better success report from configure
+# pick 360ba2d Merge remote-tracking branch 'origin/rtos-integration-preview3-merged-into-master' into rtos-integration-preview3-merged-into-master
+pick 8eb4c65 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 16cafba Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 86b4c3e Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
+pick 6a7b7e8 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick 1ccd057 Merge remote-tracking branch 'mah/master' into rtos-integration-preview3-merged-into-master
+pick 17b5d46 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick eacd3fb Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+pick b0851e1 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+branch 5d56ba4 rtapi/userpci: add missing kzalloc() emulation
+pick 7cf8077 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview4
+branch 319d2ba fix typo
+pick d20087c build system: re-enable hm2_test
+pick ee26319 switch hm2_test module params from linux to RTAPI
+pick ec6c726 initial commit
+pick c57707a cleanup
+pick f418b64 cleaned up and added to main makefile
+pick ca45135 added missing files
+pick ce886c6 missing files
+pick b0803b1 cleanup
+pick 347bd8b missing directory
+pick 98fbbe6 minor ini update
+pick 064015f touchup: make it compile on lucid/boost 1.40.0
+branch 8851ff9 add 5i25 config
+pick 4107432 arm335x: add PRU assembler
+pick c23d6eb arm335x: add PRU userspace application loader (pruss)
+pick 192f064 arm335x: build support for pasm, pruss driver
+pick 17e5085 arm335x/prussdrv: add method to execute compiled-in code
+pick f4dc913 hal_pru:  first cut of a HAL component with PRU code
+pick a5e93c1 arm335x: PRU code example
+pick 77a4c36 hal/am335x: make hal_pru do somthing on PRU
+pick 16c61a1 prussdrv.v:  RTAPIify error messages
+pick 744b27d hal_pru/build: remove assembling pasm code into .h files
+pick fec623a hal_pru:  always load from filename
+pick e10504a hal_pru: take PRU register dump when hal_pru.dump changes state
+pick b11e151 PRU debugging: decode pasm .dbg file format
+pick f9bca7f hal_pru: improve PRU introspection
+pick 7b55c0f hal_pru: evolve into a PRU debugger component
+pick ae03b5c pasm: remove original TI assembler
+pick 08e00ec pasm: add assembler from Bas: https://github.com/modmaker/am335x_pru_package
+pick 86bc52d blinkleds.p: LOOP is now a reserved word
+pick 87971d7 prussdrv: cleanup
+pick 69647e4 hal_pru, hal_prudebug: split into simple loader and separate debugger
+pick 3457093 examples: add directory with PRU debugger usage example
+pick 0f8005a hal/PRU debug: complete debugger example with GladeVCP user interface
+pick 23e81d6 prudebug: use gtksourceview instead of gtktextview
+pick d192cab prudebug: use gtksourceview instead of gtktextview
+pick 72eab61 prudebug: add pygtk plumbing for set/remove breakpoint
+pick 229b675 pru_support: reorganize everything PRU-related into pru_support
+pick dbf2dba pruaccess.py: start work on direct Python access to PRU
+pick f665739 src/Makefile: undo build hack
+pick f676b2d pru/pruaccess.py: IEP register defines
+pick 469946c pru/timer: using the IEP COUNT and CMP0 registers for precise timing
+pick bae0abe pruaccess: add eCAP defines
+pick 6c67b41 pru timing: explore eCAP timer
+pick 7d370a9 xenomai:  improve detection and execution of xeno-config
+pick 7b8241f pasm: fix invocation
+pick e3ad0ea fix
+pick 727ef2f pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
+pick 5a9d228 pru: IEP timer example
+pick f5c50c4 pru: eCAP0 timer working example
+pick 55d827d fixup
+pick d47fa63 add in original hal_pru.c / hal_prudebug.c
+branch 69175f0 configure: enable USERMODE_PCI by default if platform PC and userland threads
+pick 12ee2e6 arm335x: add PRU assembler
+pick dffb240 arm335x: add PRU userspace application loader (pruss)
+pick a07cbc6 arm335x: build support for pasm, pruss driver
+pick eebee0e arm335x/prussdrv: add method to execute compiled-in code
+pick c44f134 hal_pru:  first cut of a HAL component with PRU code
+pick e6d3b27 arm335x: PRU code example
+pick 93e9fcc hal/am335x: make hal_pru do somthing on PRU
+pick 124b86d prussdrv.v:  RTAPIify error messages
+pick b28d6d2 hal_pru/build: remove assembling pasm code into .h files
+pick a1ba714 hal_pru:  always load from filename
+pick c0992f9 hal_pru: take PRU register dump when hal_pru.dump changes state
+pick 940f33d PRU debugging: decode pasm .dbg file format
+pick 496f252 hal_pru: improve PRU introspection
+pick f020d6b hal_pru: evolve into a PRU debugger component
+pick 6748893 pasm: remove original TI assembler
+pick 27cf522 pasm: add assembler from Bas: https://github.com/modmaker/am335x_pru_package
+pick 90707d1 blinkleds.p: LOOP is now a reserved word
+pick ab961ef prussdrv: cleanup
+pick 88de640 hal_pru, hal_prudebug: split into simple loader and separate debugger
+pick d7665c8 examples: add directory with PRU debugger usage example
+pick 13425cb hal/PRU debug: complete debugger example with GladeVCP user interface
+pick 9901164 prudebug: use gtksourceview instead of gtktextview
+pick 0249159 prudebug: use gtksourceview instead of gtktextview
+pick f92d8c4 prudebug: add pygtk plumbing for set/remove breakpoint
+pick ab7ed22 pru_support: reorganize everything PRU-related into pru_support
+pick 8323feb pruaccess.py: start work on direct Python access to PRU
+pick 46e037d src/Makefile: undo build hack
+pick 95a4ddd pru/pruaccess.py: IEP register defines
+pick 6783832 pru/timer: using the IEP COUNT and CMP0 registers for precise timing
+pick 5c5fbfd pruaccess: add eCAP defines
+pick ce95062 pru timing: explore eCAP timer
+pick 7084063 xenomai:  improve detection and execution of xeno-config
+pick 408eb2f pasm: fix invocation
+pick c34e546 fix
+pick bcbc2da pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
+pick 64c4ea7 pru: IEP timer example
+pick 8da61ff pru: eCAP0 timer working example
+pick b3e1a07 fixup
+pick 294795c add in original hal_pru.c / hal_prudebug.c
+pick 3f858d1 Merge branch 'arm335x-hal-pru-module' of git+ssh://git.mah.priv.at/emc2-dev into arm335x-hal-pru-module
+pick b491c96 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 6f67247 fix merge leftover
+pick 63a36dc Merge remote-tracking branch 'mah/rtos-integration-preview3' into arm335x-hal-pru-module
+pick 4348012 Initial version of potentially useful PRU code
+pick 786c790 Use IEP timer to provide consistent loop timing...there is still room for improvement by routing an event to the PRU and polling r31 instead of reading the IEP status register.
+pick df1261d Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 9c72b5f New HAL component hal_pru_generic to talk to the stepgen.p PRU code
+pick 78e86d0 Added position mode stepgen control logic (from hostmot2 driver)
+pick c60b942 Fixed logic creating 16.16 accumulator value from PRU accumulator and position values
+pick e7739ad Fixed bug in PRU position accumulator logic Default to PRU 1, issue warning if loading to PRU 0 Add pru-stepper configuration, based on hm2-stepper with some renaming and larger allowed following error
+pick 1cba2f9 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 45f96fe Merge remote-tracking branch 'origin/v2.5_branch' into arm335x-hal-pru-module
+pick f8bbf5e Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick c5cf57a Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 436e204 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 1558c41 Merge branch 'arm335x-hal-pru-module' into emcweb
+branch 436e204 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 782a618 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 002ef14 Merge branch 'arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
+branch 782a618 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick a1159fd Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick dfff1f6 Merge branch 'arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
+branch a1159fd Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick d6e2cbc Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 6210cdd Merge branch 'arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
+branch d6e2cbc Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 58818d7 Fix goof in mount command syntax
+pick fde5606 Add I/O pinout details for BeBoPr and Replicape (in progress)
+pick 62ee4cb added hal_bb_gpio driver, and tweaked Makefile to include it for platform beagleboard
+pick bf0bf38 starting to set up shared memory structures; not currently working
+pick 61b2102 fixed shared mem issue.
+pick 4ff90fa config string parsing, gpio/control register mmaps in place
+pick 69931f1 userled write function working
+pick 5fa6153 created pin tables, input and output pin initialization.  Not quite working yet, but close
+pick 5c671b3 input/output code essentially done, but as yet untested
+pick ed83423 outputs are working... inputs should be close behind
+pick 1639c35 input section works.  Driver is essentially functionally complete.  Needs more work for pin conflict handling
+pick 516ea0f drivers/gpiomap: GPIO pin access coordination helper
+pick 2bd3a9c rtapi_bitops.h: add _BIT_SET(), _BIT_TEST(), _BIT_CLEAR()
+pick abbf30f gpiobitmap: helper module for GPIO pin coordinated access by HAL drivers
+pick 139dec6 Fix goof with PRU update frequency causing stepgen to hunt
+pick a70d21e Merge remote-tracking branch 'mah/arm335x-hal-pru-module' into arm335x-hal-pru-module-emcweb
+pick ffce914 Merge remote-tracking branch 'mah/arm335x-hal-pru-module-emcweb' into rtos-integration-preview4
+branch 139dec6 Fix goof with PRU update frequency causing stepgen to hunt
+pick e04786a device tree: blob to enable PRU on 3.8 kernels
+pick 2667bf3 devicetree: dtc excerpted from 3.8 kernel source
+pick 1c568b8 Fix for compiler warning
+pick 492a254 Create new branch to work on task-based PRU code Begin refactoring and moving around existing files
+pick 73ccd6e Migrated growing collection of support tools to hal/support
+pick 04a4869 Fix build for new support directory location
+pick 36c86d6 PRU/pasm: makefile dependency generator for .p -> .bin files
+pick 4b4ce25 Initial version of task-based PRU code Only for the very brave or the very foolish, lots of work remaining
+pick 661f17b hal pru: Submakefile touchups
+pick 0e0108b Beginning signs of life, pwmgen is alive and connected to HAL
+pick c3b044e Added ability to drive GPIO pins and not just direct PRU outputs
+pick bdd9002 step/dir generation showing signs of life Fixed file header comments/changelog
+pick c893ad0 pru-stepper LinuxCNC config working with PRU still rough around the edges, but beginning to be usable
+pick 78c5c60 Revert unintended change to devmem2.c
+pick 42fad1e PRU assembly: depend on pasm
+pick 7cb36c6 hal/drivers/hal_pru_generic: indent cosmetics
+pick 6758bbc General code cleanup and reformatting
+pick 825308f Initial configuration files for BeBoPr cape
+pick 88fd83b Update BeBoPr configuration to metric Use speed/acceleration values more appropriate for a 3D printer
+pick e6f27a2 Add delta-sigma generation code back to PRU Add prefix to PRU labels since they are not unique to a variable scope Minor cleanup to BeBoPr setup script
+pick 4eae65c Working configuration to control my MendelMax 3D printer Added a python HAL module to read extruder temperature from the ADC
+pick 245e152 Fix prussdrv to work with 3.8 kernel
+pick 42b13d1 Craft rudamentary device tree overlay to get PRU working with 3.8 kernel
+pick 67e1bc4 Added new devcie tree files missed in last commit
+pick 8039e9e Updated dts file, adding all BeBoPr pins from 3.2 example BeagleBone Black eMMC pins are currently commented out
+pick ddee062 Update setup script for 3.8 kernel Pins must be exported to activate GPIO module before hal_bb_gpio can mmap the control registers to configure and talk to them
+pick 7828bb2 Merge remote-tracking branch 'mah/arm335x-hal-pru-tasks' into rtos-integration-preview4
+pick 2fa7840 Merge branch 'rtos-integration-preview4' into rtos-integration-preview3-merged-into-master
+pick 81c11cc Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
+pick 66000f2 halrmt: adapt conditionals
+pick 8585544 halcomp/mux_generic:  adapt SIM to BUILD_SYS_USER_DSO
+pick 6386178 scripts/realtime.in: mop up all likely shm segment keys
+pick c668aa4 debian/control.in: add prerequisites for emcweb
+pick 0f76524 emcweb: build objects with -fPIC to keep amd64 builds happy
+pick fc740c5 runtests/bitops.0: test case for rtapi_bitops.h
+pick eda7651 rtapi_bitops.h: use gcc/llvm intrinsics instead of assembly
+pick f8d60eb rtapi_bitops: change using code to new API
+pick 477db96 hal/gpiomap: adapt to new rtapi_bitops.h API
+pick 58d3d23 hal/gpiouse: adapt to new rtapi_bitops.h API
+pick 73b2f97 tests/rtapi_printf.0: enable for kbuilds only
+pick 5df83cf src/Makefile: reorganize subdir list
+pick 513b0fc rtapi/examples: remove extint, fifo, semaphore examples
+pick befb8ce hal/support: remove dtc for Beaglebone
+pick a54390e Minor cleanup of pru-examples directory
+pick 3b523b3 config/pru-examples : Begin refactoring of pru-examples directory config/BeagleBone : Add BeagleBone configuration directory and begin migration of existing configs
+pick eb91de0 scripts/pru_debug : Initial version of pru_debug script
+pick a0a2c08 configs/pru_debug : Tweak pru_debug script and re-arrange config directories
+pick c3ff7e0 configs/BeBoPr : Tweaked configuration and added launch script Device tree overlay(s) are now checked for and loaded automatically if needed, making launching LinuxCNC much safer and more likely to succeed
+pick 4862527 configs/BeBoPr : Added README file for BeBoPr configuration
+pick f0cbd20 configs/K9.3D : Migrated setup script to K9.3D config and updated README
+pick 0e7a076 configs/BeBoPr : Updated BeBoPr configs to actually print Added kefob ngc file Added stub M1xx codes for temperature control
+pick 70c2ad1 configs/BeagleBone : Update jog increments & add askpass switch to sudo
+pick 9bf231f Merge remote-tracking branch 'origin/master' into rtos-master-v0
+pick 30af9a1 configs/BeBoPr : Add ADC to temperature conversion Add custom pyvcp panel to display set and measured temperatures.
+pick a8f4d46 hal/hal_bb_gpio : Add invert parameter to I/O pins
+pick 1a2bf6b configs/BeBoPr : Modify configuration to use new gpio invert parameter
+branch 30af9a1 configs/BeBoPr : Add ADC to temperature conversion Add custom pyvcp panel to display set and measured temperatures.
+pick 6ccc35b PRU debugger example: enable loading a file at startup
+pick 2f43b39 Merge remote-tracking branch 'origin/pru-debugger-load-file-on-startup' into rtos-master-v0
+pick e9fc198 scripts/pru_debug : Support new automatic file loading flag for PRU debugger
+pick 8f11ce0 configure: test for boost serialization and thread
+pick 142b128 rtapi_app: make dlopen do all work up front
+pick 611d94b build: fix dependency information for realtime files
+pick 3109f9b include needed header <map> for std::map
+pick 979f2be Merge branch 'rtos-master-v0' into tmp
+pick e20403e emc/usrmot: remove accidential inclusion in merge
+pick c7a9efd rtapi_bitops: complete transition to new naming scheme
+pick 7ee5861 src/configure.in: reflect path name change for linuxcnc.1.in
+pick 2f33f34 hal/components/Submakefile: undo merge error
+pick 37faf8b emc/motion/control.c: fix RT delay test
+pick 87e59e9 src/Makefile: remove dead block
+pick 6a0a1d6 src/Makefile: fix merge leftovers
+pick d86fc73 src/Makefile: dubious fix #1 - please review and correct as needed
+pick a440578 src/Makefile: dubious fix #2 - please review and correct as needed
+pick a188223 src/Makefile: dubious fix #3 - please review and correct as needed
+pick a62c742 scripts/realtime.in: robustify shutdown checks
+pick 5a8c999 rtapi_msgd: enable rt-preempt flavor on Xenomai kernel
+pick a137f37 rtapi_msgd: sanitize log messages
+pick 6bbb99f rtapi/rt-preempt: log thread id on startup so ps/top makes sense
+pick 767ac0e Revert "src/Makefile: dubious fix #3 - please review and correct as needed"
+pick 05c8f85 scripts/runtests: start/stop realtime around shell scripts
+pick d7ee432 tests/interp/bad: start as shell script
+pick 6c8cc00 tests/halmodule.0: remove realtime start/stop around test
+pick c220da8 rtapi/rt-preempt: name the threads so HAL names show up in ps/top
+pick 8a47b6d rtapi_app: name the main thread properly in ps/top
+pick c16af29 rtapi/rt-preempt: log HAL name at thread startup too
+pick b74eb47 rtapi/rtapi_app: break long lines
+pick e3237db Fix tests/overrun
+pick 40f11d0 halcmd: fix RT component path completion
+pick 519a9df halcmd/thread info: display rtapi flavor
+pick 6ea8433 beaglebone/pru: adapt .bin loading to new pathname scheme
+pick 1228cca rtapi_app: rename sim_rtapi_app.cc to rtapi_app.cc
+pick b3fba0d rtapi_app: fix printf typing
+pick 53c92f7 scripts/realtime: let DEBUG environment variable override rtapi.ini
+pick 38147e5 scripts/realtime: enable environment options to rtapi_msgd and rtapi_app
+pick 161866a rtapi: export simple_strtol for RTAPI/userland too
+pick a789798 tests/hm2_idrom: make it work with uthreads and new logging
+pick 038b868 rtapi_common: fix export - RTAPI only
+pick b86ea07 kernel autodetect: rework RTAI detection
+pick ea0cc2b common shm library: link with -lrt for shm_open(), shm_unlink()
+pick 8cfb496 hal_lib: link with common shm API library too
+pick ae3f7db configure.in: rtai_shm.ko doesnt exist (at least in 2.6.32-122-rtai)
+pick e5364af rtapi/rtai: delete RTAI-specific shm code
+pick 6a8f624 rtapi_msgd: mlock() the global segment
+pick 1833003 linuxcnc.in:  remove obsolete test for KERNEL_VERS
+pick 692e57c Makefile:  don't warn about frame sizes for user threads
+pick 113ab99 rtapi_compat.c:  hardcode kmodule extension and print diagnostics on failure
+pick 98541ad realtime.in:  fix shmdrv unloading behavior
+pick f17f237 .gitignore several bits of build cruft
+pick 18f3081 Makefile.inc.in:  set default thread style to first in detected list
+pick 3522fca Replace 'make setuid' message at end of make run
+pick 5140673 Fix rules for --with-<flavor> in configure.in
+pick 3642e79 rtapi_msgd: mlock() the global segment
+pick f835273 rtapi_msgd: print error ring statistics counters on exit
+pick 46289a9 rtapi_msgd: accept --halstacksize=<value> parameter
+pick 2e69169 halrmt.c: remove warning
+pick f9b20a6 rtapi: add module exit hook for RTAPI
+pick a1fa27d RT thread exceptions & global thread status: data structures
+pick ecb8902 global_data: add thread statistics structs
+pick a50a982 rtapi: add rtapi_task_update_stats() method
+pick 7cfb8a2 rtapi/Submakefile: add rtapi_exception.o into rtapi.so/ko
+pick d385ccf halcmd: add RT thread status reporting
+pick 20d24b1 components/rtmon: switch to new exception handler signature
+pick 3e86638 rtapi/xenomai: adapt for new status and exception handling
+pick d902cc1 rtapi/xenomai-kernel: adapt for new status and exception handling
+pick 5896dee rtapi/rt-preempt: adapt for new status and exception handling
+pick 84fe715 rtapi_msgd: drop core on segfault
+pick 04682dc rtapi_print_msg: fix message level logic for userland RTAPI
+pick c93ae0c rtapi/rtai: adapt for new status and exception handling
+pick bdd2e5a runtests: tag syslog with test directory path
+pick 4f1a5c6 rtapi_msgd: report state in global segment, make rtapi_app inspect it
+pick 0fd4840 global_data: use unsigned for magic values
+pick 46a2491 rtapi_app:  be more persistent while attaching the global segment
+pick cd2d4dc rtapi_app: simplify shutdown
+pick 57649bb rtapi_msgd: simplify shutdown
+pick ea5a6b7 scripts/realtime: send TERM signal to msgd if it didnt exit yet
+pick 9b93cf2 rtapi/xenomai: fix race condition on RT thread deletion
+pick a2d6d77 ulapi UB hack:  fix make -j and creating rtapi/$(threads) link
+pick d987787 Makefile:  Simplify & prettify kbuild invocation (should be no-op)
+pick 208467f Makefile:  fix logic problem in 'sudo make setuid' message
+pick ef2e8ca configure.in:  silence 'Permission denied' warnings from 'find'
+pick 13ae17b .gitignore tests/bitops.0/bitops
+pick db82630 Fix universal build:  no remaking up-to-date modules; shmdrv fixes
+pick 53f80fa .gitignore hm2-idrom/realtime.log.* output
+pick 883fbd6 Updates to docs/AUTHORS and docs/INSTALL
+pick 8b6ed55 realtime.in:  sometimes shmdrv isn't loaded when it should be in Unload()
+pick 6a7c135 rtapi: remove unused rtapi ring ops, rtapi_backtrace
+pick 2e115b0 rtapi/flavors: add flavor flags in rtapi_switch struct
+pick 7ac5643 ulapi_autoload: delay loading of ulapi support until first rtapi_init()
+pick 1277012 hal_lib: use ulapi autoload function
+pick b2aa022 rtapi_common: delete unused code
+pick 181a031 rtapi/ulapi init & exit: common variable visibility
+pick 6c111e6 rtapi_module: disable dubious init_rtapi_data() from ULAPI
+pick da4789f hal, rtapi: minor edits, mostly comments/ dead code removal
+pick 164647d runtests: back out "scripts/runtests: start/stop realtime around shell scripts"
+pick c364dd3 license: carry over copyright statements on some headers
+pick 448c481 halcmd: remove leftovers from development branch
+pick 56c5e3d Merge remote-tracking branch 'origin/master' into ub-v0-merge-stab4-master-merge
+branch 448c481 halcmd: remove leftovers from development branch
+pick da82bbc name spelling bees: it is Haberler. Not Harberler, not Halberler or any other variant thereof.
+pick d5f1f12 hal_pru: dont refer to get_rtapi_config()
+pick 191a5ff logging: rsyslogd config fragment + instructions
+pick 8951604 Merge branch 'ub-v0-merge-stab4' into ub-v0-merge-stab4-master-merge
+branch 191a5ff logging: rsyslogd config fragment + instructions
+pick 3307abf scripts/realtime: let environment vars override USE_SHMDRV and HAL_SIZE
+pick 82b72fa docs: delete John's docs/INSTALL - folded into docs/src/common/UnifiedBuild.txt
+pick c7d77ad docs: start unified build overview, installation and usage section
+pick 4687c8b Merge branch 'ub-v0-merge-stab4' into ub-v0-merge-stab4-master-merge
+pick 94892c9 docs: notes on runtests, issue tracker, ps display on rt-preempt
+pick 52b189b src/configure.in: delete --enable-gcc-atomic-ops
+pick 3db4223 emcweb: make optional - requires --enable-emcweb configure option now
+pick 5fc3ace debian/control.in: minmize package prerequisites
+pick 1c6e248 docs/build note: note on package dependencies
+pick f1622ae docs: note on parallel make
+pick 65d9288 Remove KMODDIR Make variable
+pick fc68dba Makefile.modinc:  frame size checks only needed for kbuild
+pick be6466d Makefile.modinc:  update kbuild 'modules' recipe to match UB
+pick dfabf1d rtapi/rtapi_export.h needs to be installed
+pick 0090a8e Makefile.modinc.in:  Remove RTFLAGS, defined in Makefile.inc
+pick e32979c Makefile.modinc:  Update BUILD_SYS variable name
+pick 1e46c46 Fix out-of-tree comps building, part 1 (still broken)
+pick 06912a1 Fix out-of-tree comps building, part 2 (still broken): kthreads
+pick dd67a55 Fix symbols.0 test for userland
+pick 1d00636 Add rtapi_export.h to HEADERS
+pick 1ff455c .gitignore lib/python build artifacts
+pick 5c7c5c5 Makefile.modinc: add KERNEL_MATH_CFLAGS back to EXTRA_CFLAGS
+pick e9f15a3 rtapi/Submakefile:  add correct -rpath after $(EMC2_RTLIB_DIR) change
+pick 15b8734 Makefile.inc:  Fix KBUILD_EXTRA_SYMBOLS for out-of-tree module builds
+pick 0fac19f docs: start POOPS section
+branch e9fc198 scripts/pru_debug : Support new automatic file loading flag for PRU debugger
+pick fb00975 scripts/pru_debug : Updated PRU debugger script and example PRU project
+pick 8fe960d configs/K9 : Update K9 configuration to get inputs working
+pick f5616b4 configs/BeagleBone : Fix K9 configuration
+pick 8774098 config: BeagleBone Update BeBoPr configuration files Add K9 configuration that runs with HDMI enabled
+pick 2744af1 configs: BeagleBone Update K9.wHDMI config
+pick 44d8faf nc_files : M106 M107 Added missing user M1xx code files, currently just stubs
+pick 1c403b9 configs/BeBoPr : Fully comment bed heater code so HAL loads properly
+pick 5cbe3c6 configs/BeagleBone ; UNTESTED - Add configuration for BeBoPr + Bridge Board
+pick 94d9e0c configs/BeBoPr : Fix configuration for BeBoPr + Bridge
+pick 135e2b3 configs/BeagleBone : Updated BeBoPr configurations to support input pins Minor tweaks to README files for BeBoPr and K9 configurations
+pick 458679a configs/BeagleBone : Add input_pins section to hal_bb_gpio in BeBoPr.hal
+pick 8dc8ca6 configs/BeBoPr : Fix configurations so inputs work properly gpio bank 0 must have at least one pin exported in order to work properly
+pick a8a0ea8 configs/BeBoPr : Modify ReadTemp.py to support multiple ADC channels Trying to read multiple values at the same time (which could happen when running multiple instances of the previous ReadTemp.py) causes the kernel adc reader to return invalid values.  This update modifies ReadTemp.py so it reads multiple values in sequence, with a 1 mS delay between each read. Hopefully, this will work around the issue with the BeagleBone ADC driver.
+pick 33ce652 configs/BeagleBone : Fix BeBoPr-Bridge configuration
+branch 8dc8ca6 configs/BeBoPr : Fix configurations so inputs work properly gpio bank 0 must have at least one pin exported in order to work properly
+pick 5367894 M104: provide example
+pick 4f34ca4 Merge pull request #5 from brandonheller/MachineKit
+pick 40e59cb Merge remote-tracking branch 'mah/MachineKit' into ub-v0-merge-stab4-master-merge
+pick 8766709 docs: UnifiedBuild.txt updates
+pick 38f9e63 docs/ub info: add 'Reporting an error'
+pick bfc3342 man/hal_create_thread, rtapi_task_new: doucment new parameters
+pick d039182 deb: fix a syntax error in control.in
+pick 25d3176 realtime.in:  fix shm checking
+pick aa0df1f realtime:  thorough shmdrv checks; DEBUG value always decimal
+pick 00d2486 realtime.in:  more thorough CheckStatus() checks
+pick ec79b43 realtime:  revert extended shmdrv tests
+pick 2e92b3a Fix gcc multilib bug in precise
+pick 9e8d638 Undo hack to overrun test
+pick 1b84ecb docs: shmdrv notes in UnifiedBuild.txt
+pick 6de92a0 rtapi_shm/kthreads: make shm key honor instance id
+pick 66ababb rtapi_proc: add /proc/rtapi/instance
+pick 9a7ddcb rtapi_compat.c: add kernel_instance_id() method
+pick 23b8ec3 rtapi_msgd: reorganize startup sequence
+pick 312b3d1 scripts/realtime: simplify startup by shifting checks to rtapi_msgd
+pick 978da4a scripts/realtime: enable passing options to shmdrv through SHMDRV_OPTS
 
-# Rebase 9d7fbdd..019bc92 onto 9d7fbdd, excluding master
+# Rebase 9d7fbdd..978da4a onto 9d7fbdd, excluding master
 #
 # Commands:
 #  p, pick = use commit

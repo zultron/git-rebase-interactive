@@ -392,11 +392,19 @@ pick_one_preserving_merges () {
 		' '*' '*)
 		    test "a$1" = a-n && die "Refusing to squash a merge: $sha1"
 
-			# Remove HEAD from parents list
+		    # Remove HEAD from parents list
 		    echo All parents are: $new_parents
+		    echo head_parent is:  $head_parent
+		    echo current commit is:  $(git rev-parse HEAD)
 		    new_parents=${new_parents// $head_parent/}
+		    echo New all parents are: $new_parents
+		    if test $(git rev-parse HEAD) != $head_parent; then
+			echo "AH HAH!!!  broken!  fixme! bad!"
+			output git checkout $head_parent || \
+			    die "Cannot checkout $head_parent"
+		    fi
 
-			# redo merge
+		    # redo merge
 		    author_script_content=$(get_author_ident_from_commit $sha1)
 		    eval "$author_script_content"
 		    msg_content="$(commit_message $sha1)"
@@ -556,6 +564,8 @@ do_pick () {
 do_next () {
     rm -f "$msg" "$author_script" "$amend" || exit
     read -r command sha1 rest < "$todo"
+    # make the short sha1 available for automated editor scripts
+    export GIT_SHA1_SHORT=$sha1
     echo; echo;echo;echo
     echo "command=$command; sha1=$sha1; rest=$rest"
     case "$command" in
@@ -574,6 +584,7 @@ do_next () {
 
 	    mark_action_done
 	    do_pick $sha1 "$rest"
+	    GIT_REBASE_COMMAND=reword \
 	    git commit --amend --no-post-rewrite || {
 		warn "Could not amend commit after successfully picking $sha1... $rest"
 		warn "This is most likely due to an empty commit message, or the pre-commit hook"
@@ -1004,6 +1015,13 @@ else
 	shortrevisions=$shorthead
 fi
 last=$onto
+if test -n "$GIT_REBASE_EXCLUDE"; then
+    excludes="$(echo $GIT_REBASE_EXCLUDE $upstream | \
+	awk '{ l = "";for (i=1;i<=NF;i++) l=l " ^" $i;print l}')"
+    echo "excludes=$excludes"
+    revisions="$excludes $orig_head"
+    headermsg=", excluding $GIT_REBASE_EXCLUDE"
+fi
 pretty="--pretty=oneline --abbrev-commit --abbrev=7"
 echo git rev-list $merges_option --reverse --left-right --topo-order \
 	$pretty $revisions
@@ -1097,7 +1115,7 @@ test -n "$cmd" && add_exec_commands "$todo"
 
 cat >> "$todo" << EOF
 
-# Rebase $shortrevisions onto $shortonto
+# Rebase ${shortrevisions} onto ${shortonto}${headermsg}
 EOF
 append_todo_help
 cat >> "$todo" << EOF
@@ -1110,7 +1128,6 @@ if test -z "$keep_empty"
 then
 	echo "# Note that empty commits are commented out" >>"$todo"
 fi
-
 
 has_action "$todo" ||
 	die_abort "Nothing to do"
