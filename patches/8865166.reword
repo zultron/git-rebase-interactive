@@ -1,0 +1,1 @@
+use rtapi_app always when BUILD_SYS_USER_DSO defined

@@ -1,0 +1,1 @@
+sim_rtapi_app.cc: set msg_level only if MSGLEVEL in env set

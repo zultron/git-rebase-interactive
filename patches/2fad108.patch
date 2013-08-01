@@ -1,0 +1,12 @@
+diff --git a/src/rtapi/rt-preempt-user.c b/src/rtapi/rt-preempt-user.c
+index ba6e5bc..6f938e8 100644
+--- a/src/rtapi/rt-preempt-user.c
++++ b/src/rtapi/rt-preempt-user.c
+@@ -411,7 +411,6 @@ int _rtapi_task_start_hook(task_data *task, int task_id) {
+     return 0;
+ }
+ 
+-<<<<<<< HEAD
+ void _rtapi_task_stop_hook(task_data *task, int task_id) {
+     task->destroyed = 1;
+ }
