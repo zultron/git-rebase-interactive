@@ -1,6 +1,0 @@
-next:
-- fix git merge markers
-  - git log -S'<<<<<' --pretty=oneline master..unified-build-candidate-0
-  - add means to apply patch with 'edit' command
-- fix authors
-  - how is this done in git?

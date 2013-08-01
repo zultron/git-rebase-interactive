@@ -600,8 +600,46 @@ do_next () {
 
 	    mark_action_done
 	    do_pick $sha1 "$rest"
-	    warn "Stopped at $sha1... $rest"
-	    exit_with_patch $sha1 0
+
+	    found_file=false
+
+	    # automate edits if GIT_REBASE_PATCHES is set
+	    if test -n "$GIT_REBASE_PATCHES"; then
+		echo "GIT_REBASE_PATCHES=$GIT_REBASE_PATCHES"
+
+		# apply any supplied patch
+		local patch="$GIT_REBASE_PATCHES/$GIT_SHA1_SHORT.patch"
+		if test -f "$patch"; then
+		    git apply --index "$patch" || {
+			echo "Failed to apply patch:  $patch"
+			exit 1
+		    }
+		    do_with_author git commit --amend --no-verify -C $sha1 -q
+		    found_file=true
+		    echo "Applied patch=$patch"
+		fi
+
+		# fix owner/author fields
+		local author_file="$GIT_REBASE_PATCHES/$GIT_SHA1_SHORT.author"
+		if test -f "$author_file"; then
+		    local author="$(cat $author_file)"
+		    do_with_author git commit --amend --no-verify -C $sha1 -q \
+			--author="$author"
+		    found_file=true
+		    echo "Applied author=$author"
+		fi
+
+		# no patches or scripts found
+		$found_file || echo "Found no files to apply automatically"
+	    fi
+
+	    if $found_file; then
+		echo "$state_dir/current-commit -> $(cat "$state_dir"/current-commit)"
+		record_in_rewritten "$(cat "$state_dir"/current-commit)"
+	    else
+		warn "Stopped at $sha1... $rest"
+		exit_with_patch $sha1 0
+	    fi
 	    ;;
 	squash|s|fixup|f)
 	    case "$command" in
