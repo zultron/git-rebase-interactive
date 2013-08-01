@@ -714,7 +714,10 @@ pick d5cb64b such that it works
 pick a786264 amd64 nits
 pick e0f38de arm: link posix rtapi.so with -lrt
 pick 68c9694 ulimit -l too low: some kernels set that at _64k_
-pick 2fad108 Merge branch 'shmdrv-userland' into dynload-rtapi-common-shm
+########################################################
+# Nasty merge conflict markers
+edit 2fad108 Merge branch 'shmdrv-userland' into dynload-rtapi-common-shm
+#############
 pick 93f4aec startup/shutdown: assure sequencing of shm segments creation and deletion before use
 pick a24bba6 cleanup unused variables
 pick 4802763 xenomai-kernel: cleanup merge droppings
@@ -731,7 +734,11 @@ pick c63463d Merge remote-tracking branch 'mah/v2.5_branch' into dynload-rtapi-c
 pick b99a1e5 scripts/realtime.in: carry over from development branch
 pick 911bde8 module_helper: build always so shmdrv can be loaded (optional)
 pick 46713f2 rtapi_msgd: correct wait-for-rtapi stack function
+####################################################
+# this would fix 2fad108, above, now patched
+# the fixup in here is 'empty', but there are other non-empty hunks
 pick 7eb337a rtapi/rt-preempt-user: undo merge damage
+###########
 pick 8a8fb35 Merge remote-tracking branch 'mah/rtos-integration-preview3' into dynload-rtapi-common-shm
 pick 7f75574 cleanup: remove stuff from development branch
 pick 6f812a6 .gitignore core files
@@ -927,10 +934,31 @@ pick 3897ca5 Merge branch 'master' of git://git.linuxcnc.org/git/emc2
 pick 89c9ef9 Merge branch 'master' into rtos-integration-preview3-merged-into-master
 pick 5140aa2 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
 pick 4b8dcbc Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+######################################
+# agh, nasty conflict markers
+#
+# this section is really hairy, since there are many merges in a row with
+# compounded, conflicting commits of conflict markers.
+#
+# This is just too hard to fix, so those markers will have to stick around
+# for a few commits.  Anyway, they're in the docs.
+#
+# this one messes up docs/src/gcode/m-code.txt and src/po/fr.po
 pick 87351a6 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+#############
+# this is ok
 pick 44364b3 Merge branch 'master' into rtos-integration-preview3-merged-into-master
+######################################
+# fixup for 87351a6 above, src/po/fr.po only
+# docs/src/gcode/m-code.txt still not fixed...
 pick 023e584 fix src/po/fr.po by resetting to master
+############
+######################################
+# this one messes up (worse) docs/src/gcode/m-code.txt
 pick 04b18ca Merge branch 'master' into rtos-integration-preview3-merged-into-master
+# squash the fixup, whew
+fixup fe3a31c docs: remove merge leftover
+########
 pick c9903f2 Merge remote-tracking branch 'origin/master' into rtos-integration-preview3-merged-into-master
 pick 1834164 src/Makefile: remove hiredis.h target
 pick eff1b11 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
@@ -942,7 +970,10 @@ pick f8faf08 task/emctaskmain.cc: correct merge accident
 pick 52066f3 tests: build test_rtapi_vsnprintf again
 pick 8a3671f rtapi/Submakefile: add trailing newline
 pick 0325486 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-pick fe3a31c docs: remove merge leftover
+######################################
+# fixup for 04b18ca above
+#pick fe3a31c docs: remove merge leftover
+########
 pick 9af4540 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
 branch fe3a31c docs: remove merge leftover
 pick 6b04f1f deb configure: cleanup merge of master
@@ -997,7 +1028,11 @@ pick 69647e4 hal_pru, hal_prudebug: split into simple loader and separate debugg
 pick 3457093 examples: add directory with PRU debugger usage example
 pick 0f8005a hal/PRU debug: complete debugger example with GladeVCP user interface
 pick 23e81d6 prudebug: use gtksourceview instead of gtktextview
-pick d192cab prudebug: use gtksourceview instead of gtktextview
+#############################################
+# AGH, a nasty merge marker!  AGH!
+# this is fixed WAYYYYY down in b491c96, so patch it here
+edit d192cab prudebug: use gtksourceview instead of gtktextview
+################
 pick 72eab61 prudebug: add pygtk plumbing for set/remove breakpoint
 pick 229b675 pru_support: reorganize everything PRU-related into pru_support
 pick dbf2dba pruaccess.py: start work on direct Python access to PRU
@@ -1006,13 +1041,21 @@ pick f676b2d pru/pruaccess.py: IEP register defines
 pick 469946c pru/timer: using the IEP COUNT and CMP0 registers for precise timing
 pick bae0abe pruaccess: add eCAP defines
 pick 6c67b41 pru timing: explore eCAP timer
+#############################################
+# AGH, a nasty merge marker!  AGH!
 pick 7d370a9 xenomai:  improve detection and execution of xeno-config
+# squash the fixup
+# pick 55d827d fixup
+############
 pick 7b8241f pasm: fix invocation
 pick e3ad0ea fix
 pick 727ef2f pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
 pick 5a9d228 pru: IEP timer example
 pick f5c50c4 pru: eCAP0 timer working example
-pick 55d827d fixup
+#############################################
+# fixup for 7d370a9 above
+#pick 55d827d fixup
+###########
 pick d47fa63 add in original hal_pru.c / hal_prudebug.c
 branch 69175f0 configure: enable USERMODE_PCI by default if platform PC and userland threads
 pick 12ee2e6 arm335x: add PRU assembler
@@ -1037,7 +1080,12 @@ pick 88de640 hal_pru, hal_prudebug: split into simple loader and separate debugg
 pick d7665c8 examples: add directory with PRU debugger usage example
 pick 13425cb hal/PRU debug: complete debugger example with GladeVCP user interface
 pick 9901164 prudebug: use gtksourceview instead of gtktextview
+#################################
+# AAAAAAGGGGHHHHH more merge markers
 pick 0249159 prudebug: use gtksourceview instead of gtktextview
+# squash in the fixup
+fixup 6f67247 fix merge leftover
+#########
 pick f92d8c4 prudebug: add pygtk plumbing for set/remove breakpoint
 pick ab7ed22 pru_support: reorganize everything PRU-related into pru_support
 pick 8323feb pruaccess.py: start work on direct Python access to PRU
@@ -1046,19 +1094,33 @@ pick 95a4ddd pru/pruaccess.py: IEP register defines
 pick 6783832 pru/timer: using the IEP COUNT and CMP0 registers for precise timing
 pick 5c5fbfd pruaccess: add eCAP defines
 pick ce95062 pru timing: explore eCAP timer
+#################################
+# WAAAAAHHHH more merge markers
 pick 7084063 xenomai:  improve detection and execution of xeno-config
+# squash the fixup
+fixup b3e1a07 fixup
+#########
 pick 408eb2f pasm: fix invocation
 pick c34e546 fix
 pick bcbc2da pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
 pick 64c4ea7 pru: IEP timer example
 pick 8da61ff pru: eCAP0 timer working example
-pick b3e1a07 fixup
+#################################
+# fixup for 7084063 above
+#pick b3e1a07 fixup
+#########
 pick 294795c add in original hal_pru.c / hal_prudebug.c
 pick 3f858d1 Merge branch 'arm335x-hal-pru-module' of git+ssh://git.mah.priv.at/emc2-dev into arm335x-hal-pru-module
 pick b491c96 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
-pick 6f67247 fix merge leftover
+#####################################
+# fix for 0249159 above
+#pick 6f67247 fix merge leftover
+#########
 pick 63a36dc Merge remote-tracking branch 'mah/rtos-integration-preview3' into arm335x-hal-pru-module
-pick 4348012 Initial version of potentially useful PRU code
+#####################################
+# EVIL BAD Demo User <debian@arm>
+edit 4348012 Initial version of potentially useful PRU code
+#########
 pick 786c790 Use IEP timer to provide consistent loop timing...there is still room for improvement by routing an event to the PRU and polling r31 instead of reading the IEP status register.
 pick df1261d Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
 pick 9c72b5f New HAL component hal_pru_generic to talk to the stepgen.p PRU code
@@ -1083,9 +1145,12 @@ pick 6210cdd Merge branch 'arm335x-hal-pru-module' into arm335x-hal-pru-module-e
 branch d6e2cbc Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
 pick 58818d7 Fix goof in mount command syntax
 pick fde5606 Add I/O pinout details for BeBoPr and Replicape (in progress)
-pick 62ee4cb added hal_bb_gpio driver, and tweaked Makefile to include it for platform beagleboard
-pick bf0bf38 starting to set up shared memory structures; not currently working
-pick 61b2102 fixed shared mem issue.
+#####################################
+# EVIL BAD Joe Chipcutter (Beagleboard) <joe@chips.com>
+edit 62ee4cb added hal_bb_gpio driver, and tweaked Makefile to include it for platform beagleboard
+edit bf0bf38 starting to set up shared memory structures; not currently working
+edit 61b2102 fixed shared mem issue.
+#######
 pick 4ff90fa config string parsing, gpio/control register mmaps in place
 pick 69931f1 userled write function working
 pick 5fa6153 created pin tables, input and output pin initialization.  Not quite working yet, but close
@@ -1291,7 +1356,10 @@ pick 0fac19f docs: start POOPS section
 branch e9fc198 scripts/pru_debug : Support new automatic file loading flag for PRU debugger
 pick fb00975 scripts/pru_debug : Updated PRU debugger script and example PRU project
 pick 8fe960d configs/K9 : Update K9 configuration to get inputs working
-pick f5616b4 configs/BeagleBone : Fix K9 configuration
+#####################################
+# EVIL BAD Tux Chipcutter <linuxcnc@arm.(none)>
+edit f5616b4 configs/BeagleBone : Fix K9 configuration
+#############
 pick 8774098 config: BeagleBone Update BeBoPr configuration files Add K9 configuration that runs with HDMI enabled
 pick 2744af1 configs: BeagleBone Update K9.wHDMI config
 pick 44d8faf nc_files : M106 M107 Added missing user M1xx code files, currently just stubs

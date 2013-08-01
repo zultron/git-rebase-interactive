@@ -1,0 +1,26 @@
+diff --git a/docs/src/gcode/m-code.txt b/docs/src/gcode/m-code.txt
+index ea795e0..453e6f9 100644
+--- a/docs/src/gcode/m-code.txt
++++ b/docs/src/gcode/m-code.txt
+@@ -382,7 +382,6 @@ Components Section, Motion subsection, for more information.
+ M68 will not function unless the appropriate motion.analog-out-nn pins are
+ connected in your hal file to outputs.
+ 
+-<<<<<<< HEAD
+ == M70 Save Modal State[[sec:M70-Save-Modal-State]]
+ (((M70 Save Modal State)))
+ 
+@@ -583,13 +582,8 @@ O<measure> endsub
+ 
+ ---------------------------------------------------------------------
+ 
+-== M100 to M199 User Defined Commands[[sec:M100-to-M199]]
+-||||||| merged common ancestors
+-== M100 to M199 User Defined Commands[[sec:M100-to-M199]]
+-=======
+ [[sec:M100-to-M199]]
+ == M100 to M199 User Defined Commands
+->>>>>>> rtos-integration-preview3
+ (((M100 to M199 User Defined Commands)))(((User Defined Commands M100-M199)))
+ 
+ ----

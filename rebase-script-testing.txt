@@ -1,0 +1,18 @@
+#################################
+# WAAAAAHHHH more merge markers
+pick 7084063 xenomai:  improve detection and execution of xeno-config
+# squash the fixup
+fixup b3e1a07 fixup
+#########
+pick 408eb2f pasm: fix invocation
+pick c34e546 fix
+pick bcbc2da pruaccess: revamp to use byte offsets regardless if accessing byte, short or long
+pick 64c4ea7 pru: IEP timer example
+pick 8da61ff pru: eCAP0 timer working example
+pick 294795c add in original hal_pru.c / hal_prudebug.c
+pick 3f858d1 Merge branch 'arm335x-hal-pru-module' of git+ssh://git.mah.priv.at/emc2-dev into arm335x-hal-pru-module
+pick b491c96 Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module
+pick 63a36dc Merge remote-tracking branch 'mah/rtos-integration-preview3' into arm335x-hal-pru-module
+pick 4348012 Initial version of potentially useful PRU code
+pick 786c790 Use IEP timer to provide consistent loop timing...there is still room for improvement by routing an event to the PRU and polling r31 instead of reading the IEP status register.
+pick df1261d Merge branch 'rtos-integration-preview3' into arm335x-hal-pru-module

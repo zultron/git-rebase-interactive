@@ -1,0 +1,12 @@
+diff --git a/src/Makefile.inc.in b/src/Makefile.inc.in
+index f72f57d..f75f707 100644
+--- a/src/Makefile.inc.in
++++ b/src/Makefile.inc.in
+@@ -95,7 +95,6 @@ BUILD_DRIVERS = @BUILD_DRIVERS@
+ USE_PORTABLE_PARPORT_IO = @USE_PORTABLE_PARPORT_IO@
+ TARGET_PLATFORM = @TARGET_PLATFORM@
+ ARCHITECTURE=@ARCHITECTURE@
+-<<<<<<< HEAD
+ XENO_CONFIG=@XENO_CONFIG@
+ 
+ USERMODE_PCI=@USERMODE_PCI@
