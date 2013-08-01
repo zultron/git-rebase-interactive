@@ -376,7 +376,8 @@ pick_one_preserving_merges () {
 	head_parent=$(expr "$new_parents" : ' \([^ ]*\)')
 	head_id=1 # We know this
 	test "$head_parent" != "$(git rev-parse HEAD)" && fast_forward=f
-	output warn "No parent seems related to HEAD: Arbitrarily picking $head_parent!"
+	
+	echo "No parent seems related to HEAD: Arbitrarily picking $head_parent!"
     fi
 
     case $fast_forward in
