@@ -1,0 +1,42 @@
+An elegant hack for a horrible problem: How to rebase nearly a year's
+worth of intensive work in git to remove mistakes?
+
+In a complex commit tree with dozens of merges, it is nearly
+impossible to rebase by hand.  Even if one fixes an early problem and
+rebases the rest of the path to the tip of HEAD, there may still be
+other branches with the problem commits as ancestors.  Here is an
+example, where C, the problem commit, needs to be squashed onto B:
+
+A---B---C---D---E---F---G
+             \     /
+              H---I
+
+After squashing C onto B and rebasing D-G, it may be forgotten that
+H-I need rebasing, too, resulting in the problem commits remaining in
+the tree:
+
+A---B'--D'--E'------F'--G'
+ \                 /
+  B---C---D---H---I
+
+For very complicated commit graphs, this quickly becomes overwhelming,
+and doing this by hand will lead to a deep despair.
+
+Git is unable to correctly rebase -i -p when commits are reordered in
+this way [1].  This problem is addressed beautifully by Peter Wortmann
+[2] with a reworked git-rebase--interactive.sh script.  In use, this
+script has a bug where commits can be cherry-picked onto the wrong
+parent, leaving an incorrect graph like above.  The
+git-rebase-interactive script here masks this bug, although it doesn't
+attempt to fix the root cause.
+
+In addition, I wanted a way to make rebase --interactive completely
+automatic.  These scripts include extra hacks to insert a fake $EDITOR
+that copies a pre-specified todo list, and supplies later 'answers'
+such as the 'reword' command's commit message, stored in
+patches/<short-sha1>.reword.  Similarly, the 'edit' command will apply
+a patch rather than ask the user to manually make edits and run rebase
+--continue.
+
+[1] man git-rebase
+[2] https://github.com/scpmw/git/commit/fa11202
