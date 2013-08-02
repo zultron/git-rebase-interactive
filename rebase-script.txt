@@ -1051,7 +1051,7 @@ pick 6c67b41 pru timing: explore eCAP timer
 # AGH, a nasty merge marker!  AGH!
 pick 7d370a9 xenomai:  improve detection and execution of xeno-config
 # squash the fixup
-squash 55d827d fixup
+fixup 55d827d fixup
 ############
 pick 7b8241f pasm: fix invocation
 pick e3ad0ea fix
