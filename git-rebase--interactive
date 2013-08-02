@@ -275,13 +275,6 @@ pick_one_preserving_merges () {
     test "$fast_forward" = t && save_rewrites
     echo $sha1 >> "$state_dir"/current-commit
 
-    if test $sha1 = 2fad108cc48c5f844310dc9862a6d9f7924de1d2; then
-	echo "******  $sha1  ******"
-	echo "args:  $*"
-	echo "fast_forward = $fast_forward"
-	us=true
-    fi
-
     # rewrite parents; if none were rewritten, we can fast-forward.
     new_parents=
     pend=" $(git rev-list --parents -1 $sha1 | cut -d' ' -s -f2-)"
@@ -294,6 +287,7 @@ pick_one_preserving_merges () {
     # merge conflict resolutions later
     head_parent=
     head_id=
+    not_rewroted=false
 
     parent_id=0
     while [ "$pend" != "" ]
@@ -301,7 +295,10 @@ pick_one_preserving_merges () {
 	p=$(expr "$pend" : ' \([^ ]*\)')
 	pend="${pend# $p}"
 	echo "p=$p; pend=$pend"
-	test -f "$rewritten/$p" && echo "$p already rewritten -> $(cat "$rewritten/$p")"
+	test -f "$rewritten/$p" && {
+	    echo "$p already rewritten -> $(cat "$rewritten/$p")"
+	    not_rewroted=true
+	}
 	parent_id=$(($parent_id+1))
 
 	# Find rewritten equivalent of this parent
@@ -345,6 +342,9 @@ pick_one_preserving_merges () {
 		$us && echo "new_p = p = $p"
 	    fi
 
+	    # Save this for later hackage
+	    old_p=$p
+
 	done
 
 	# Is HEAD a descendant of the rewritten parent? Then use
@@ -369,15 +369,25 @@ pick_one_preserving_merges () {
 	esac
     done
 
-	# Did we not find a HEAD parent?
+    echo "current commit before hackage is:  $(git rev-parse HEAD)"
+    # Did we not find a HEAD parent?
     if [ "$head_parent" == "" ]
     then
-		# Then arbitrarily choose the first one
+	# Then arbitrarily choose the first one
 	head_parent=$(expr "$new_parents" : ' \([^ ]*\)')
 	head_id=1 # We know this
 	test "$head_parent" != "$(git rev-parse HEAD)" && fast_forward=f
 	
-	echo "No parent seems related to HEAD: Arbitrarily picking $head_parent!"
+	echo "old_p=$old_p; new_p=$(cat $rewritten/$old_p)"
+	echo "No parent seems related to HEAD:"
+	if $not_rewroted; then
+	    # This could be an empty or omitted commit
+	    echo "    Arbitrarily picking $head_parent!"
+	else
+	    echo "    Arbitrarily checking out $head_parent!"
+	    output git checkout "$new_p" 2> /dev/null || \
+		die "Cannot go to revision $new_p"
+	fi
     fi
 
     case $fast_forward in
@@ -388,7 +398,7 @@ pick_one_preserving_merges () {
 	    ;;
 	f)
 
-		# Merge commit?
+	    # Merge commit?
 	    case "$new_parents" in
 		' '*' '*)
 		    test "a$1" = a-n && die "Refusing to squash a merge: $sha1"
@@ -399,20 +409,15 @@ pick_one_preserving_merges () {
 		    echo current commit is:  $(git rev-parse HEAD)
 		    new_parents=${new_parents// $head_parent/}
 		    echo New all parents are: $new_parents
-		    if test $(git rev-parse HEAD) != $head_parent; then
-			echo "AH HAH!!!  broken!  fixme! bad!"
-			output git checkout $head_parent || \
-			    die "Cannot checkout $head_parent"
-		    fi
 
 		    # redo merge
 		    author_script_content=$(get_author_ident_from_commit $sha1)
 		    eval "$author_script_content"
 		    msg_content="$(commit_message $sha1)"
 
-			# Merge in all parents using strategy "ours", which means
-			# we aren't actually changing anything apart from our
-			# parent list.
+		    # Merge in all parents using strategy "ours", which means
+		    # we aren't actually changing anything apart from our
+		    # parent list.
 		    if ! do_with_author output \
 			git merge --no-ff --no-commit -s ours $new_parents
 		    then
@@ -420,15 +425,15 @@ pick_one_preserving_merges () {
 			die_with_patch $sha1 "Error redoing merge $sha1"
 		    fi
 
-			# Add the merge
+		    # Add the merge
 		    output git cherry-pick -n -m $head_id $sha1 ||
 		    die_with_patch $sha1 "Error cherry-picking merge $sha1"
 
-			# TODO: Now merge in the changes from all rewritten
-			# parents that are not HEAD? I'm quite unsure actually
-			# whether this can even happen...
+		    # TODO: Now merge in the changes from all rewritten
+		    # parents that are not HEAD? I'm quite unsure actually
+		    # whether this can even happen...
 
-			# Finally commit
+		    # Finally commit
 		    do_with_author output git commit -m "$msg_content" ||
 		    die_with_patch $sha1 "Error commiting merge $sha1"
 
@@ -438,12 +443,7 @@ pick_one_preserving_merges () {
 		    echo "cherry-picking onto $(git rev-list -1 HEAD)"
 		    echo "	git cherry-pick ${args[@]}"
 		    echo "new_parents = $new_parents; new_p = '$new_p'"
-		    if test $(git rev-list -1 HEAD) != $new_parents \
-			-a $squash_commit = f; then
-			echo "checking out branch $new_p"
-			output git checkout "$new_p" 2> /dev/null ||
-			die "Cannot go to revision $new_p"
-		    fi
+		    echo "current commit is:  $(git rev-parse HEAD)"
 		    output git cherry-pick "${args[@]}" ||
 		    die_with_patch $sha1 "Could not pick $sha1"
 		    ;;
@@ -542,14 +542,14 @@ record_in_rewritten() {
 do_pick () {
     if test "$(git rev-parse HEAD)" = "$squash_onto"
     then
-		# Set the correct commit message and author info on the
-		# sentinel root before cherry-picking the original changes
-		# without committing (-n).  Finally, update the sentinel again
-		# to include these changes.  If the cherry-pick results in a
-		# conflict, this means our behaviour is similar to a standard
-		# failed cherry-pick during rebase, with a dirty index to
-		# resolve before manually running git commit --amend then git
-		# rebase --continue.
+	# Set the correct commit message and author info on the
+	# sentinel root before cherry-picking the original changes
+	# without committing (-n).  Finally, update the sentinel again
+	# to include these changes.  If the cherry-pick results in a
+	# conflict, this means our behaviour is similar to a standard
+	# failed cherry-pick during rebase, with a dirty index to
+	# resolve before manually running git commit --amend then git
+	# rebase --continue.
 	git commit --allow-empty --allow-empty-message --amend \
 	    --no-post-rewrite -n -q -C $1 &&
 	pick_one -n $1 &&
@@ -668,13 +668,13 @@ do_next () {
 	    fi
 	    case "$(peek_next_command)" in
 		squash|s|fixup|f)
-			# This is an intermediate commit; its message will only be
-			# used in case of trouble.  So use the long version:
+		    # This is an intermediate commit; its message will only be
+		    # used in case of trouble.  So use the long version:
 		    do_with_author output git commit --amend --no-verify -F "$squash_msg" ||
 		    die_failed_squash $sha1 "$rest"
 		    ;;
 		*)
-			# This is the final command of this squash/fixup group
+		    # This is the final command of this squash/fixup group
 		    if test -f "$fixup_msg"
 		    then
 			do_with_author git commit --amend --no-verify -F "$fixup_msg" ||
@@ -694,12 +694,12 @@ do_next () {
 	    read -r command rest < "$todo"
 	    mark_action_done
 	    printf 'Executing: %s\n' "$rest"
-		# "exec" command doesn't take a sha1 in the todo-list.
-		# => can't just use $sha1 here.
+	    # "exec" command doesn't take a sha1 in the todo-list.
+	    # => can't just use $sha1 here.
 	    git rev-parse --verify HEAD > "$state_dir"/stopped-sha
 	    ${SHELL:-@SHELL_PATH@} -c "$rest" # Actual execution
 	    status=$?
-		# Run in subshell because require_clean_work_tree can die.
+	    # Run in subshell because require_clean_work_tree can die.
 	    dirty=f
 	    (require_clean_work_tree "rebase" 2>/dev/null) || dirty=t
 	    if test "$status" -ne 0
@@ -739,24 +739,28 @@ do_next () {
 
 		# Find rebased commit
 	    test -z $sha1 && sha1="$orig_head"
-	    if test -f "$rewritten"/$sha1
+	    sha1_long=$(git rev-parse $sha1)
+	    if test -f "$rewritten"/$sha1_long
 	    then
-		new_sha1 = $(cat "$rewritten"/$sha1)
+		new_sha1=$(cat "$rewritten"/$sha1_long)
 		if test -z "$new_sha1"
 		then
-		    warn "Cannot go to revision $sha1, as it is being rewritten"
+		    warn "Cannot go to revision $sha1_long, as it is being rewritten"
 		    warn "but has not been rebased yet. Please correct the order"
 		    warn "in which commands appear."
 
 		    die "Cannot create branch"
 		fi
 	    else
-		new_sha1=$sha1
+		new_sha1=$sha1_long
 	    fi
-	    echo "branch sha1='$sha1'; new_sha1='$new_sha1'"
+	    echo "branch sha1='$sha1_long'; new_sha1='$new_sha1'"
 
+	    echo "checking out $new_sha1 (rewritten from $sha1_long)"
+	    echo "$rewritten/$sha1_long -> $(cat "$rewritten"/$sha1_long)"
 	    output git checkout "$new_sha1" 2> /dev/null ||
 	    die "Cannot go to revision $new_sha1"
+	    echo "checked out $(git rev-parse HEAD)"
 	    ;;
 	*)
 	    warn "Unknown command: $command $sha1 $rest"
@@ -814,10 +818,10 @@ skip_unnecessary_picks () {
     fd=3
     while read -r command rest
     do
-		# fd=3 means we skip the command
+	# fd=3 means we skip the command
 	case "$fd,$command" in
 	    3,pick|3,p)
-			# pick a commit whose parent is current $onto -> skip
+		# pick a commit whose parent is current $onto -> skip
 		sha1=${rest%% *}
 		case "$(git rev-parse --verify --quiet "$sha1"^)" in
 		    "$onto"*)
@@ -829,7 +833,7 @@ skip_unnecessary_picks () {
 		esac
 		;;
 	    3,#*|3,)
-			# copy comments
+		# copy comments
 		;;
 	    *)
 		fd=1
@@ -851,7 +855,7 @@ skip_unnecessary_picks () {
 # comes immediately after the former, and change "pick" to
 # "fixup"/"squash".
 rearrange_squash () {
-	# extract fixup!/squash! lines and resolve any referenced sha1's
+    # extract fixup!/squash! lines and resolve any referenced sha1's
     while read -r pick sha1 message
     do
 	case "$message" in
@@ -859,14 +863,14 @@ rearrange_squash () {
 		action="${message%%!*}"
 		rest="${message#*! }"
 		echo "$sha1 $action $rest"
-			# if it's a single word, try to resolve to a full sha1 and
-			# emit a second copy. This allows us to match on both message
-			# and on sha1 prefix
+		# if it's a single word, try to resolve to a full sha1 and
+		# emit a second copy. This allows us to match on both message
+		# and on sha1 prefix
 		if test "${rest#* }" = "$rest"; then
 		    fullsha="$(git rev-parse -q --verify "$rest" 2>/dev/null)"
 		    if test -n "$fullsha"; then
-					# prefix the action to uniquely identify this line as
-					# intended for full sha1 match
+			# prefix the action to uniquely identify this line as
+			# intended for full sha1 match
 			echo "$sha1 +$action $fullsha"
 		    fi
 		fi
@@ -891,10 +895,10 @@ rearrange_squash () {
 	    case "$action" in
 		+*)
 		    action="${action#+}"
-				# full sha1 prefix test
+		    # full sha1 prefix test
 		    case "$msg_content" in "$sha1"*) emit=1;; esac ;;
 		*)
-				# message prefix test
+		    # message prefix test
 		    case "$message" in "$msg_content"*) emit=1;; esac ;;
 	    esac
 	    if test $emit = 1; then
