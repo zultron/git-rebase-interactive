@@ -975,8 +975,14 @@ pick 0325486 Merge branch 'rtos-integration-preview3' into rtos-integration-prev
 #pick fe3a31c docs: remove merge leftover
 ########
 pick 9af4540 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
-branch fe3a31c docs: remove merge leftover
-pick 6b04f1f deb configure: cleanup merge of master
+######################################
+# fe3a31c reordered; new branch is 0325486
+#branch fe3a31c docs: remove merge leftover
+branch 0325486 Merge branch 'rtos-integration-preview3' into rtos-integration-preview3-merged-into-master
+# Then this is an empty commit
+# pick 6b04f1f deb configure: cleanup merge of master
+# ... now carry on
+########
 pick b5d70aa deb configure: flatten a nested if for legibility
 pick d9742c8 deb configure: comment the inspect_kernel function
 pick 45e4cab deb configure: re-enable "-a"
@@ -1045,7 +1051,7 @@ pick 6c67b41 pru timing: explore eCAP timer
 # AGH, a nasty merge marker!  AGH!
 pick 7d370a9 xenomai:  improve detection and execution of xeno-config
 # squash the fixup
-# pick 55d827d fixup
+squash 55d827d fixup
 ############
 pick 7b8241f pasm: fix invocation
 pick e3ad0ea fix
