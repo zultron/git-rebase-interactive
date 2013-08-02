@@ -258,9 +258,9 @@ pick 994c574 xenomai-kernel.c:  silence a compiler warning about rtapi_trap_hand
 pick 9ffb107 rtapi_common.h:  #include <asm/uaccess.h> to fix MAH's compiler borkage
 pick d78ccd8 Last commit:  move #include to rtapi_proc.h, a more appropriate place
 pick 0802733 rtai-kernel.h:  add HAVE_RTAPI_TASK_START_HOOK, because we have it....
-pick 1924baa precise: put libraries after objects
+edit 1924baa precise: put libraries after objects
 pick 293c8ad configure: add Beaglebone: --with-platform=beaglebone
-pick d05c17c configure: fix missing 'test', improve messages
+edit d05c17c configure: fix missing 'test', improve messages
 pick 74ff66a xenomai:  improve detection and execution of xeno-config
 pick 0aa0049 realtime: make removing of shm segments more robust
 pick b183586 tests/threads.0: fix line number counting
@@ -278,9 +278,9 @@ pick e4a0ac1 RTAPI cleanup: no more include files with executable code
 pick 65e361e RTAPI: do the same to the rt-preempt code
 pick 7fa32bb rtapi: factor out msg code into a single copy for userthreads styles
 pick 53ec303 rtapi: delete fluff which misleads 'make depend'
-pick 5cc8c7d precise: put libraries after objects
+edit 5cc8c7d precise: put libraries after objects
 pick e78672d configure: add Beaglebone: --with-platform=beaglebone
-pick ca6faf8 configure: fix missing 'test', improve messages
+edit ca6faf8 configure: fix missing 'test', improve messages
 pick e259ab2 beaglebone: start work on gpio/pwm/adc/led module
 pick bced7de src/hal/config_module.h One file at a time staging commits for integrating usermode-pci branch
 pick 065751a src/rtapi/userpci/device.h ne file at a time staging commits for integrating usermode-pci branch
@@ -381,7 +381,7 @@ pick 7363285 rtapi:  Move flavor-specific fields out of rtapi_common.h structs
 pick 78ddc15 src/configure.in: fix usage of scripts/get-version-from-git
 pick 78c1396 Merge remote-tracking branch 'origin/v2.5_branch' into rtos-integration-preview3
 pick 24c84ef hardy/amd64: workaround for broken hardy/amd64 RTAI include file
-pick 6187e73 fix build on hardy/amd64
+edit 6187e73 fix build on hardy/amd64
 pick 9ef4c14 hardy/amd64: work around missing clock_getres
 pick 4ab999d tests/halui-joggin: hardy doesnt understand python2
 pick 78104b3 xenomai-kernel: make rtapi_proc_read_status_hook() compile
@@ -729,7 +729,7 @@ pick bd297d8 common shm: carry over API changes from development branch
 pick d2631bb shmdriv: reduce verbosity
 pick adb35d0 rtapi/flavor: detect and print flavor
 pick 49c62ed srcipts/realtime.in: use flavor instead of RTPREFIX
-pick b339c8b shmdrv.c: fix installation issues
+edit b339c8b shmdrv.c: fix installation issues
 pick c63463d Merge remote-tracking branch 'mah/v2.5_branch' into dynload-rtapi-common-shm
 pick b99a1e5 scripts/realtime.in: carry over from development branch
 pick 911bde8 module_helper: build always so shmdrv can be loaded (optional)
@@ -833,7 +833,7 @@ pick 8ecbc69 realtime.in:  fix module unloading
 pick 114f9f5 Makefile:  UB: cp -l kbuild breaks if the files already exist; add -f
 pick 869fc76 configure.in:  add THREAD_FLAVOR_NAME macro; unify RTAPI_COMMON.c
 pick 211dc58 Remove last reference (in a comment) to FLAVOR_FLAGS
-pick e3a434b rtapi/Submakefile: force link if file exists
+edit e3a434b rtapi/Submakefile: force link if file exists
 pick dbcdc0e configure.in:  fix up detection of rtai-config and kbuild kernel dirs
 pick efafb8b configure.in:  give xenomai{,-kernel} detection the same treatment as rtai
 pick 2191daf Fix detection of Xinerama.h etc. when no kbuild styles configured
@@ -1379,7 +1379,7 @@ pick a8a0ea8 configs/BeBoPr : Modify ReadTemp.py to support multiple ADC channel
 pick 33ce652 configs/BeagleBone : Fix BeBoPr-Bridge configuration
 branch 8dc8ca6 configs/BeBoPr : Fix configurations so inputs work properly gpio bank 0 must have at least one pin exported in order to work properly
 pick 5367894 M104: provide example
-pick 4f34ca4 Merge pull request #5 from brandonheller/MachineKit
+edit 4f34ca4 Merge pull request #5 from brandonheller/MachineKit
 pick 40e59cb Merge remote-tracking branch 'mah/MachineKit' into ub-v0-merge-stab4-master-merge
 pick 8766709 docs: UnifiedBuild.txt updates
 pick 38f9e63 docs/ub info: add 'Reporting an error'
